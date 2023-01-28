@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://lyqglyqg.github.io/STAT-818/sitemap.xml
