@@ -6,10 +6,21 @@
     <description>Recent content on STAT 818: Introduction to R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Jan 2023 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jan 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Objects II: List, Factor, and Data Frame</title>
+      <link>https://lyqglyqg.github.io/STAT-818/post/wk3/</link>
+      <pubDate>Sun, 29 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/post/wk3/</guid>
+      
+        <description></description>
+      
+    </item>
     
     <item>
       <title>R Objects I: Vector, Matrix, and Array</title>
@@ -23,13 +34,14 @@
     </item>
     
     <item>
-      <title>About Me</title>
+      <title>Couse Syllabus</title>
       <link>https://lyqglyqg.github.io/STAT-818/about/</link>
-      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://lyqglyqg.github.io/STAT-818/about/</guid>
       
-        <description></description>
+        <description>Course Objectives: Students will become proficient in the use of the R programming environment for applied statistical problems. At the end of this course, students should be able to:
+use basic R commands, eﬃciently navigate the R help, import, export, visualize, manage and manipulate data, describe data using summary statistics, create simple, eﬃcient scripts and functions, use R to analyze data from real-world problems. Tentative weekly schedule Class Dates: Jan 17, 2023 – May 12, 2023 Week Date Topic/Activity Remark 1 1.</description>
       
     </item>
     
