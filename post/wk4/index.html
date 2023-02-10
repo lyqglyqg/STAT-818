@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Import, Export and Manage Data - STAT 818: Introduction to R</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="yli8" />
+  <meta name="description" content="" />
+
+  <meta name="keywords" content="STAT 818, R" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.110.0" />
+
+
+<link rel="canonical" href="https://lyqglyqg.github.io/STAT-818/post/wk4/" />
+
+
+
+
+
+<link rel="icon" href="/STAT-818/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/STAT-818/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/js/all.js"></script>
+
+
+
+
+<meta property="og:title" content="Import, Export and Manage Data" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyqglyqg.github.io/STAT-818/post/wk4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-08T00:00:00+00:00" />
+<meta itemprop="name" content="Import, Export and Manage Data">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2242">
+<meta itemprop="keywords" content="R,Dataframe,Read files,Write files," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Import, Export and Manage Data"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">STAT 818: Introduction to R</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://lyqglyqg.github.io/STAT-818/">
+              docs
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      STAT 818: Introduction to R
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://lyqglyqg.github.io/STAT-818/">docs</a>
+          <ul class="submenu" >
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Import, Export and Manage Data</h1>
+      
+      <div class="post-meta">
+        <time datetime="2023-02-08" class="post-time">
+          2023-02-08
+        </time>
+        <div class="post-category">
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/r/"> R </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/dataframe/"> Dataframe </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/read-files/"> Read files </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/write-files/"> Write files </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#importing">Importing</a>
+      <ul>
+        <li><a href="#importing-from-files">Importing from files</a></li>
+        <li><a href="#importing-from-online-repositories">Importing from online repositories.</a></li>
+        <li><a href="#importing-neuroimaging-data">Importing neuroimaging data</a></li>
+      </ul>
+    </li>
+    <li><a href="#exporting">Exporting</a></li>
+    <li><a href="#management">Management</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="importing">Importing</h2>
+<ul>
+<li>First thing I would like to do and also strongly recommend you to do is to setup a working directory. For example, I created a directory &ldquo;STAT818&rdquo; on my Desktop. I also created a sub-directory &ldquo;data&rdquo; in the &ldquo;STAT818&rdquo; folder and put all my STAT818 datasets  in it (you can downloaded from <a href="https://canvas.ku.edu/">Canvas</a>). Every time I am working on a STAT818 homework or project, I setup my working directory to be &ldquo;STAT818&rdquo; using the syntax:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/Desktop/STAT818/&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>To check where is your current working directory, you can use the syntax:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">getwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;/Desktop/STAT818/&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="importing-from-files">Importing from files</h3>
+<ul>
+<li>Data input using <code>read.table()</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">turtles</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;./data/PaintedTurtles.txt&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>  <span class="c1"># Note that my working directory is the STAT818 folder. You will need to provide the full path of the &#34;PaintedTurtles.txt&#34; file otherwise.</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">turtles[1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">sex</span> <span class="n">length</span> <span class="n">width</span> <span class="n">height</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span>   <span class="n">f</span>     <span class="m">98</span>    <span class="m">81</span>     <span class="m">38</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>   <span class="n">f</span>    <span class="m">103</span>    <span class="m">84</span>     <span class="m">38</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span>   <span class="n">f</span>    <span class="m">103</span>    <span class="m">86</span>     <span class="m">42</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span>   <span class="n">f</span>    <span class="m">105</span>    <span class="m">86</span>     <span class="m">40</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Data input using <code>read.csv()</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">diabetes</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;diabetes.csv&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">diabetes[1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">id</span> <span class="n">relwt</span> <span class="n">glufast</span> <span class="n">glutest</span> <span class="n">steady</span> <span class="n">insulin</span> <span class="n">group</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span>  <span class="m">1</span>  <span class="m">0.81</span>      <span class="m">80</span>     <span class="m">356</span>    <span class="m">124</span>      <span class="m">55</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="m">3</span>  <span class="m">0.94</span>     <span class="m">105</span>     <span class="m">319</span>    <span class="m">143</span>     <span class="m">105</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span>  <span class="m">5</span>  <span class="m">1.00</span>      <span class="m">90</span>     <span class="m">323</span>    <span class="m">240</span>     <span class="m">143</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span>  <span class="m">7</span>  <span class="m">0.91</span>     <span class="m">100</span>     <span class="m">350</span>    <span class="m">221</span>     <span class="m">119</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### csv files always contain a header line. Usually, don&#39;t need to specify &#34;header = TRUE&#34;. However, if you specify &#34;header = FALSE&#34;, then read.csv() will create a header line and treat the actual header line as the 1st row of data body!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">diabetes</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;diabetes.csv&#34;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">diabetes[1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">V1</span>    <span class="n">V2</span>      <span class="n">V3</span>      <span class="n">V4</span>     <span class="n">V5</span>      <span class="n">V6</span>    <span class="n">V7</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">id</span> <span class="n">relwt</span> <span class="n">glufast</span> <span class="n">glutest</span> <span class="n">steady</span> <span class="n">insulin</span> <span class="n">group</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="m">1</span>  <span class="m">0.81</span>      <span class="m">80</span>     <span class="m">356</span>    <span class="m">124</span>      <span class="m">55</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span>  <span class="m">3</span>  <span class="m">0.94</span>     <span class="m">105</span>     <span class="m">319</span>    <span class="m">143</span>     <span class="m">105</span>     <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span>  <span class="m">5</span>   <span class="m">1.0</span>      <span class="m">90</span>     <span class="m">323</span>    <span class="m">240</span>     <span class="m">143</span>     <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Data input using <code>openxlsx()</code>.</li>
+</ul>
+<p>The function <code>openxlsx()</code> is from <em>R</em> package <code>openxlsx</code>. First, install the <code>openxlsx</code> package by</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;openxlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Or install it from &ldquo;Install Packages&rdquo; in your RStudio. We will talk about install R packages in a later section.</p>
+<p>There are other R packages that can be used for reading and writing .xlsx files. For example, <code>&quot;readxl&quot;</code> and <code>&quot;xlsx&quot;</code>. They all follow similar syntax lines as provided here.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="hl"><span class="lnt"> 3
+</span></span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">openxlsx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Employee</span> <span class="o">&lt;-</span> <span class="nf">read.xlsx</span><span class="p">(</span><span class="s">&#34;Employee Sample Data.xlsx&#34;</span><span class="p">,</span> <span class="n">sheet</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl"><span class="c1">### Since .xlsx file could contain multiple sheets, you will need to use the &#34;sheet=&#34; option to specify which sheet you would like to read in!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Employee[1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">EEID</span>       <span class="n">Full.Name</span>                <span class="n">Job.Title</span> <span class="n">Department</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">E02387</span>     <span class="n">Emily</span> <span class="n">Davis</span>               <span class="n">Sr.</span> <span class="n">Manger</span>         <span class="n">IT</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="n">E04105</span>   <span class="n">Theodore</span> <span class="n">Dinh</span>      <span class="n">Technical</span> <span class="n">Architect</span>         <span class="n">IT</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="n">E02572</span>    <span class="n">Luna</span> <span class="n">Sanders</span>                 <span class="n">Director</span>    <span class="n">Finance</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span> <span class="n">E02832</span> <span class="n">Penelope</span> <span class="n">Jordan</span> <span class="n">Computer</span> <span class="n">Systems</span> <span class="n">Manager</span>         <span class="n">IT</span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span> <span class="n">E01639</span>       <span class="n">Austin</span> <span class="n">Vo</span>              <span class="n">Sr.</span> <span class="n">Analyst</span>    <span class="n">Finance</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Business.Unit</span> <span class="n">Gender</span> <span class="n">Ethnicity</span> <span class="n">Age</span> <span class="n">Hire.Date</span> <span class="n">Annual.Salary</span> <span class="n">Bonus.</span>%
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">Research</span> <span class="o">&amp;</span> <span class="n">Development</span> <span class="n">Female</span>     <span class="n">Black</span>  <span class="m">55</span>     <span class="m">42468</span>        <span class="m">141604</span>    <span class="m">0.15</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>          <span class="n">Manufacturing</span>   <span class="n">Male</span>     <span class="n">Asian</span>  <span class="m">59</span>     <span class="m">35763</span>         <span class="m">99975</span>    <span class="m">0.00</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span>    <span class="n">Speciality</span> <span class="n">Products</span> <span class="n">Female</span> <span class="n">Caucasian</span>  <span class="m">50</span>     <span class="m">39016</span>        <span class="m">163099</span>    <span class="m">0.20</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span>          <span class="n">Manufacturing</span> <span class="n">Female</span> <span class="n">Caucasian</span>  <span class="m">26</span>     <span class="m">43735</span>         <span class="m">84913</span>    <span class="m">0.07</span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span>          <span class="n">Manufacturing</span>   <span class="n">Male</span>     <span class="n">Asian</span>  <span class="m">55</span>     <span class="m">35023</span>         <span class="m">95409</span>    <span class="m">0.00</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Country</span>      <span class="n">City</span> <span class="n">Exit.Date</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">United</span> <span class="n">States</span>   <span class="n">Seattle</span>     <span class="m">44485</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>         <span class="n">China</span> <span class="n">Chongqing</span>        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="n">United</span> <span class="n">States</span>   <span class="n">Chicago</span>        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span> <span class="n">United</span> <span class="n">States</span>   <span class="n">Chicago</span>        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span> <span class="n">United</span> <span class="n">States</span>   <span class="n">Phoenix</span>        <span class="kc">NA</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>Reading data from a file using <code>scan()</code></li>
+</ul>
+<p>Functions like &ldquo;read.table()&rdquo; and &ldquo;read.csv()&rdquo; are superb for reading in dataframes with a fixed number of rows and colums (i.e. matrix look-alike datasets). For irregular or non-standard shaped data, &ldquo;scan()&rdquo; and &ldquo;readlines()&rdquo; can be used.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="hl"><span class="lnt"> 8
+</span></span><span class="hl"><span class="lnt"> 9
+</span></span><span class="hl"><span class="lnt">10
+</span></span><span class="hl"><span class="lnt">11
+</span></span><span class="hl"><span class="lnt">12
+</span></span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="hl"><span class="lnt">33
+</span></span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">GSE217527</span> <span class="o">&lt;-</span>  <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;GSE217537_family.soft&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Error</span> <span class="n">in</span> <span class="nf">scan</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="p">,</span> <span class="n">what</span> <span class="o">=</span> <span class="n">what</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="n">quote</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="n">dec</span><span class="p">,</span>  <span class="o">:</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">line</span> <span class="m">1</span> <span class="n">did</span> <span class="n">not</span> <span class="n">have</span> <span class="m">6</span> <span class="n">elements</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">GSE217537</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="s">&#34;GSE217537_family.soft&#34;</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s">&#34;character&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Read</span> <span class="m">5807</span> <span class="n">items</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line hl"><span class="cl"><span class="c1">### By default, &#34;scan ()&#34; reads in double precision numbers. If not, then</span>
+</span></span><span class="line hl"><span class="cl"><span class="c1">### one needs to use the &#34;what=&#34; argument to specify the inputting (character,</span>
+</span></span><span class="line hl"><span class="cl"><span class="c1">### logical, integer, complex or list). By default, scan () expects to read space-delimited</span>
+</span></span><span class="line hl"><span class="cl"><span class="c1">### or tab-delimited input fields. If the input file has separators other than blank spaces or tab markers -- &#34;\t&#34;,</span>
+</span></span><span class="line hl"><span class="cl"><span class="c1">### then one needs to specify the separator option (e.g. sep = &#34;\n&#34;) to specify the character which delimits fields.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">length</span><span class="p">(</span><span class="n">GSE217537</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">5807</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">GSE217537[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;^DATABASE = GeoMiame&#34;</span>                                
+</span></span><span class="line"><span class="cl"><span class="n">[2]</span> <span class="s">&#34;!Database_name = Gene Expression Omnibus (GEO)&#34;</span>      
+</span></span><span class="line"><span class="cl"><span class="n">[3]</span> <span class="s">&#34;!Database_institute = NCBI NLM NIH&#34;</span>                  
+</span></span><span class="line"><span class="cl"><span class="n">[4]</span> <span class="s">&#34;!Database_web_link = http://www.ncbi.nlm.nih.gov/geo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[5]</span> <span class="s">&#34;!Database_email = geo@ncbi.nlm.nih.gov&#34;</span>     
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">readLines</span><span class="p">(</span><span class="s">&#34;GSE217537_family.soft&#34;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;^DATABASE = GeoMiame&#34;</span>                                
+</span></span><span class="line"><span class="cl"><span class="n">[2]</span> <span class="s">&#34;!Database_name = Gene Expression Omnibus (GEO)&#34;</span>      
+</span></span><span class="line"><span class="cl"><span class="n">[3]</span> <span class="s">&#34;!Database_institute = NCBI NLM NIH&#34;</span>                  
+</span></span><span class="line"><span class="cl"><span class="n">[4]</span> <span class="s">&#34;!Database_web_link = http://www.ncbi.nlm.nih.gov/geo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[5]</span> <span class="s">&#34;!Database_email = geo@ncbi.nlm.nih.gov&#34;</span>              
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line hl"><span class="cl"><span class="c1">### The argument &#34;n=&#34; specifies the number of lines to read.        </span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>
+<p>Build-in datasets</p>
+<p>R contains several built-in datasets that can be loaded. Others
+datasets are available in packages that can be downloaded from
+CRAN.</p>
+<p>[1] <code>data()</code> displays a list of all datasets currently available and can be used to
+load R built-in datasets.</p>
+<p>[2] <code>data(package=&quot;NAME&quot;)</code> will load data from an R package.</p>
+<p>[3] <code>attach()</code> attaches a data frame into global environment. After this
+attach() function is executed. The columns can be directly indexed instead
+of using both data frame name and the column name.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">data</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Data</span> <span class="n">sets</span> <span class="n">in</span> <span class="n">package</span> ‘<span class="n">datasets</span>’<span class="o">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AirPassengers</span>           <span class="n">Monthly</span> <span class="n">Airline</span> <span class="n">Passenger</span> <span class="n">Numbers</span> <span class="m">1949-1960</span>
+</span></span><span class="line"><span class="cl"><span class="n">BJsales</span>                 <span class="n">Sales</span> <span class="n">Data</span> <span class="n">with</span> <span class="n">Leading</span> <span class="n">Indicator</span>
+</span></span><span class="line"><span class="cl"><span class="nf">BJsales.lead </span><span class="p">(</span><span class="n">BJsales</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Sales</span> <span class="n">Data</span> <span class="n">with</span> <span class="n">Leading</span> <span class="n">Indicator</span>
+</span></span><span class="line"><span class="cl"><span class="n">BOD</span>                     <span class="n">Biochemical</span> <span class="n">Oxygen</span> <span class="n">Demand</span>
+</span></span><span class="line"><span class="cl"><span class="n">CO2</span>                     <span class="n">Carbon</span> <span class="n">Dioxide</span> <span class="n">Uptake</span> <span class="n">in</span> <span class="n">Grass</span> <span class="n">Plants</span>
+</span></span><span class="line"><span class="cl"><span class="n">ChickWeight</span>             <span class="n">Weight</span> <span class="n">versus</span> <span class="n">age</span> <span class="n">of</span> <span class="n">chicks</span> <span class="n">on</span> <span class="n">different</span> <span class="n">diets</span>
+</span></span><span class="line"><span class="cl"><span class="n">DNase</span>                   <span class="n">Elisa</span> <span class="n">assay</span> <span class="n">of</span> <span class="n">DNase</span>
+</span></span><span class="line"><span class="cl"><span class="n">EuStockMarkets</span>          <span class="n">Daily</span> <span class="n">Closing</span> <span class="n">Prices</span> <span class="n">of</span> <span class="n">Major</span> <span class="n">European</span> <span class="n">Stock</span>
+</span></span><span class="line"><span class="cl"><span class="kc">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### Press &#34;q&#34; to exist the printout.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">data</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">mtcars[1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">mpg</span> <span class="n">cyl</span> <span class="n">disp</span>  <span class="n">hp</span> <span class="n">drat</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mazda</span> <span class="n">RX4</span>         <span class="m">21.0</span>   <span class="m">6</span>  <span class="m">160</span> <span class="m">110</span> <span class="m">3.90</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mazda</span> <span class="n">RX4</span> <span class="n">Wag</span>     <span class="m">21.0</span>   <span class="m">6</span>  <span class="m">160</span> <span class="m">110</span> <span class="m">3.90</span>
+</span></span><span class="line"><span class="cl"><span class="n">Datsun</span> <span class="m">710</span>        <span class="m">22.8</span>   <span class="m">4</span>  <span class="m">108</span>  <span class="m">93</span> <span class="m">3.85</span>
+</span></span><span class="line"><span class="cl"><span class="n">Hornet</span> <span class="m">4</span> <span class="n">Drive</span>    <span class="m">21.4</span>   <span class="m">6</span>  <span class="m">258</span> <span class="m">110</span> <span class="m">3.08</span>
+</span></span><span class="line"><span class="cl"><span class="n">Hornet</span> <span class="n">Sportabout</span> <span class="m">18.7</span>   <span class="m">8</span>  <span class="m">360</span> <span class="m">175</span> <span class="m">3.15</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">cyl</span>
+</span></span><span class="line"><span class="cl"><span class="n">Error</span><span class="o">:</span> <span class="n">object</span> <span class="s">&#39;cyl&#39;</span> <span class="n">not</span> <span class="n">found</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">cyl</span>
+</span></span><span class="line"><span class="cl"> <span class="n">[1]</span> <span class="m">6</span> <span class="m">6</span> <span class="m">4</span> <span class="m">6</span> <span class="m">8</span> <span class="m">6</span> <span class="m">8</span> <span class="m">4</span> <span class="m">4</span> <span class="m">6</span> <span class="m">6</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">4</span> <span class="m">4</span> <span class="m">4</span> <span class="m">4</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">8</span> <span class="m">4</span> <span class="m">4</span> <span class="m">4</span> <span class="m">8</span> <span class="m">6</span> <span class="m">8</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">detach</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">data</span><span class="p">(</span><span class="n">chredlin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Warning</span> <span class="n">message</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="nf">data</span><span class="p">(</span><span class="n">chredlin</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span> <span class="n">set</span> ‘<span class="n">chredlin</span>’ <span class="n">not</span> <span class="n">found</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">data</span><span class="p">(</span><span class="n">chredlin</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s">&#34;faraway&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">tail</span><span class="p">(</span><span class="n">chredlin</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="m">3</span><span class="p">)</span> <span class="c1">## last 3 rows</span>
+</span></span><span class="line"><span class="cl">      <span class="n">race</span> <span class="n">fire</span> <span class="n">theft</span>  <span class="n">age</span> <span class="n">involact</span> <span class="n">income</span> <span class="n">side</span>
+</span></span><span class="line"><span class="cl"><span class="m">60627</span> <span class="m">47.4</span>  <span class="m">7.0</span>     <span class="m">3</span> <span class="m">11.4</span>      <span class="m">0.2</span> <span class="m">10.080</span>    <span class="n">s</span>
+</span></span><span class="line"><span class="cl"><span class="m">60633</span> <span class="m">34.0</span>  <span class="m">7.1</span>    <span class="m">23</span> <span class="m">49.2</span>      <span class="m">0.3</span> <span class="m">11.428</span>    <span class="n">s</span>
+</span></span><span class="line"><span class="cl"><span class="m">60645</span>  <span class="m">3.1</span>  <span class="m">4.9</span>    <span class="m">27</span> <span class="m">46.6</span>      <span class="m">0.0</span> <span class="m">13.731</span>    <span class="n">n</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Load data from an R image &lsquo;.rdata&rsquo; file.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">load</span><span class="p">(</span><span class="s">&#34;./data/Msig3transp.RData&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Msig3transp[1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                  <span class="n">X3968</span>     <span class="n">X14831</span>      <span class="n">X13492</span>      <span class="n">X5108</span>     <span class="n">X16348</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_EFFE_1</span> <span class="m">-2.6108361</span> <span class="m">-1.1857923</span> <span class="m">-0.05612926</span> <span class="m">-0.1470299</span>  <span class="m">0.5230758</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_MEM_1</span>  <span class="m">-2.2592865</span> <span class="m">-0.4718562</span>  <span class="m">0.27730991</span>  <span class="m">0.5438521</span> <span class="m">-0.3659554</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_NAI_1</span>  <span class="m">-0.2719081</span>  <span class="m">0.8170308</span>  <span class="m">0.81269167</span>  <span class="m">0.7198425</span> <span class="m">-0.9049818</span>
+</span></span><span class="line"><span class="cl"><span class="n">MEL36_EFFE_1</span> <span class="m">-2.2431022</span> <span class="m">-1.0806009</span> <span class="m">-0.23557156</span> <span class="m">-0.1760595</span>  <span class="m">0.6406782</span>
+</span></span><span class="line"><span class="cl"><span class="n">MEL36_MEM_1</span>  <span class="m">-2.6798807</span> <span class="m">-0.1463671</span>  <span class="m">0.24909402</span>  <span class="m">0.9519808</span> <span class="m">-0.2040837</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">X585</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_EFFE_1</span> <span class="m">-0.01816524</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_MEM_1</span>   <span class="m">0.10784211</span>
+</span></span><span class="line"><span class="cl"><span class="n">HEA26_NAI_1</span>   <span class="m">0.74819063</span>
+</span></span><span class="line"><span class="cl"><span class="n">MEL36_EFFE_1</span>  <span class="m">0.01000666</span>
+</span></span><span class="line"><span class="cl"><span class="n">MEL36_MEM_1</span>   <span class="m">0.16530245</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">###Msig3transp.RData is about gene expression data of T-cell populations from different subjects (Holmes et al. 2005). Each column corresponds to a gene and each row corresponds to a cell.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="importing-from-online-repositories">Importing from online repositories.</h3>
+<p>Publicaly accessible online databases and repositories have become more and more popular. It is usually much more convenient to import data directly from online repositories than to download them manually and then read in them using functions like &ldquo;read.table()&rdquo; or &ldquo;read.csv()&rdquo;.</p>
+<p>Here is my favorate example: &ldquo;UCSCXenaTools&rdquo; &ndash; an R package for Accessing Genomics Data from UCSC Xena platform, from Cancer Multi-omics to Single-cell RNA-seq. Details of this package can be found <a href="https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html">here</a>. The following <em>R</em> Scodes how to download <code>breast cancer</code> <code>clinical data</code> from <code>TCGA Hub</code> (<a href="https://tcga.xenahubs.net/)">https://tcga.xenahubs.net/)</a>. TCGA stands for The Cancer Genome Altas. It is a landmark cancer genomics program initiated by National Cancer Institute and National Human Genome Research Institute. It hubs multi-omics and clinical data for over 20,000 primary cancer and matched normal samples for 33 cancer types.</p>
+<p><em>In order to download the data successfully, please make sure your computer is linked to the Internet.</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;UCSCXenaTools&#34;</span><span class="p">)</span> <span class="c1"># Or install it from RStudio: Tools -&gt; Install Packages</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;data.table&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">UCSCXenaTools</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; =========================================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; UCSCXenaTools version 1.4.8</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; Project URL: https://github.com/ropensci/UCSCXenaTools</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; Usages: https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; If you use it in published research, please cite:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; Wang et al., (2019). The UCSCXenaTools R package: a toolkit for accessing genomics data</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt;   from UCSC Xena platform, from cancer multi-omics to single-cell RNA-seq.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt;   Journal of Open Source Software, 4(40), 1627, https://doi.org/10.21105/joss.01627</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; =========================================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt;                               --Enjoy it--</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">data</span><span class="p">(</span><span class="n">XenaData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">XenaData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; # A tibble: 6 × 17</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt;   XenaHosts XenaHostNames XenaCohorts XenaDatasets SampleCount DataSubtype Label</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 1 https://… publicHub     Breast Can… ucsfNeve_pu…          51 gene expre… Neve…</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 2 https://… publicHub     Breast Can… ucsfNeve_pu…          57 phenotype   Phen…</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 3 https://… publicHub     Glioma (Ko… kotliarov20…         194 copy number Kotl…</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 4 https://… publicHub     Glioma (Ko… kotliarov20…         194 phenotype   Phen…</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 5 https://… publicHub     Lung Cance… weir2007_pu…         383 copy number CGH  </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; 6 https://… publicHub     Lung Cance… weir2007_pu…         383 phenotype   Phen…</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; # … with 10 more variables: Type &lt;chr&gt;, AnatomicalOrigin &lt;chr&gt;,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; #   SampleType &lt;chr&gt;, Tags &lt;chr&gt;, ProbeMap &lt;chr&gt;, LongTitle &lt;chr&gt;,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; #   Citation &lt;chr&gt;, Version &lt;chr&gt;, Unit &lt;chr&gt;, Platform &lt;chr&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">paraCohort</span> <span class="o">=</span> <span class="s">&#34;TCGA Breast Cancer&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">paraDatasets</span> <span class="o">=</span><span class="s">&#34;BRCA_clinicalMatrix&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Clin_TCGA</span> <span class="o">=</span> <span class="nf">XenaGenerate</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="n">XenaHostNames</span> <span class="o">==</span><span class="s">&#34;tcgaHub&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">XenaFilter</span><span class="p">(</span><span class="n">filterCohorts</span> <span class="o">=</span> <span class="n">paraCohort</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">XenaFilter</span><span class="p">(</span><span class="n">filterDatasets</span> <span class="o">=</span> <span class="n">paraDatasets</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">XenaQuery</span><span class="p">(</span><span class="n">Clin_TCGA</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">XenaDownload</span><span class="p">(</span><span class="n">destdir</span> <span class="o">=</span> <span class="s">&#34;./&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Clin_TCGA_BRCA</span> <span class="o">=</span> <span class="nf">fread</span><span class="p">(</span><span class="s">&#34;TCGA.BRCA.sampleMap/BRCA_clinicalMatrix&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1247</span>  <span class="m">194</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Clin_TCGA_BRCA[10</span><span class="o">:</span><span class="m">20</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">8</span><span class="o">:</span><span class="m">15</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">           <span class="n">sampleID</span> <span class="n">ER_Status_nature2012</span> <span class="n">Gender_nature2012</span>
+</span></span><span class="line"><span class="cl"> <span class="m">1</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SD</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">2</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SE</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SF</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">4</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SG</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">5</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SH</span><span class="m">-01</span>             <span class="n">Negative</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">6</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SI</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">7</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SJ</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">8</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SK</span><span class="m">-01</span>             <span class="n">Negative</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"> <span class="m">9</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SM</span><span class="m">-01</span>             <span class="n">Positive</span>              <span class="n">MALE</span>
+</span></span><span class="line"><span class="cl"><span class="m">10</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SN</span><span class="m">-01</span>             <span class="n">Positive</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl"><span class="m">11</span><span class="o">:</span> <span class="n">TCGA</span><span class="o">-</span><span class="n">A1</span><span class="o">-</span><span class="n">A0SO</span><span class="m">-01</span>             <span class="n">Negative</span>            <span class="n">FEMALE</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HER2_Final_Status_nature2012</span> <span class="n">Integrated_Clusters_no_exp__nature2012</span>
+</span></span><span class="line"><span class="cl"> <span class="m">1</span><span class="o">:</span>                     <span class="n">Negative</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">2</span><span class="o">:</span>                     <span class="n">Negative</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span><span class="o">:</span>                     <span class="n">Negative</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">4</span><span class="o">:</span>                     <span class="n">Negative</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">5</span><span class="o">:</span>                     <span class="n">Negative</span>                                      <span class="m">1</span>
+</span></span><span class="line"><span class="cl"> <span class="m">6</span><span class="o">:</span>                     <span class="n">Negative</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">7</span><span class="o">:</span>                     <span class="n">Negative</span>                                      <span class="m">1</span>
+</span></span><span class="line"><span class="cl"> <span class="m">8</span><span class="o">:</span>                     <span class="n">Negative</span>                                      <span class="m">2</span>
+</span></span><span class="line"><span class="cl"> <span class="m">9</span><span class="o">:</span>                     <span class="n">Positive</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">10</span><span class="o">:</span>                     <span class="n">Positive</span>                                     <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">11</span><span class="o">:</span>                     <span class="n">Negative</span>                                      <span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Integrated_Clusters_unsup_exp__nature2012</span>
+</span></span><span class="line"><span class="cl"> <span class="m">1</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">2</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">4</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">5</span><span class="o">:</span>                                         <span class="m">1</span>
+</span></span><span class="line"><span class="cl"> <span class="m">6</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"> <span class="m">7</span><span class="o">:</span>                                         <span class="m">3</span>
+</span></span><span class="line"><span class="cl"> <span class="m">8</span><span class="o">:</span>                                         <span class="m">2</span>
+</span></span><span class="line"><span class="cl"> <span class="m">9</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">10</span><span class="o">:</span>                                        <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="m">11</span><span class="o">:</span>                                         <span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Integrated_Clusters_with_PAM50__nature2012</span> <span class="n">Metastasis_Coded_nature2012</span>
+</span></span><span class="line"><span class="cl"> <span class="m">1</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">2</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">4</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">5</span><span class="o">:</span>                                          <span class="m">1</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">6</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">7</span><span class="o">:</span>                                          <span class="m">3</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">8</span><span class="o">:</span>                                          <span class="m">2</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"> <span class="m">9</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"><span class="m">10</span><span class="o">:</span>                                         <span class="kc">NA</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl"><span class="m">11</span><span class="o">:</span>                                          <span class="m">2</span>                    <span class="n">Negative</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Metastasis_nature2012</span>
+</span></span><span class="line"><span class="cl"> <span class="m">1</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">2</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">4</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">5</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">6</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">7</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">8</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"> <span class="m">9</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"><span class="m">10</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span><span class="line"><span class="cl"><span class="m">11</span><span class="o">:</span>                    <span class="n">M0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="importing-neuroimaging-data">Importing neuroimaging data</h3>
+<p>Many <em>R</em> packages can be used to deal with (neuro)imaging data. Here, we use <code>neurobase</code> as an example to show how to import neuroimaging data into <em>R</em> for analysis. The <code>neurobase</code> package needs to be installed from <code>devtools</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="s">&#34;devtools&#34;</span> <span class="o">%in%</span> <span class="nf">installed.packages</span><span class="p">()</span><span class="n">[</span><span class="p">,</span> <span class="s">&#34;Package&#34;</span><span class="n">]</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;devtools&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">devtools</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#34;muschellij2/neurobase&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Select to updata <code>1: All</code> when the installation asks which packages would you like to update:
+<img src="Screenshot.png" alt="installation"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">neurobase</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">neurobase</span><span class="o">::</span><span class="nf">readnii</span><span class="p">(</span><span class="s">&#34;./data/training01_01_t1.nii.gz&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">408</span> <span class="m">512</span> <span class="m">152</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Please notice that the neuroimaging data is read into R as a 3-dimensional array.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">ortho2</span><span class="p">(</span><span class="nf">robust_window</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.975</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="neuroimaging.png" alt="Brain"></p>
+<h2 id="exporting">Exporting</h2>
+<ul>
+<li>Write data using <code>read.table()</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">write.table</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA[1</span><span class="o">:</span><span class="m">50</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;Clin_TCGA_BRCA_first100.txt&#34;</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For meanings for the options &ldquo;quote=&rdquo;, &ldquo;col.names=&rdquo;, &ldquo;row.names=&rdquo;, &ldquo;sep=&rdquo;, and other options, please see <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/write.table">here</a>.</p>
+<ul>
+<li>Write data using <code>read.csv()</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">write.csv</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA[1</span><span class="o">:</span><span class="m">50</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;Clin_TCGA_BRCA_first100.csv&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For details about options of &ldquo;write.csv()&rdquo; function, please see <a href="https://www.rdocumentation.org/packages/AlphaPart/versions/0.9.3/topics/write.csv">here</a>.</p>
+<ul>
+<li>Write neuroimaging data using <code>neurobase</code> package.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">t2</span> <span class="o">&lt;-</span> <span class="n">t1</span>     <span class="c1"># Copy t1 to t2</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">t2</span><span class="nf">[which</span><span class="p">(</span><span class="n">t1</span><span class="o">&lt;</span><span class="m">300</span><span class="p">,</span> <span class="n">arr.ind</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="n">]</span>  <span class="o">&lt;-</span> <span class="m">0</span>  <span class="c1"># Did some thresholding on t2</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">ortho2</span><span class="p">(</span><span class="nf">robust_window</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.975</span><span class="p">)))</span> <span class="c1"># Visulize the thresholded imaging</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">write_nifti</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="s">&#34;./data/thresholded_brainimage.nii.gz&#34;</span><span class="p">)</span> <span class="c1"># Write the thresholded image using &#34;write_nifti&#34; function</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="neuroimaging2.png" alt="Thresholded_image"></p>
+<h2 id="management">Management</h2>
+<p>You should be able to do some simple data management using the methods we talked about in the first three weeks. Here are two examples.</p>
+<ul>
+<li>Extract the sub-dataset from &ldquo;Clin_TCGA_BRCA&rdquo; data with &ldquo;ER_Status_nature2012&rdquo; being &ldquo;Positive&rdquo;.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="o">$</span><span class="n">ER_Status_nature2012</span><span class="o">==</span><span class="s">&#34;Positive&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">601</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Clin_TCGA_BRCA_ER_positive</span> <span class="o">&lt;-</span> <span class="n">Clin_TCGA_BRCA</span><span class="nf">[which</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="o">$</span><span class="n">ER_Status_nature2012</span><span class="o">==</span><span class="s">&#34;Positive&#34;</span><span class="p">),</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA_ER_positive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">601</span> <span class="m">194</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Deleting subjects in &ldquo;Clin_TCGA_BRCA&rdquo; data with non-missing (non-empty) values in &ldquo;ER_Status_nature2012&rdquo;.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="o">$</span><span class="n">ER_Status_nature2012</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="o">$</span><span class="n">ER_Status_nature2012</span><span class="o">==</span><span class="s">&#34;&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">465</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">Clin_TCGA_BRCA_ER_nonEmpty</span> <span class="o">&lt;-</span> <span class="n">Clin_TCGA_BRCA</span><span class="nf">[which</span><span class="p">(</span><span class="n">Clin_TCGA_BRCA</span><span class="o">$</span><span class="n">ER_Status_nature2012</span><span class="o">!=</span><span class="s">&#34;&#34;</span><span class="p">),</span><span class="n">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/r/">R</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/dataframe/">Dataframe</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/read-files/">Read files</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/write-files/">Write files</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/STAT-818/post/wk3/">
+            <span class="next-text nav-default">R Objects II: List, Factor, and Data Frame</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:yli8@kumc.edu" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        yli8
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/STAT-818/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/STAT-818/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/STAT-818/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
