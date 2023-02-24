@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Functions, control statements, packaging and debugging - STAT 818: Introduction to R</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="yli8" />
+  <meta name="description" content="" />
+
+  <meta name="keywords" content="STAT 818, R" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.110.0" />
+
+
+<link rel="canonical" href="https://lyqglyqg.github.io/STAT-818/post/wk6/" />
+
+
+
+
+
+<link rel="icon" href="/STAT-818/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/STAT-818/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/js/all.js"></script>
+
+
+
+
+<meta property="og:title" content="Functions, control statements, packaging and debugging" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyqglyqg.github.io/STAT-818/post/wk6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-22T00:00:00+00:00" />
+<meta itemprop="name" content="Functions, control statements, packaging and debugging">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1140">
+<meta itemprop="keywords" content="R,Functions,Control statements,Packaging,Debugging," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Functions, control statements, packaging and debugging"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">STAT 818: Introduction to R</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://lyqglyqg.github.io/STAT-818/">
+              docs
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      STAT 818: Introduction to R
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://lyqglyqg.github.io/STAT-818/">docs</a>
+          <ul class="submenu" >
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Functions, control statements, packaging and debugging</h1>
+      
+      <div class="post-meta">
+        <time datetime="2023-02-22" class="post-time">
+          2023-02-22
+        </time>
+        <div class="post-category">
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/r/"> R </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/functions/"> Functions </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/control-statements/"> Control statements </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/packaging/"> Packaging </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/debugging/"> Debugging </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#r-functions"><em>R</em> Functions</a>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#variable-scope">Variable scope</a></li>
+        <li><a href="#argument-defauts-in-functions">Argument defauts in functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#control-statements">Control statements</a>
+      <ul>
+        <li><a href="#conditional-statement">Conditional statement</a></li>
+        <li><a href="#loop-statement">Loop statement</a></li>
+      </ul>
+    </li>
+    <li><a href="#packaging">Packaging</a></li>
+    <li><a href="#debugging">Debugging</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="r-functions"><em>R</em> Functions</h2>
+<ul>
+<li>
+<p>An <em>R</em> function, like a mathematical function, maps each input argument to an output value.</p>
+</li>
+<li>
+<p>Every <em>R</em> package contains at least one function. <strong>Always use implemented functions in a published R package to save time.</strong></p>
+</li>
+<li>
+<p><em>R</em> users can define their own functions.</p>
+</li>
+</ul>
+<p>A user-defined <em>R</em> function has the following structure.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="kc">...</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">function</span> <span class="n">body</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="nf">return</span><span class="p">(</span> <span class="n">outputs</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>my_function</code>: function name. Can contain alphabetics, underscore, numbers (cannot be at the 1st place), and period sign &ldquo;.&rdquo;. For example: &ldquo;my_function&rdquo;, &ldquo;my_function.v1&rdquo;.</p>
+<p><code>arg1, arg2, ...</code>: function argument(s). Can have default values.</p>
+<p><code>function body</code>: statements that are executed when the function runs.</p>
+<p><code>return( outputs )</code>: function outputs. Use return() to specify the list of values you want to output.</p>
+<h3 id="examples">Examples</h3>
+<ul>
+<li>Here is an example <em>R</em> function for converting temperatures from Fahrenheit to Celsius:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After defining the function, you can call the function like below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="Fig0.png" alt="fahrenheit.to.celsius"></p>
+<ul>
+<li>Another example: Celsius into Kelvin.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">temp.K</span> <span class="o">&lt;-</span> <span class="n">temp.C</span> <span class="o">+</span> <span class="m">273.15</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.K</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="m">26.67</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">299.82</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Call an existing function when defining a new function.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">temp.K</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.K</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">299.8167</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="variable-scope">Variable scope</h3>
+<ul>
+<li>
+<p>A variable that is visible only within function body is said to be local to that function.
+In fahrenheit.to.celsius() function, tmp.C is a local variable</p>
+</li>
+<li>
+<p>Local variables disappear after the function is defined or called.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">temp.c</span>
+</span></span><span class="line"><span class="cl"><span class="n">Error</span><span class="o">:</span> <span class="n">object</span> <span class="s">&#39;temp.c&#39;</span> <span class="n">not</span> <span class="n">found</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Variables created outside functions are global and are available
+within functions as well.</p>
+</li>
+<li>
+<p>A global variable will not be changed if it was used in function as an
+argument.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">one.tmp</span> <span class="o">&lt;-</span> <span class="m">212</span>    <span class="c1">### one.tmp is a global variable</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">one.tmp</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">100</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">one.tmp</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">212</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="argument-defauts-in-functions">Argument defauts in functions</h3>
+<p>One can specify a defacut value for an argument in a function. When calling the function, if no argument value is given, then the function will run by the default value of that argument.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>One can specify defaut values for a subset of argument, leaving some argument unspecified. Let us define a new function that converts both a celsius and a fahrenheit to kelvin</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">,</span> <span class="n">temp.F</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.C</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.F</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">K.from.C</span><span class="o">=</span><span class="n">temp.K.from.C</span><span class="p">,</span> <span class="n">K.from.F</span><span class="o">=</span><span class="n">temp.K.from.F</span><span class="p">))</span>   <span class="c1">### Notice one can also assign names to output arguments!!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="o">=</span><span class="m">26.6667</span><span class="p">,</span> <span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
+</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can assign defaut values to only &rsquo;temp.C&rsquo; argument.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="o">=</span><span class="m">26.6667</span><span class="p">,</span> <span class="n">temp.F</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.C</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.F</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">K.from.C</span><span class="o">=</span><span class="n">temp.K.from.C</span><span class="p">,</span> <span class="n">K.from.F</span><span class="o">=</span><span class="n">temp.K.from.F</span><span class="p">))</span>   <span class="c1">### Notice one can also assign names to output arguments!!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
+</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>You can call a function without writing out the argument names.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">to.kelvin</span><span class="p">(</span><span class="m">26.6667</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>  <span class="c1">### If there are multiple input arguments, their order matters!</span>
+</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
+</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="control-statements">Control statements</h2>
+<p>Control statements are very useful in writing <em>R</em> functions. Commonly used control statements in <em>R</em> include <code>conditional</code> statements and <code>loop</code> statement.</p>
+<h3 id="conditional-statement">Conditional statement</h3>
+<p><strong>The <code>if else</code> statement</strong></p>
+<p>The <code>if else</code> statement has the following structure.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">if</span><span class="p">(</span><span class="s">&#34;condition is satisfied&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;do something&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;otherwise do something else&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Let us write an example <em>R</em> function using the <code>if else</code> statement.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="n">temp.C</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">print</span><span class="p">(</span><span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Current outside temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  <span class="c1">### Notice this function does not return an output value.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report</span><span class="p">(</span><span class="m">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Current outside temperature is 15°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report</span><span class="p">(</span><span class="m">-5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Vectorized <code>ifelse</code> statement</strong></p>
+<p>The vectorized <code>ifelse</code> statement has the following structure.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ifelse</span><span class="p">(</span><span class="s">&#34;condition&#34;</span><span class="p">,</span> <span class="s">&#34;task if TRUE&#34;</span><span class="p">,</span> <span class="s">&#34;task if FALSE&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report_v1</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">ifelse</span><span class="p">(</span><span class="n">temp.C</span><span class="o">&lt;</span><span class="m">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Current outside temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_v1</span><span class="p">(</span><span class="m">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Current outside temperature is 15°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_v1</span><span class="p">(</span><span class="m">-5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="loop-statement">Loop statement</h3>
+<p><strong>The <code>for</code> statement</strong></p>
+<p>The <code>for</code> statement has the following structure:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">for </span><span class="p">(</span><span class="s">&#34;counter&#34;</span> <span class="n">in</span> <span class="s">&#34;vector of indices&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;do something&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report_morning</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C.vector</span><span class="p">){</span>  <span class="c1">### This function requires a length-5 input vector for hourly temperature from 7 to 11 am.</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;The temperature at &#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="m">+6</span><span class="p">),</span> <span class="s">&#34;am is &#34;</span><span class="p">,</span> <span class="n">temp.C.vector[i]</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_morning</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 7am is -2°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 8am is 1°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 9am is 3°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 10am is 8°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 11am is 10°C.&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>The <code>while</code> statement</strong></p>
+<p>The <code>while</code> statement has the following structure:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">while </span><span class="p">(</span><span class="s">&#34;condition holds&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;do something&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.freezing.alarm</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C.vector</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">   <span class="n">i</span> <span class="o">&lt;-</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">   <span class="nf">while</span><span class="p">(</span><span class="n">temp.C.vector[i]</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;The current temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C.vector[i]</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">i</span> <span class="o">&lt;-</span> <span class="n">i</span><span class="m">+1</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="nf">print</span><span class="p">(</span><span class="s">&#34;It is freezing now. Drive carefully!!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.freezing.alarm</span><span class="p">(</span><span class="m">5</span><span class="o">:</span><span class="m">-3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 5°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 4°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 3°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 2°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 1°C.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing now. Drive carefully!!&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="packaging">Packaging</h2>
+<p>You can make your own <em>R</em> packages! It is not required for this introductory course. But <a href="https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html">here</a> is a very good tutorial on &ldquo;Making Your First R Package.&rdquo;</p>
+<h2 id="debugging">Debugging</h2>
+<p>Debugging your <em>R</em> codes or functions is more of a skill of experience. It could be a cumbersome process sometime. The most useful trick I found for <em>R</em> debugging is to <strong><code>Google!!</code></strong>. Especially when you use a published <em>R</em> package. Most of time, you will find others talking about the same error massege if it is a common error. If you are lucky, you will find someone post online a solution to it.</p>
+<p>For more tricks on <em>R</em> debugging, you can find a good tutorial <a href="https://adv-r.hadley.nz/debugging.html">here</a>.</p>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/r/">R</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/functions/">Functions</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/control-statements/">Control statements</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/packaging/">Packaging</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/debugging/">Debugging</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/STAT-818/post/wk5/">
+            <span class="next-text nav-default">Reproducible Research: Using R Markdown</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:yli8@kumc.edu" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        yli8
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/STAT-818/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/STAT-818/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/STAT-818/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
