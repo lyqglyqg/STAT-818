@@ -6,10 +6,21 @@
     <description>Recent content on STAT 818: Introduction to R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Functions, control statements, packaging and debugging</title>
+      <link>https://lyqglyqg.github.io/STAT-818/post/wk6/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/post/wk6/</guid>
+      
+        <description></description>
+      
+    </item>
     
     <item>
       <title>Reproducible Research: Using R Markdown</title>

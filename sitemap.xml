@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/post/wk6/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/post/wk5/</loc>
     <lastmod>2023-02-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -38,14 +45,98 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/</loc>
-    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/control-statements/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/control-statements/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/debugging/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/debugging/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/functions/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/functions/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/packaging/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/packaging/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/post/</loc>
-    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/r/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/r/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -65,20 +156,6 @@
   </url>
   
   <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
-    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
-    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/tags/dataframe/</loc>
     <lastmod>2023-02-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -87,20 +164,6 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/dataframe/</loc>
-    <lastmod>2023-02-08T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/tags/r/</loc>
-    <lastmod>2023-02-08T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/categories/r/</loc>
     <lastmod>2023-02-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
