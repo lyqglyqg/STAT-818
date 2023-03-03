@@ -6,7 +6,16 @@
     <description>Recent content in R on STAT 818: Introduction to R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data visualization</title>
+      <link>https://lyqglyqg.github.io/STAT-818/post/wk7/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/post/wk7/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Functions, control statements, packaging and debugging</title>
       <link>https://lyqglyqg.github.io/STAT-818/post/wk6/</link>

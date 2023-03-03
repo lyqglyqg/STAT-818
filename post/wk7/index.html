@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data visualization - STAT 818: Introduction to R</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="yli8" />
+  <meta name="description" content="" />
+
+  <meta name="keywords" content="STAT 818, R" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.110.0" />
+
+
+<link rel="canonical" href="https://lyqglyqg.github.io/STAT-818/post/wk7/" />
+
+
+
+
+
+<link rel="icon" href="/STAT-818/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/STAT-818/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/js/all.js"></script>
+
+
+
+
+<meta property="og:title" content="Data visualization" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyqglyqg.github.io/STAT-818/post/wk7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-03-01T00:00:00+00:00" />
+<meta itemprop="name" content="Data visualization">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-03-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-03-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="988">
+<meta itemprop="keywords" content="R,Data visualization,ggplot2," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data visualization"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">STAT 818: Introduction to R</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://lyqglyqg.github.io/STAT-818/">
+              docs
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk7/">Data visualization</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      STAT 818: Introduction to R
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://lyqglyqg.github.io/STAT-818/">docs</a>
+          <ul class="submenu" >
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk7/">Data visualization</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Data visualization</h1>
+      
+      <div class="post-meta">
+        <time datetime="2023-03-01" class="post-time">
+          2023-03-01
+        </time>
+        <div class="post-category">
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/r/"> R </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/data-visualization/"> Data visualization </a>
+            <a href="https://lyqglyqg.github.io/STAT-818/categories/ggplot2/"> ggplot2 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#visualizaing-data-using-ggplot2">Visualizaing data using <em><code>ggplot2</code></em></a></li>
+    <li><a href="#installing-ggplot2">Installing <em><code>ggplot2</code></em></a></li>
+    <li><a href="#installing-hiiragi2013">Installing <em><code>Hiiragi2013</code></em></a></li>
+    <li><a href="#basic-structure-of-ggplot2">Basic structure of <em><code>ggplot2</code></em></a></li>
+    <li><a href="#basic-ggplot2-plots">Basic <em><code>ggplot2</code></em> plots</a>
+      <ul>
+        <li><a href="#barplot">Barplot</a></li>
+        <li><a href="#scatterplot">Scatterplot</a></li>
+        <li><a href="#boxplot">Boxplot</a></li>
+        <li><a href="#dot-plot">Dot plot</a></li>
+        <li><a href="#density-plot">Density plot</a></li>
+        <li><a href="#violin-plot">Violin plot</a></li>
+        <li><a href="#ridgeline-plot">Ridgeline plot</a></li>
+        <li><a href="#ecdfempirical-cumulative-distribution-function-plot">ECDF(empirical cumulative distribution function) plot</a></li>
+        <li><a href="#scatterplot-1">Scatterplot</a></li>
+        <li><a href="#heatmaps">Heatmaps</a></li>
+        <li><a href="#plotting-neuroimages">Plotting neuroimages</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="visualizaing-data-using-ggplot2">Visualizaing data using <em><code>ggplot2</code></em></h2>
+<p>In this week&rsquo;s tutorial, we will use the R package <em><code>ggplot2</code></em> to generate high-quality graphics for data visualization. Big chunk of this tutorial is drawn from the book <a href="https://www.huber.embl.de/msmb/">Modern Statistics for Modern Biology</a>.</p>
+<p>The package <em><code>ggplot2</code></em> is developed by Hadley Wickham (<a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098">Wickham 2016</a>). It is one of the most widely used <em>R</em> packages for data visualization.</p>
+<p>We’ll also use the mouse embryos data in the package <em><code>Hiiragi2013</code></em>. It is a gene expression microarray dataset containing the transcriptomes of around 100 individual cells from mouse embryos at different time points in the early development. The mammalian embryo starts out as a single cell, the fertilized egg. Through synchronized waves of cell divisions, the egg first multiplies itself into a cluster of cells of same type. Then later, cells choose different lineages, proliferate themselves by further and further specification, till the different cell types and tissues arise that are needed to form a full organism. More details can be found in the paper and in the documentation of the Bioconductor data package <a href="https://bioconductor.org/packages/release/data/experiment/html/Hiiragi2013.html">Hiiragi2013</a>. In this tutorial, we will use plotting functions from <em>ggplot2</em> to visualize the emprical distributions of gene expression and cell types, and their relationships.</p>
+<h2 id="installing-ggplot2">Installing <em><code>ggplot2</code></em></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;ggplot2&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="installing-hiiragi2013">Installing <em><code>Hiiragi2013</code></em></h2>
+<p>The following syntaxes will install the package <em><code>Hiiragi2013</code></em> we gonna use in this section. See <a href="https://bioconductor.org/packages/release/data/experiment/html/Hiiragi2013.html">here</a> for more details. <code>Warning: it will take a while to install this package.</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Hiiragi2013&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="basic-structure-of-ggplot2">Basic structure of <em><code>ggplot2</code></em></h2>
+<p>Basic structure of <em><code>ggplot2</code></em> consists of the following components.</p>
+<ul>
+<li>The dataset to be used;</li>
+<li>An aesthetic mapping aes (), which controls, for example, which variables map to which axes or colours;</li>
+<li>Add any ‘layers’ to the plot as required.</li>
+</ul>
+<p>The general format of the function ggplot () from ggplot2 is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot </span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nf">aes </span><span class="p">())</span> <span class="o">+</span> <span class="n">layer1</span> <span class="o">+</span> <span class="n">layer2</span> <span class="o">+</span> <span class="n">layer3</span> <span class="o">+</span> <span class="kc">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>One can save a plot as an object, and add layers to it later. For example,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">myplot</span> <span class="o">&lt;-</span> <span class="nf">ggplot </span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nf">aes </span><span class="p">())</span> <span class="o">+</span> <span class="n">layer1</span> <span class="o">+</span> <span class="n">layer2</span>
+</span></span><span class="line"><span class="cl"><span class="n">myplot</span> <span class="o">+</span> <span class="n">layer3</span> <span class="o">+</span> <span class="n">layer4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="basic-ggplot2-plots">Basic <em><code>ggplot2</code></em> plots</h2>
+<ul>
+<li>Loading the <em><code>Hiiragi2013</code></em> data and preparation.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;Hiiragi2013&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">45101</span>   <span class="m">101</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;dplyr&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">groups</span> <span class="o">=</span> <span class="nf">group_by</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sampleGroup</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarise</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">(),</span> <span class="n">color</span> <span class="o">=</span> <span class="nf">unique</span><span class="p">(</span><span class="n">sampleColour</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">groups</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># A tibble: 8 × 3</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sampleGroup</span>         <span class="n">n</span> <span class="n">color</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>           <span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">E3.25</span>              <span class="m">36</span> <span class="c1">#CAB2D6</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="nf">E3.25 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>    <span class="m">17</span> <span class="c1">#FDBF6F</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">EPI</span><span class="p">)</span>         <span class="m">11</span> <span class="c1">#A6CEE3</span>
+</span></span><span class="line"><span class="cl"><span class="m">4</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>      <span class="m">8</span> <span class="c1">#FF7F00</span>
+</span></span><span class="line"><span class="cl"><span class="m">5</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">PE</span><span class="p">)</span>          <span class="m">11</span> <span class="c1">#B2DF8A</span>
+</span></span><span class="line"><span class="cl"><span class="m">6</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">EPI</span><span class="p">)</span>          <span class="m">4</span> <span class="c1">#1F78B4</span>
+</span></span><span class="line"><span class="cl"><span class="m">7</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>     <span class="m">10</span> <span class="c1">#E31A1C</span>
+</span></span><span class="line"><span class="cl"><span class="m">8</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">PE</span><span class="p">)</span>           <span class="m">4</span> <span class="c1">#33A02C</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Please just try out the following codes and make sure you can generate the corresponding figures for youself. It is OK you do not fully understand the details about all the options.</code></p>
+<h3 id="barplot">Barplot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="barplots.png" width="60%" height="60%">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">groupColor</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="n">groups</span><span class="o">$</span><span class="n">color</span><span class="p">,</span> <span class="n">groups</span><span class="o">$</span><span class="n">sampleGroup</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">groupColor</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Groups&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="barplot_color.png" width="60%" height="60%">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">pb.polar</span> <span class="o">=</span> <span class="n">pb</span> <span class="o">+</span> <span class="nf">coord_polar</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">axis.ticks</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">())</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pb.polar</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="barplot_color_polar.png" width="60%" height="60%" title="A barplot in a polar coordinate system.">
+<h3 id="scatterplot">Scatterplot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">dftx</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span> <span class="n">dftx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X1426642_at</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X1418765_at</span> <span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">1</span> <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_smooth</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span> <span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div> <img src="loess_curve.png" width="60%" height="60%"> 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span> <span class="n">dftx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X1426642_at</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X1418765_at</span> <span class="p">))</span>  <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">color</span> <span class="o">=</span> <span class="n">sampleColour</span><span class="p">),</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">19</span> <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_smooth</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span> <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_color_discrete</span><span class="p">(</span> <span class="n">guide</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span> <span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="loess_curve_color.png" width="60%" height="60%"> 
+<h3 id="boxplot">Boxplot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_boxplot</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="boxplots_color.png" width="60%" height="60%"> 
+<h3 id="dot-plot">Dot plot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_dotplot</span><span class="p">(</span><span class="n">binaxis</span> <span class="o">=</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="n">stackdir</span> <span class="o">=</span> <span class="s">&#34;center&#34;</span><span class="p">,</span> <span class="n">stackratio</span> <span class="o">=</span> <span class="m">0.75</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="dotplots_color.png" width="60%" height="60%"> 
+<h3 id="density-plot">Density plot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_density</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="densityplot_color.png" width="60%" height="60%"> 
+<h3 id="violin-plot">Violin plot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_violin</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="violin_plot_color.png" width="60%" height="60%"> 
+<h3 id="ridgeline-plot">Ridgeline plot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;ggridges&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_density_ridges</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="ridgeline_plot_color.png" width="60%" height="60%"> 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">top42</span> <span class="o">=</span> <span class="nf">order</span><span class="p">(</span><span class="nf">rowMeans</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="m">42</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">g42</span> <span class="o">=</span> <span class="nf">melt</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="nf">[rev</span><span class="p">(</span><span class="n">top42</span><span class="p">),</span> <span class="n">]</span><span class="p">,</span> <span class="n">varnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;probe&#34;</span><span class="p">,</span> <span class="s">&#34;sample&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">g42</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">probe</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_density_ridges</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="ridgeline_plot_42.png" width="60%" height="60%"> 
+<h3 id="ecdfempirical-cumulative-distribution-function-plot">ECDF(empirical cumulative distribution function) plot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> <span class="nf">stat_ecdf</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="ecdf_plot_color.png" width="60%" height="60%"> 
+<h3 id="scatterplot-1">Scatterplot</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">dfx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">`59 E4.5 (PE)`</span> <span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">y</span> <span class="o">=</span> <span class="n">`92 E4.5 (FGF4-KO)`</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="2dscatter.png" width="60%" height="60%">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;RColorBrewer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">colorscale</span> <span class="o">=</span> <span class="nf">scale_fill_gradientn</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">colors</span> <span class="o">=</span> <span class="nf">rev</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&#34;YlGnBu&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">exp</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">+</span> <span class="nf">geom_hex</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span> <span class="m">0.2</span><span class="p">))</span> <span class="o">+</span> <span class="n">colorscale</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">coord_fixed</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="2dscatter_color.png" width="60%" height="60%">
+<h3 id="heatmaps">Heatmaps</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;pheatmap&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">topGenes</span> <span class="o">=</span> <span class="nf">order</span><span class="p">(</span><span class="nf">rowVars</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="m">500</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">rowCenter</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span> <span class="nf">rowCenter</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="n">[</span> <span class="n">topGenes</span><span class="p">,</span> <span class="n">]</span> <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">show_rownames</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">show_colnames</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">breaks</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">+5</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">101</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">annotation_col</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="n">[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;sampleGroup&#34;</span><span class="p">,</span> <span class="s">&#34;Embryonic.day&#34;</span><span class="p">,</span> <span class="s">&#34;ScanDate&#34;</span><span class="p">)</span> <span class="n">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">annotation_colors</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sampleGroup</span> <span class="o">=</span> <span class="n">groupColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">genotype</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">`FGF4-KO`</span> <span class="o">=</span> <span class="s">&#34;chocolate1&#34;</span><span class="p">,</span> <span class="n">`WT`</span> <span class="o">=</span> <span class="s">&#34;azure2&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Embryonic.day</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&#34;Blues&#34;</span><span class="p">)</span><span class="nf">[c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span><span class="n">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                             <span class="nf">c</span><span class="p">(</span><span class="s">&#34;E3.25&#34;</span><span class="p">,</span> <span class="s">&#34;E3.5&#34;</span><span class="p">,</span> <span class="s">&#34;E4.5&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ScanDate</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">ScanDate</span><span class="p">),</span> <span class="s">&#34;YlGn&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                        <span class="nf">levels</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">ScanDate</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cutree_rows</span> <span class="o">=</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src="heatmap.png" width="60%" height="60%">
+<h3 id="plotting-neuroimages">Plotting neuroimages</h3>
+<p>We have used the package <em><code>neurobase</code></em> to plot out a neuroimages in Week 4&rsquo;s lecture: &ldquo;Import, Export and Manage Data.&rdquo; Just to refresh on it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">neurobase</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">neurobase</span><span class="o">::</span><span class="nf">readnii</span><span class="p">(</span><span class="s">&#34;./data/training01_01_t1.nii.gz&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">408</span> <span class="m">512</span> <span class="m">152</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Please notice that the neuroimaging data is read into R as a 3-dimensional array.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">ortho2</span><span class="p">(</span><span class="nf">robust_window</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.975</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="neuroimaging.png" alt="Brain"></p>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/r/">R</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/data-visualization/">Data visualization</a>
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/ggplot2/">ggplot2</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/STAT-818/post/wk6/">
+            <span class="next-text nav-default">Functions, control statements, packaging and debugging</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:yli8@kumc.edu" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        yli8
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/STAT-818/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/STAT-818/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/STAT-818/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
