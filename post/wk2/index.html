@@ -7,7 +7,7 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.110.0" />
+<meta name="generator" content="Hugo 0.111.3" />
 
 
 <link rel="canonical" href="https://lyqglyqg.github.io/STAT-818/post/wk2/" />
@@ -53,12 +53,10 @@
 
 
 
-<link rel="stylesheet" href="/STAT-818/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/STAT-818/sass/jane.min.de22abc00de44766eebd1054fd9e0b254b071f89d5019044f893c484a9249a8d.css" integrity="sha256-3iKrwA3kR2buvRBU/Z4LJUsHH4nVAZBE&#43;JPEhKkkmo0=" media="screen" crossorigin="anonymous">
 
 
 
-<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
-<script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/js/all.js"></script>
 
 
 
@@ -167,6 +165,10 @@
             
               <li>
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk8/">R packages and example statistical analysis I</a>
               </li>
             
               <li>
@@ -315,33 +317,37 @@
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           <a class="menu-item-link menu-parent" href="https://lyqglyqg.github.io/STAT-818/">docs</a>
-          <ul class="submenu" >
+          <ul class="submenu">
             
-              <li>
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk7/">Data visualization</a>
               </li>
             
-              <li>
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
               </li>
             
-              <li>
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
               </li>
             
-              <li>
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
               </li>
             
-              <li>
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
               </li>
             
-              <li>
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk8/">R packages and example statistical analysis I</a>
+              </li>
+            
+              <li class="submenu-item">
                 <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
               </li>
             
@@ -362,7 +368,7 @@
   </header>
 
   <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
+    <main id="main" class="main bg-llight wallpaper">
       <div class="content-wrapper">
         <div id="content" class="content container">
           <article class="post bg-white">
@@ -370,25 +376,44 @@
     <header class="post-header">
       <h1 class="post-title">R Objects I: Vector, Matrix, and Array</h1>
       
+
       <div class="post-meta">
-        <time datetime="2023-01-25" class="post-time">
-          2023-01-25
-        </time>
-        <div class="post-category">
-            <a href="https://lyqglyqg.github.io/STAT-818/categories/r/"> R </a>
-            <a href="https://lyqglyqg.github.io/STAT-818/categories/vector/"> Vector </a>
-            <a href="https://lyqglyqg.github.io/STAT-818/categories/matrix/"> Matrix </a>
-            <a href="https://lyqglyqg.github.io/STAT-818/categories/array/"> Array </a>
-            
-          </div>
-        
+  <div class="post-meta-author">
+    by
+      yli8
+    
+  </div>
 
-        
-        
+  <div class="post-meta-time">
+    <time datetime="2023-01-25">
+      2023-01-25
+    </time>
+  </div>
 
-        
-        
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://lyqglyqg.github.io/STAT-818/categories/r/"> R </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/vector/"> Vector </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/matrix/"> Matrix </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/array/"> Array </a>
+          
       </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
     </header>
 
     
@@ -406,6 +431,7 @@
 </nav>
   </div>
 </div>
+
 
     
     <div class="post-content">
@@ -1333,17 +1359,20 @@
     
 
 
+
     
     
+
 
     <footer class="post-footer">
       <div class="post-tags">
           <a href="https://lyqglyqg.github.io/STAT-818/tags/r/">R</a>
-          <a href="https://lyqglyqg.github.io/STAT-818/tags/vector/">Vector</a>
-          <a href="https://lyqglyqg.github.io/STAT-818/tags/matrix/">Matrix</a>
-          <a href="https://lyqglyqg.github.io/STAT-818/tags/array/">Array</a>
-          
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/vector/">Vector</a>
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/matrix/">Matrix</a>
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/array/">Array</a>
+            
         </div>
+
 
       
       <nav class="post-nav">
@@ -1369,14 +1398,16 @@
   
   
 
-  
-  
-
-  
 
   
   
 
+  
+
+  
+  
+
+  
   
 
   
@@ -1384,6 +1415,8 @@
   
 
     
+
+  
 
   
 
@@ -1415,10 +1448,17 @@
 </svg>
 
   </a>
-   
+  
 </div>
 
 <div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
 
   <span class="copyright-year">
     &copy;
@@ -1466,7 +1506,7 @@
 
 
 
-<script type="text/javascript" src="/STAT-818/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/STAT-818/js/main.fe83e11b4fbc9193d67e2c9db78bad21f8dc59fca0cacd8c1c3bb071bb16a852.js" integrity="sha256-/oPhG0&#43;8kZPWfiydt4utIfjcWfygys2MHDuwcbsWqFI=" crossorigin="anonymous"></script>
 
 
 
@@ -1491,6 +1531,8 @@
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
+
+
 
 
 
