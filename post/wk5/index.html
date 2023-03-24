@@ -70,7 +70,7 @@
 <meta itemprop="name" content="Reproducible Research: Using R Markdown">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-02-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="350">
+<meta itemprop="wordCount" content="334">
 <meta itemprop="keywords" content="R Markdown," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Reproducible Research: Using R Markdown"/>
 <meta name="twitter:description" content=""/>
@@ -450,49 +450,22 @@
 <h2 id="1-what-is-r-markdown">1. What is R Markdown?</h2>
 <p>R Markdown allows you to create publishable documents that serve as a neat record of your analysis. It also provides others an easy way to replicate your analysis so makes your work fully reproducible.</p>
 <p>R Markdown has the following propoties:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* Execute and save R code
-</span></span><span class="line"><span class="cl">* Fully reproducible
-</span></span><span class="line"><span class="cl">* Support static and dynamic output
-</span></span><span class="line"><span class="cl">* Produce high quality reports
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="2-install-r-markdown-package">2. Install R Markdown package</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;rmarkdown&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rmarkdown</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="3-create-an-r-markdown-file">3. Create an R Markdown file</h2>
+<pre tabindex="0"><code>* Execute and save R code
+* Fully reproducible
+* Support static and dynamic output
+* Produce high quality reports
+</code></pre><h2 id="2-install-r-markdown-package">2. Install R Markdown package</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;rmarkdown&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(rmarkdown)
+</span></span></code></pre></div><h2 id="3-create-an-r-markdown-file">3. Create an R Markdown file</h2>
 <p><img src="Fig1.png" alt="RMarkdown1"></p>
 <p><img src="Fig2.png" alt="RMarkdown2"></p>
 <h2 id="4-write-r-markdown-file">4. Write R Markdown file</h2>
 <p>An R Markdown file contains</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* Header (optional)
-</span></span><span class="line"><span class="cl">* R code chunks: write your R code 
-</span></span><span class="line"><span class="cl">* Text: write description or interpretation
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="Fig3.png" alt="RMarkdown3"></p>
+<pre tabindex="0"><code>* Header (optional)
+* R code chunks: write your R code 
+* Text: write description or interpretation
+</code></pre><p><img src="Fig3.png" alt="RMarkdown3"></p>
 <h3 id="41-markdown-syntax">4.1 Markdown syntax</h3>
 <p>Regular markdown syntax can be used in your R Markdown document. Following are some common formatting syntaxes. A more detailed R Markdown syntax cheat sheet can be found <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">here</a>.</p>
 <hr>
@@ -522,21 +495,11 @@
 <hr>
 <h3 id="42-markdown-code-chunk">4.2 Markdown code chunk</h3>
 <p>An example R code chunk:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"> ```{r}  
-</span></span><span class="line"><span class="cl">  A &lt;- 1:20  
-</span></span><span class="line"><span class="cl">  A  
-</span></span><span class="line"><span class="cl"> ```   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span> ```{r}  
+</span></span><span style="display:flex;"><span>  A &lt;- 1:20  
+</span></span><span style="display:flex;"><span>  A  
+</span></span><span style="display:flex;"><span> ```   
+</span></span></code></pre></div><ul>
 <li>You can run a code chunk with the play button in R studio:</li>
 </ul>
 <p><img src="Fig4.png" alt="RMarkdown4"></p>
@@ -555,19 +518,10 @@
 <ul>
 <li>Use <code>echo = FALSE</code> in the code chunk to prevent printing it in the report:</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">```{r pressure, echo=FALSE}
-</span></span><span class="line"><span class="cl">plot(pressure)
-</span></span><span class="line"><span class="cl">```
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="r-markdown-reports">R Markdown reports</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>```{r pressure, echo=FALSE}
+</span></span><span style="display:flex;"><span>plot(pressure)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><h2 id="r-markdown-reports">R Markdown reports</h2>
 <p>R Markdown can output the report in different formats:</p>
 <ul>
 <li>HTML</li>

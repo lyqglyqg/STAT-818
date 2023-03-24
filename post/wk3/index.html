@@ -70,7 +70,7 @@
 <meta itemprop="name" content="R Objects II: List, Factor, and Data Frame">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-01-29T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-01-29T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2061">
+<meta itemprop="wordCount" content="1728">
 <meta itemprop="keywords" content="R,List,Factor,Frame," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Objects II: List, Factor, and Data Frame"/>
 <meta name="twitter:description" content=""/>
@@ -440,678 +440,390 @@
 <ul>
 <li>Entries of a list can be numbers, strings, logics, vectors, matrices, data frames, or lists as well.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="hl"><span class="lnt">10
-</span></span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">visiting_dates</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;01/17/2008&#34;</span><span class="p">,</span> <span class="s">&#34;04/23/2008&#34;</span><span class="p">,</span> <span class="s">&#34;05/01/2008&#34;</span><span class="p">,</span> <span class="s">&#34;12/23/2008&#34;</span><span class="p">,</span> <span class="s">&#34;06/17/2009&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">drug_dosage_profile</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2.3</span><span class="p">,</span> <span class="m">3.1</span><span class="p">,</span> <span class="m">1.6</span><span class="p">,</span> <span class="m">1.2</span><span class="p">,</span> <span class="m">2.0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">drug_dosage_profile</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">visiting_dates</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">tumor_radiomics_profile</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.23</span><span class="p">,</span> <span class="m">0.56</span><span class="p">,</span> <span class="m">0.30</span><span class="p">,</span> <span class="m">0.22</span><span class="p">,</span> <span class="m">0.36</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">tumor_radiomics_profile</span><span class="p">)</span> <span class="o">&lt;-</span>  <span class="n">visiting_dates</span>
-</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">tumor_radiomics_profile</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;tunor_radius&#34;</span><span class="p">,</span> <span class="s">&#34;tumor_gray_level&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line hl"><span class="cl"><span class="n">A</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Aaron&#34;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span> <span class="m">56</span><span class="p">,</span> <span class="n">cancer</span> <span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">diagnos_data</span><span class="o">=</span><span class="s">&#34;01/08/2008&#34;</span><span class="p">,</span> <span class="n">visiting_dates</span><span class="o">=</span><span class="n">visiting_dates</span><span class="p">,</span> <span class="n">tumor_radiomics_profile</span><span class="o">=</span><span class="n">tumor_radiomics_profile</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">A</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">age</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">56</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">cancer</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">diagnos_data</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;01/08/2008&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">visiting_dates</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;01/17/2008&#34;</span> <span class="s">&#34;04/23/2008&#34;</span> <span class="s">&#34;05/01/2008&#34;</span> <span class="s">&#34;12/23/2008&#34;</span> <span class="s">&#34;06/17/2009&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">tumor_radiomics_profile</span>
-</span></span><span class="line"><span class="cl">           <span class="n">tunor_radius</span> <span class="n">tumor_gray_level</span>
-</span></span><span class="line"><span class="cl"><span class="m">01</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.23</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">04</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.56</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">05</span><span class="o">/</span><span class="m">01</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.30</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">12</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.22</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">06</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2009</span>         <span class="m">0.36</span>                <span class="m">1</span></span></span></code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>visiting_dates <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;01/17/2008&#34;</span>, <span style="color:#e6db74">&#34;04/23/2008&#34;</span>, <span style="color:#e6db74">&#34;05/01/2008&#34;</span>, <span style="color:#e6db74">&#34;12/23/2008&#34;</span>, <span style="color:#e6db74">&#34;06/17/2009&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>drug_dosage_profile <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2.3</span>, <span style="color:#ae81ff">3.1</span>, <span style="color:#ae81ff">1.6</span>, <span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">2.0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(drug_dosage_profile) <span style="color:#f92672">&lt;-</span> visiting_dates
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tumor_radiomics_profile <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.23</span>, <span style="color:#ae81ff">0.56</span>, <span style="color:#ae81ff">0.30</span>, <span style="color:#ae81ff">0.22</span>, <span style="color:#ae81ff">0.36</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rownames</span>(tumor_radiomics_profile) <span style="color:#f92672">&lt;-</span>  visiting_dates
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">colnames</span>(tumor_radiomics_profile) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;tunor_radius&#34;</span>, <span style="color:#e6db74">&#34;tumor_gray_level&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>A <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Aaron&#34;</span>, age<span style="color:#f92672">=</span> <span style="color:#ae81ff">56</span>, cancer <span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>, diagnos_data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;01/08/2008&#34;</span>, visiting_dates<span style="color:#f92672">=</span>visiting_dates, tumor_radiomics_profile<span style="color:#f92672">=</span>tumor_radiomics_profile)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>age
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">56</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>cancer
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>diagnos_data
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;01/08/2008&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>visiting_dates
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;01/17/2008&#34;</span> <span style="color:#e6db74">&#34;04/23/2008&#34;</span> <span style="color:#e6db74">&#34;05/01/2008&#34;</span> <span style="color:#e6db74">&#34;12/23/2008&#34;</span> <span style="color:#e6db74">&#34;06/17/2009&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>tumor_radiomics_profile
+</span></span><span style="display:flex;"><span>           tunor_radius tumor_gray_level
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.23</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.56</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">05</span><span style="color:#f92672">/</span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.30</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.22</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">06</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2009</span>         <span style="color:#ae81ff">0.36</span>                <span style="color:#ae81ff">1</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ul>
 <li>Elements in a list can be accessed by using <code>$</code> or <code>[[ ]]</code> or <code>[]</code>.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">A</span><span class="o">$</span><span class="n">name</span>  <span class="c1"># Notice A$name is a string</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">A[1]</span>  <span class="c1"># Notice A[1] is a list of one string entry</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">A[[1]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">A[[1]]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;character&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">A[5]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">A[[2]]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;numeric&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">A[[3]]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;logical&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">A[5]</span><span class="p">)</span>  <span class="c1"># A[5] is a list of length 1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">A[[5]]</span><span class="p">)</span>  <span class="c1"># A[[5]] is a vector of length 5</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">5</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">A[[6]]</span><span class="p">)</span> <span class="c1"># A[[6]] is a matrix of dimension 5 by 2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">5</span> <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">A[6]</span><span class="p">)</span> <span class="c1"># A[6] is a list with one matrix entry, so its dimension is NULL. Remember a list only has length, no dimension</span>
-</span></span><span class="line"><span class="cl"><span class="kc">NULL</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A<span style="color:#f92672">$</span>name  <span style="color:#75715e"># Notice A$name is a string</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A[1]  <span style="color:#75715e"># Notice A[1] is a list of one string entry</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A[[1]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(A[[1]])
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;character&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(A[5])
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(A[[2]])
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;numeric&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(A[[3]])
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;logical&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(A[5])  <span style="color:#75715e"># A[5] is a list of length 1</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(A[[5]])  <span style="color:#75715e"># A[[5]] is a vector of length 5</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(A[[6]]) <span style="color:#75715e"># A[[6]] is a matrix of dimension 5 by 2</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(A[6]) <span style="color:#75715e"># A[6] is a list with one matrix entry, so its dimension is NULL. Remember a list only has length, no dimension</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">NULL</span>
+</span></span></code></pre></div><ul>
 <li>Create an empty list, assign names and add values to a list.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
-</span><span class="lnt">98
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#create empty list</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#verify that empty_list is of class &#39;list&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;list&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#view length of list</span>
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[[1]]</span> <span class="o">&lt;-</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[[2]]</span> <span class="o">&lt;-</span> <span class="s">&#34;56&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[[3]]</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[[4]]</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.23</span><span class="p">,</span> <span class="m">0.56</span><span class="p">,</span> <span class="m">0.30</span><span class="p">,</span> <span class="m">0.22</span><span class="p">,</span> <span class="m">0.36</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#or equivalently, you can use the following to assign values to a list</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[2]</span> <span class="o">&lt;-</span> <span class="s">&#34;56&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[3]</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list[4]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0.23</span><span class="p">,</span> <span class="m">0.56</span><span class="p">,</span> <span class="m">0.30</span><span class="p">,</span> <span class="m">0.22</span><span class="p">,</span> <span class="m">0.36</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># You will get a warning message if you do `empty_list[[4]] &lt;- matrix(c(0.23, 0.56, 0.30, 0.22, 0.36, 1, 2, 2, 1, 1), nrow=5).` Think why? Hint: note that empty_list[[4]] is a list entry, which can be any class object, while empty_list[4] is a length-1 list.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span>
-</span></span><span class="line"><span class="cl"><span class="n">[[1]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[2]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;56&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[3]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[4]]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span> <span class="m">0.23</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span> <span class="m">0.56</span>    <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span> <span class="m">0.30</span>    <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span> <span class="m">0.22</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[5</span><span class="p">,</span><span class="n">]</span> <span class="m">0.36</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Add names to each entry of &#34;empty_list&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;cancer&#34;</span><span class="p">,</span> <span class="s">&#34;tumor_radiomic_profile&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">age</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;56&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">cancer</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">tumor_radiomic_profile</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span> <span class="m">0.23</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span> <span class="m">0.56</span>    <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span> <span class="m">0.30</span>    <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span> <span class="m">0.22</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[5</span><span class="p">,</span><span class="n">]</span> <span class="m">0.36</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### The &#34;tumor_radiomic_profile&#34; matrix still has unnamed rows and columes</span>
-</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">empty_list</span><span class="o">$</span><span class="n">tumor_radiomic_profile</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;01/17/2008&#34;</span><span class="p">,</span> <span class="s">&#34;04/23/2008&#34;</span><span class="p">,</span> <span class="s">&#34;05/01/2008&#34;</span><span class="p">,</span> <span class="s">&#34;12/23/2008&#34;</span><span class="p">,</span> <span class="s">&#34;06/17/2009&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">empty_list</span><span class="o">$</span><span class="n">tumor_radiomic_profile</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;tunor_radius&#34;</span><span class="p">,</span> <span class="s">&#34;tumor_gray_level&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">age</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;56&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">cancer</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">tumor_radiomic_profile</span>
-</span></span><span class="line"><span class="cl">           <span class="n">tunor_radius</span> <span class="n">tumor_gray_level</span>
-</span></span><span class="line"><span class="cl"><span class="m">01</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.23</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">04</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.56</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">05</span><span class="o">/</span><span class="m">01</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.30</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">12</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.22</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">06</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2009</span>         <span class="m">0.36</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### You can also creat an empty list with specific length using the following</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span> <span class="o">&lt;-</span> <span class="nf">vector</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">empty_list</span>
-</span></span><span class="line"><span class="cl"><span class="n">[[1]]</span>
-</span></span><span class="line"><span class="cl"><span class="kc">NULL</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[2]]</span>
-</span></span><span class="line"><span class="cl"><span class="kc">NULL</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[3]]</span>
-</span></span><span class="line"><span class="cl"><span class="kc">NULL</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[4]]</span>
-</span></span><span class="line"><span class="cl"><span class="kc">NULL</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#create empty list</span>
+</span></span><span style="display:flex;"><span>empty_list <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#verify that empty_list is of class &#39;list&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(empty_list)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;list&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#view length of list</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(empty_list)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>empty_list[[1]] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>empty_list[[2]] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;56&#34;</span>
+</span></span><span style="display:flex;"><span>empty_list[[3]] <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>empty_list[[4]] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.23</span>, <span style="color:#ae81ff">0.56</span>, <span style="color:#ae81ff">0.30</span>, <span style="color:#ae81ff">0.22</span>, <span style="color:#ae81ff">0.36</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#or equivalently, you can use the following to assign values to a list</span>
+</span></span><span style="display:flex;"><span>empty_list[1] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>empty_list[2] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;56&#34;</span>
+</span></span><span style="display:flex;"><span>empty_list[3] <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>empty_list[4] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(<span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.23</span>, <span style="color:#ae81ff">0.56</span>, <span style="color:#ae81ff">0.30</span>, <span style="color:#ae81ff">0.22</span>, <span style="color:#ae81ff">0.36</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You will get a warning message if you do `empty_list[[4]] &lt;- matrix(c(0.23, 0.56, 0.30, 0.22, 0.36, 1, 2, 2, 1, 1), nrow=5).` Think why? Hint: note that empty_list[[4]] is a list entry, which can be any class object, while empty_list[4] is a length-1 list.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>empty_list
+</span></span><span style="display:flex;"><span>[[1]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[2]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;56&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[3]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[4]]
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,] <span style="color:#ae81ff">0.23</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[2,] <span style="color:#ae81ff">0.56</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>[3,] <span style="color:#ae81ff">0.30</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>[4,] <span style="color:#ae81ff">0.22</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[5,] <span style="color:#ae81ff">0.36</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Add names to each entry of &#34;empty_list&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(empty_list) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#e6db74">&#34;cancer&#34;</span>, <span style="color:#e6db74">&#34;tumor_radiomic_profile&#34;</span>)
+</span></span><span style="display:flex;"><span>empty_list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>age
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;56&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>cancer
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>tumor_radiomic_profile
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,] <span style="color:#ae81ff">0.23</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[2,] <span style="color:#ae81ff">0.56</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>[3,] <span style="color:#ae81ff">0.30</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>[4,] <span style="color:#ae81ff">0.22</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[5,] <span style="color:#ae81ff">0.36</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### The &#34;tumor_radiomic_profile&#34; matrix still has unnamed rows and columes</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rownames</span>(empty_list<span style="color:#f92672">$</span>tumor_radiomic_profile) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;01/17/2008&#34;</span>, <span style="color:#e6db74">&#34;04/23/2008&#34;</span>, <span style="color:#e6db74">&#34;05/01/2008&#34;</span>, <span style="color:#e6db74">&#34;12/23/2008&#34;</span>, <span style="color:#e6db74">&#34;06/17/2009&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">colnames</span>(empty_list<span style="color:#f92672">$</span>tumor_radiomic_profile) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;tunor_radius&#34;</span>, <span style="color:#e6db74">&#34;tumor_gray_level&#34;</span>)
+</span></span><span style="display:flex;"><span>empty_list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>age
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;56&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>cancer
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>tumor_radiomic_profile
+</span></span><span style="display:flex;"><span>           tunor_radius tumor_gray_level
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.23</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.56</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">05</span><span style="color:#f92672">/</span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.30</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.22</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">06</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2009</span>         <span style="color:#ae81ff">0.36</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### You can also creat an empty list with specific length using the following</span>
+</span></span><span style="display:flex;"><span>empty_list <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">vector</span>(mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;list&#39;</span>, length<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>empty_list
+</span></span><span style="display:flex;"><span>[[1]]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[2]]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[3]]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[4]]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">NULL</span>
+</span></span></code></pre></div><ul>
 <li>Function unlist() converts list to a vector.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">A</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Aaron&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">age</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">56</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">cancer</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">diagnos_data</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;01/08/2008&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">visiting_dates</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;01/17/2008&#34;</span> <span class="s">&#34;04/23/2008&#34;</span> <span class="s">&#34;05/01/2008&#34;</span> <span class="s">&#34;12/23/2008&#34;</span> <span class="s">&#34;06/17/2009&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">tumor_radiomics_profile</span>
-</span></span><span class="line"><span class="cl">           <span class="n">tunor_radius</span> <span class="n">tumor_gray_level</span>
-</span></span><span class="line"><span class="cl"><span class="m">01</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.23</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">04</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.56</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">05</span><span class="o">/</span><span class="m">01</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.30</span>                <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="m">12</span><span class="o">/</span><span class="m">23</span><span class="o">/</span><span class="m">2008</span>         <span class="m">0.22</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="m">06</span><span class="o">/</span><span class="m">17</span><span class="o">/</span><span class="m">2009</span>         <span class="m">0.36</span>                <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">unlist</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                     <span class="n">name</span>                       <span class="n">age</span>                    <span class="n">cancer</span> 
-</span></span><span class="line"><span class="cl">                  <span class="s">&#34;Aaron&#34;</span>                      <span class="s">&#34;56&#34;</span>                    <span class="s">&#34;TRUE&#34;</span> 
-</span></span><span class="line"><span class="cl">             <span class="n">diagnos_data</span>           <span class="n">visiting_dates1</span>           <span class="n">visiting_dates2</span> 
-</span></span><span class="line"><span class="cl">             <span class="s">&#34;01/08/2008&#34;</span>              <span class="s">&#34;01/17/2008&#34;</span>              <span class="s">&#34;04/23/2008&#34;</span> 
-</span></span><span class="line"><span class="cl">          <span class="n">visiting_dates3</span>           <span class="n">visiting_dates4</span>           <span class="n">visiting_dates5</span> 
-</span></span><span class="line"><span class="cl">             <span class="s">&#34;05/01/2008&#34;</span>              <span class="s">&#34;12/23/2008&#34;</span>              <span class="s">&#34;06/17/2009&#34;</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">tumor_radiomics_profile1</span>  <span class="n">tumor_radiomics_profile2</span>  <span class="n">tumor_radiomics_profile3</span> 
-</span></span><span class="line"><span class="cl">                   <span class="s">&#34;0.23&#34;</span>                    <span class="s">&#34;0.56&#34;</span>                     <span class="s">&#34;0.3&#34;</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">tumor_radiomics_profile4</span>  <span class="n">tumor_radiomics_profile5</span>  <span class="n">tumor_radiomics_profile6</span> 
-</span></span><span class="line"><span class="cl">                   <span class="s">&#34;0.22&#34;</span>                    <span class="s">&#34;0.36&#34;</span>                       <span class="s">&#34;1&#34;</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">tumor_radiomics_profile7</span>  <span class="n">tumor_radiomics_profile8</span>  <span class="n">tumor_radiomics_profile9</span> 
-</span></span><span class="line"><span class="cl">                      <span class="s">&#34;2&#34;</span>                       <span class="s">&#34;2&#34;</span>                       <span class="s">&#34;1&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">tumor_radiomics_profile10</span> 
-</span></span><span class="line"><span class="cl">                      <span class="s">&#34;1&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="c1">### Notice that numerical values have been converted to characters.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>A
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Aaron&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>age
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">56</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>cancer
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>diagnos_data
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;01/08/2008&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>visiting_dates
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;01/17/2008&#34;</span> <span style="color:#e6db74">&#34;04/23/2008&#34;</span> <span style="color:#e6db74">&#34;05/01/2008&#34;</span> <span style="color:#e6db74">&#34;12/23/2008&#34;</span> <span style="color:#e6db74">&#34;06/17/2009&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>tumor_radiomics_profile
+</span></span><span style="display:flex;"><span>           tunor_radius tumor_gray_level
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.23</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.56</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">05</span><span style="color:#f92672">/</span><span style="color:#ae81ff">01</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.30</span>                <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span><span style="color:#f92672">/</span><span style="color:#ae81ff">23</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>         <span style="color:#ae81ff">0.22</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">06</span><span style="color:#f92672">/</span><span style="color:#ae81ff">17</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2009</span>         <span style="color:#ae81ff">0.36</span>                <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">unlist</span>(A)
+</span></span><span style="display:flex;"><span>                     name                       age                    cancer 
+</span></span><span style="display:flex;"><span>                  <span style="color:#e6db74">&#34;Aaron&#34;</span>                      <span style="color:#e6db74">&#34;56&#34;</span>                    <span style="color:#e6db74">&#34;TRUE&#34;</span> 
+</span></span><span style="display:flex;"><span>             diagnos_data           visiting_dates1           visiting_dates2 
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;01/08/2008&#34;</span>              <span style="color:#e6db74">&#34;01/17/2008&#34;</span>              <span style="color:#e6db74">&#34;04/23/2008&#34;</span> 
+</span></span><span style="display:flex;"><span>          visiting_dates3           visiting_dates4           visiting_dates5 
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;05/01/2008&#34;</span>              <span style="color:#e6db74">&#34;12/23/2008&#34;</span>              <span style="color:#e6db74">&#34;06/17/2009&#34;</span> 
+</span></span><span style="display:flex;"><span> tumor_radiomics_profile1  tumor_radiomics_profile2  tumor_radiomics_profile3 
+</span></span><span style="display:flex;"><span>                   <span style="color:#e6db74">&#34;0.23&#34;</span>                    <span style="color:#e6db74">&#34;0.56&#34;</span>                     <span style="color:#e6db74">&#34;0.3&#34;</span> 
+</span></span><span style="display:flex;"><span> tumor_radiomics_profile4  tumor_radiomics_profile5  tumor_radiomics_profile6 
+</span></span><span style="display:flex;"><span>                   <span style="color:#e6db74">&#34;0.22&#34;</span>                    <span style="color:#e6db74">&#34;0.36&#34;</span>                       <span style="color:#e6db74">&#34;1&#34;</span> 
+</span></span><span style="display:flex;"><span> tumor_radiomics_profile7  tumor_radiomics_profile8  tumor_radiomics_profile9 
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#34;2&#34;</span>                       <span style="color:#e6db74">&#34;2&#34;</span>                       <span style="color:#e6db74">&#34;1&#34;</span> 
+</span></span><span style="display:flex;"><span>tumor_radiomics_profile10 
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#34;1&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Notice that numerical values have been converted to characters.</span>
+</span></span></code></pre></div><ul>
 <li>Most R functions put outputs into a simgle object.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="n">Nile</span><span class="p">)</span> <span class="c1"># Measurements of the annual flow of the river Nile at Aswan (formerly Assuan)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Nile[1</span><span class="o">:</span><span class="m">10</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span> <span class="m">1120</span> <span class="m">1160</span>  <span class="m">963</span> <span class="m">1210</span> <span class="m">1160</span> <span class="m">1160</span>  <span class="m">813</span> <span class="m">1230</span> <span class="m">1370</span> <span class="m">1140</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plot_result</span> <span class="o">&lt;-</span> <span class="nf">hist</span><span class="p">(</span><span class="n">Nile</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plot_result</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">breaks</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span>  <span class="m">400</span>  <span class="m">500</span>  <span class="m">600</span>  <span class="m">700</span>  <span class="m">800</span>  <span class="m">900</span> <span class="m">1000</span> <span class="m">1100</span> <span class="m">1200</span> <span class="m">1300</span> <span class="m">1400</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">counts</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span>  <span class="m">1</span>  <span class="m">0</span>  <span class="m">5</span> <span class="m">20</span> <span class="m">25</span> <span class="m">19</span> <span class="m">12</span> <span class="m">11</span>  <span class="m">6</span>  <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">density</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span> <span class="m">0.0001</span> <span class="m">0.0000</span> <span class="m">0.0005</span> <span class="m">0.0020</span> <span class="m">0.0025</span> <span class="m">0.0019</span> <span class="m">0.0012</span> <span class="m">0.0011</span> <span class="m">0.0006</span> <span class="m">0.0001</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">mids</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span>  <span class="m">450</span>  <span class="m">550</span>  <span class="m">650</span>  <span class="m">750</span>  <span class="m">850</span>  <span class="m">950</span> <span class="m">1050</span> <span class="m">1150</span> <span class="m">1250</span> <span class="m">1350</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">xname</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Nile&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">equidist</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">attr</span><span class="p">(,</span><span class="s">&#34;class&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;histogram&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="hist_Nile.png" alt="Histgrams"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">data</span>(Nile) <span style="color:#75715e"># Measurements of the annual flow of the river Nile at Aswan (formerly Assuan)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Nile[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span> [1] <span style="color:#ae81ff">1120</span> <span style="color:#ae81ff">1160</span>  <span style="color:#ae81ff">963</span> <span style="color:#ae81ff">1210</span> <span style="color:#ae81ff">1160</span> <span style="color:#ae81ff">1160</span>  <span style="color:#ae81ff">813</span> <span style="color:#ae81ff">1230</span> <span style="color:#ae81ff">1370</span> <span style="color:#ae81ff">1140</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plot_result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hist</span>(Nile)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plot_result
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>breaks
+</span></span><span style="display:flex;"><span> [1]  <span style="color:#ae81ff">400</span>  <span style="color:#ae81ff">500</span>  <span style="color:#ae81ff">600</span>  <span style="color:#ae81ff">700</span>  <span style="color:#ae81ff">800</span>  <span style="color:#ae81ff">900</span> <span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">1100</span> <span style="color:#ae81ff">1200</span> <span style="color:#ae81ff">1300</span> <span style="color:#ae81ff">1400</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>counts
+</span></span><span style="display:flex;"><span> [1]  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">11</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>density
+</span></span><span style="display:flex;"><span> [1] <span style="color:#ae81ff">0.0001</span> <span style="color:#ae81ff">0.0000</span> <span style="color:#ae81ff">0.0005</span> <span style="color:#ae81ff">0.0020</span> <span style="color:#ae81ff">0.0025</span> <span style="color:#ae81ff">0.0019</span> <span style="color:#ae81ff">0.0012</span> <span style="color:#ae81ff">0.0011</span> <span style="color:#ae81ff">0.0006</span> <span style="color:#ae81ff">0.0001</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>mids
+</span></span><span style="display:flex;"><span> [1]  <span style="color:#ae81ff">450</span>  <span style="color:#ae81ff">550</span>  <span style="color:#ae81ff">650</span>  <span style="color:#ae81ff">750</span>  <span style="color:#ae81ff">850</span>  <span style="color:#ae81ff">950</span> <span style="color:#ae81ff">1050</span> <span style="color:#ae81ff">1150</span> <span style="color:#ae81ff">1250</span> <span style="color:#ae81ff">1350</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>xname
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Nile&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>equidist
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">attr</span>(,<span style="color:#e6db74">&#34;class&#34;</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;histogram&#34;</span>
+</span></span></code></pre></div><p><img src="hist_Nile.png" alt="Histgrams"></p>
 <ul>
 <li>Functions <code>lapply()</code> and <code>sapply()</code>.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">### Function lapply() (&#34;l&#34; for list) works similarly to apply() function</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lapply</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">),</span> <span class="n">median</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[[1]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[[2]]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">5</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Function sapply() gives a vector output</span>
-</span></span><span class="line"><span class="cl"><span class="nf">sapply</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">),</span> <span class="n">median</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">2</span> <span class="m">5</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="factors">Factors</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">tumor_sizes</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Big&#34;</span><span class="p">,</span> <span class="s">&#34;Big&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Small&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Small&#34;</span>  <span class="s">&#34;Big&#34;</span>    <span class="s">&#34;Big&#34;</span>    <span class="s">&#34;Medium&#34;</span> <span class="s">&#34;Medium&#34;</span> <span class="s">&#34;Small&#34;</span>  <span class="s">&#34;Medium&#34;</span> <span class="s">&#34;Small&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">[9]</span> <span class="s">&#34;Small&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="n">Length</span>     <span class="n">Class</span>      <span class="n">Mode</span> 
-</span></span><span class="line"><span class="cl">        <span class="m">9</span> <span class="n">character</span> <span class="n">character</span>
-</span></span><span class="line"><span class="cl"><span class="c1">### tumor_sizes is a vector of characters </span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Use factor() to change it to a factor</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="n">Small</span>  <span class="n">Big</span>    <span class="n">Big</span>    <span class="n">Medium</span> <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Small</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="n">Big</span> <span class="n">Medium</span> <span class="n">Small</span>
-</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">tumor_sizes_factor</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="n">Big</span> <span class="n">Medium</span>  <span class="n">Small</span> 
-</span></span><span class="line"><span class="cl">     <span class="m">2</span>      <span class="m">3</span>      <span class="m">4</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Or as.factor() gives the same thing</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor1</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor1</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="n">Small</span>  <span class="n">Big</span>    <span class="n">Big</span>    <span class="n">Medium</span> <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Small</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="n">Big</span> <span class="n">Medium</span> <span class="n">Small</span>
-</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">tumor_sizes_factor1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="n">Big</span> <span class="n">Medium</span>  <span class="n">Small</span> 
-</span></span><span class="line"><span class="cl">     <span class="m">2</span>      <span class="m">3</span>      <span class="m">4</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#75715e">### Function lapply() (&#34;l&#34; for list) works similarly to apply() function</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lapply</span>(<span style="color:#a6e22e">list</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">:</span><span style="color:#ae81ff">6</span>), median)
+</span></span><span style="display:flex;"><span>[[1]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[2]]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Function sapply() gives a vector output</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sapply</span>(<span style="color:#a6e22e">list</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">:</span><span style="color:#ae81ff">6</span>), median)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><h2 id="factors">Factors</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>tumor_sizes <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Big&#34;</span>, <span style="color:#e6db74">&#34;Big&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Small&#34;</span>)
+</span></span><span style="display:flex;"><span>tumor_sizes
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Small&#34;</span>  <span style="color:#e6db74">&#34;Big&#34;</span>    <span style="color:#e6db74">&#34;Big&#34;</span>    <span style="color:#e6db74">&#34;Medium&#34;</span> <span style="color:#e6db74">&#34;Medium&#34;</span> <span style="color:#e6db74">&#34;Small&#34;</span>  <span style="color:#e6db74">&#34;Medium&#34;</span> <span style="color:#e6db74">&#34;Small&#34;</span> 
+</span></span><span style="display:flex;"><span>[9] <span style="color:#e6db74">&#34;Small&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(tumor_sizes)
+</span></span><span style="display:flex;"><span>   Length     Class      Mode 
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">9</span> character character
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### tumor_sizes is a vector of characters </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Use factor() to change it to a factor</span>
+</span></span><span style="display:flex;"><span>tumor_sizes_factor <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(tumor_sizes)
+</span></span><span style="display:flex;"><span>tumor_sizes_factor
+</span></span><span style="display:flex;"><span>[1] Small  Big    Big    Medium Medium Small  Medium Small  Small 
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> Big Medium Small
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(tumor_sizes_factor)
+</span></span><span style="display:flex;"><span>   Big Medium  Small 
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">2</span>      <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">4</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Or as.factor() gives the same thing</span>
+</span></span><span style="display:flex;"><span>tumor_sizes_factor1
+</span></span><span style="display:flex;"><span>tumor_sizes_factor1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(tumor_sizes)
+</span></span><span style="display:flex;"><span>[1] Small  Big    Big    Medium Medium Small  Medium Small  Small 
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> Big Medium Small
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(tumor_sizes_factor1)
+</span></span><span style="display:flex;"><span>   Big Medium  Small 
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">2</span>      <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">4</span> 
+</span></span></code></pre></div><ul>
 <li>Norminal variables can be only factored without an ordering. Some qualitative varaibles admit an ordering. Such varibales can be factored in an ordinal scales.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="hl"><span class="lnt">15
-</span></span><span class="hl"><span class="lnt">16
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></span><span style="background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">### Norminal factors</span>
-</span></span><span class="line"><span class="cl"><span class="n">colors</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Orange&#34;</span><span class="p">,</span> <span class="s">&#34;Red&#34;</span><span class="p">,</span> <span class="s">&#34;Red&#34;</span><span class="p">,</span> <span class="s">&#34;Yellow&#34;</span><span class="p">,</span> <span class="s">&#34;Blue&#34;</span><span class="p">,</span> <span class="s">&#34;Green&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">factor.colors</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">factor.colors</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="n">Orange</span> <span class="n">Red</span>    <span class="n">Red</span>    <span class="n">Yellow</span> <span class="n">Blue</span>   <span class="n">Green</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="n">Blue</span> <span class="n">Green</span> <span class="n">Orange</span> <span class="n">Red</span> <span class="n">Yellow</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Ordinal factors</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor2</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Big&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="n">Small</span>  <span class="n">Big</span>    <span class="n">Big</span>    <span class="n">Medium</span> <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Medium</span> <span class="n">Small</span>  <span class="n">Small</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="n">Small</span> <span class="o">&lt;</span> <span class="n">Medium</span> <span class="o">&lt;</span> <span class="n">Big</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Notice that as.factor() function does not have the options &#34;ordered=, levels=&#34;!!</span>
-</span></span><span class="line"><span class="cl"><span class="n">tumor_sizes_factor2</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Big&#34;</span><span class="p">))</span>
-</span></span><span class="line hl"><span class="cl"><span class="n">Error</span> <span class="n">in</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">tumor_sizes</span><span class="p">,</span> <span class="n">ordered</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span>  <span class="o">:</span> 
-</span></span><span class="line hl"><span class="cl">  <span class="n">unused</span> <span class="nf">arguments </span><span class="p">(</span><span class="n">ordered</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Small&#34;</span><span class="p">,</span> <span class="s">&#34;Medium&#34;</span><span class="p">,</span> <span class="s">&#34;Big&#34;</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#75715e">### Norminal factors</span>
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Orange&#34;</span>, <span style="color:#e6db74">&#34;Red&#34;</span>, <span style="color:#e6db74">&#34;Red&#34;</span>, <span style="color:#e6db74">&#34;Yellow&#34;</span>, <span style="color:#e6db74">&#34;Blue&#34;</span>, <span style="color:#e6db74">&#34;Green&#34;</span>)
+</span></span><span style="display:flex;"><span>factor.colors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(colors)
+</span></span><span style="display:flex;"><span>factor.colors
+</span></span><span style="display:flex;"><span>[1] Orange Red    Red    Yellow Blue   Green 
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> Blue Green Orange Red Yellow
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Ordinal factors</span>
+</span></span><span style="display:flex;"><span>tumor_sizes_factor2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(tumor_sizes, ordered<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>, levels<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Big&#34;</span>))
+</span></span><span style="display:flex;"><span>[1] Small  Big    Big    Medium Medium Small  Medium Small  Small 
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> Small <span style="color:#f92672">&lt;</span> Medium <span style="color:#f92672">&lt;</span> Big
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Notice that as.factor() function does not have the options &#34;ordered=, levels=&#34;!!</span>
+</span></span><span style="display:flex;"><span>tumor_sizes_factor2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(tumor_sizes, ordered<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>, levels<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Big&#34;</span>))
+</span></span><span style="display:flex; background-color:#3c3d38"><span>Error in <span style="color:#a6e22e">as.factor</span>(tumor_sizes, ordered <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>,  <span style="color:#f92672">:</span> 
+</span></span><span style="display:flex; background-color:#3c3d38"><span>  unused <span style="color:#a6e22e">arguments </span>(ordered <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Small&#34;</span>, <span style="color:#e6db74">&#34;Medium&#34;</span>, <span style="color:#e6db74">&#34;Big&#34;</span>))</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ul>
 <li>Assign levels to factors.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">smoking</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">smoking</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="m">0</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">levels</span><span class="p">(</span><span class="n">smoking</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;No&#34;</span><span class="p">,</span> <span class="s">&#34;Yes&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">gender</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="n">Yes</span>   <span class="n">No</span> <span class="n">No</span> <span class="n">Yes</span>   <span class="n">Yes</span>   <span class="n">No</span> <span class="n">Yes</span>   <span class="n">Yes</span>  
-</span></span><span class="line"><span class="cl"><span class="n">Levels</span><span class="o">:</span> <span class="n">No</span> <span class="n">Yes</span>
-</span></span><span class="line"><span class="cl"><span class="c1">### The order of new levels needs to match with that of the old levels.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="data-frames">Data frames</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>smoking <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>smoking
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">levels</span>(smoking) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No&#34;</span>, <span style="color:#e6db74">&#34;Yes&#34;</span>)
+</span></span><span style="display:flex;"><span>gender
+</span></span><span style="display:flex;"><span>[1] Yes   No No Yes   Yes   No Yes   Yes  
+</span></span><span style="display:flex;"><span>Levels<span style="color:#f92672">:</span> No Yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### The order of new levels needs to match with that of the old levels.</span>
+</span></span></code></pre></div><h2 id="data-frames">Data frames</h2>
 <ul>
 <li>
 <p>A data frame is a two-dimensional object.</p>
@@ -1123,273 +835,162 @@
 <p>Dataframe in an <em>R</em> package</p>
 </li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">iris[1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">  <span class="n">Sepal.Length</span> <span class="n">Sepal.Width</span> <span class="n">Petal.Length</span> <span class="n">Petal.Width</span> <span class="n">Species</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span>          <span class="m">5.1</span>         <span class="m">3.5</span>          <span class="m">1.4</span>         <span class="m">0.2</span>  <span class="n">setosa</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>          <span class="m">4.9</span>         <span class="m">3.0</span>          <span class="m">1.4</span>         <span class="m">0.2</span>  <span class="n">setosa</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span>          <span class="m">4.7</span>         <span class="m">3.2</span>          <span class="m">1.3</span>         <span class="m">0.2</span>  <span class="n">setosa</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span>          <span class="m">4.6</span>         <span class="m">3.1</span>          <span class="m">1.5</span>         <span class="m">0.2</span>  <span class="n">setosa</span>
-</span></span><span class="line"><span class="cl"><span class="m">5</span>          <span class="m">5.0</span>         <span class="m">3.6</span>          <span class="m">1.4</span>         <span class="m">0.2</span>  <span class="n">setosa</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;data.frame&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;factor&#34;</span>    
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">data</span>(iris)
+</span></span><span style="display:flex;"><span>iris[1<span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>,]
+</span></span><span style="display:flex;"><span>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>          <span style="color:#ae81ff">5.1</span>         <span style="color:#ae81ff">3.5</span>          <span style="color:#ae81ff">1.4</span>         <span style="color:#ae81ff">0.2</span>  setosa
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>          <span style="color:#ae81ff">4.9</span>         <span style="color:#ae81ff">3.0</span>          <span style="color:#ae81ff">1.4</span>         <span style="color:#ae81ff">0.2</span>  setosa
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>          <span style="color:#ae81ff">4.7</span>         <span style="color:#ae81ff">3.2</span>          <span style="color:#ae81ff">1.3</span>         <span style="color:#ae81ff">0.2</span>  setosa
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>          <span style="color:#ae81ff">4.6</span>         <span style="color:#ae81ff">3.1</span>          <span style="color:#ae81ff">1.5</span>         <span style="color:#ae81ff">0.2</span>  setosa
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>          <span style="color:#ae81ff">5.0</span>         <span style="color:#ae81ff">3.6</span>          <span style="color:#ae81ff">1.4</span>         <span style="color:#ae81ff">0.2</span>  setosa
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(iris)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;data.frame&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">class</span>(iris<span style="color:#f92672">$</span>Species)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;factor&#34;</span>    
+</span></span></code></pre></div><ul>
 <li>Get information about the structure of a data frame</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#39;data.frame&#39;</span><span class="o">:</span>	<span class="m">150</span> <span class="n">obs.</span> <span class="n">of</span>  <span class="m">5</span> <span class="n">variables</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">Sepal.Length</span><span class="o">:</span> <span class="n">num</span>  <span class="m">5.1</span> <span class="m">4.9</span> <span class="m">4.7</span> <span class="m">4.6</span> <span class="m">5</span> <span class="m">5.4</span> <span class="m">4.6</span> <span class="m">5</span> <span class="m">4.4</span> <span class="m">4.9</span> <span class="kc">...</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">Sepal.Width</span> <span class="o">:</span> <span class="n">num</span>  <span class="m">3.5</span> <span class="m">3</span> <span class="m">3.2</span> <span class="m">3.1</span> <span class="m">3.6</span> <span class="m">3.9</span> <span class="m">3.4</span> <span class="m">3.4</span> <span class="m">2.9</span> <span class="m">3.1</span> <span class="kc">...</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">Petal.Length</span><span class="o">:</span> <span class="n">num</span>  <span class="m">1.4</span> <span class="m">1.4</span> <span class="m">1.3</span> <span class="m">1.5</span> <span class="m">1.4</span> <span class="m">1.7</span> <span class="m">1.4</span> <span class="m">1.5</span> <span class="m">1.4</span> <span class="m">1.5</span> <span class="kc">...</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">Petal.Width</span> <span class="o">:</span> <span class="n">num</span>  <span class="m">0.2</span> <span class="m">0.2</span> <span class="m">0.2</span> <span class="m">0.2</span> <span class="m">0.2</span> <span class="m">0.4</span> <span class="m">0.3</span> <span class="m">0.2</span> <span class="m">0.2</span> <span class="m">0.1</span> <span class="kc">...</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">Species</span>     <span class="o">:</span> <span class="n">Factor</span> <span class="n">w</span><span class="o">/</span> <span class="m">3</span> <span class="n">levels</span> <span class="s">&#34;setosa&#34;</span><span class="p">,</span><span class="s">&#34;versicolor&#34;</span><span class="p">,</span><span class="n">..</span><span class="o">:</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="kc">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">str</span>(iris)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;data.frame&#39;</span><span style="color:#f92672">:</span>	<span style="color:#ae81ff">150</span> obs. of  <span style="color:#ae81ff">5</span> variables<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> Sepal.Length<span style="color:#f92672">:</span> num  <span style="color:#ae81ff">5.1</span> <span style="color:#ae81ff">4.9</span> <span style="color:#ae81ff">4.7</span> <span style="color:#ae81ff">4.6</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">5.4</span> <span style="color:#ae81ff">4.6</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">4.4</span> <span style="color:#ae81ff">4.9</span> <span style="color:#66d9ef">...</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> Sepal.Width <span style="color:#f92672">:</span> num  <span style="color:#ae81ff">3.5</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">3.2</span> <span style="color:#ae81ff">3.1</span> <span style="color:#ae81ff">3.6</span> <span style="color:#ae81ff">3.9</span> <span style="color:#ae81ff">3.4</span> <span style="color:#ae81ff">3.4</span> <span style="color:#ae81ff">2.9</span> <span style="color:#ae81ff">3.1</span> <span style="color:#66d9ef">...</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> Petal.Length<span style="color:#f92672">:</span> num  <span style="color:#ae81ff">1.4</span> <span style="color:#ae81ff">1.4</span> <span style="color:#ae81ff">1.3</span> <span style="color:#ae81ff">1.5</span> <span style="color:#ae81ff">1.4</span> <span style="color:#ae81ff">1.7</span> <span style="color:#ae81ff">1.4</span> <span style="color:#ae81ff">1.5</span> <span style="color:#ae81ff">1.4</span> <span style="color:#ae81ff">1.5</span> <span style="color:#66d9ef">...</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> Petal.Width <span style="color:#f92672">:</span> num  <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.4</span> <span style="color:#ae81ff">0.3</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.2</span> <span style="color:#ae81ff">0.1</span> <span style="color:#66d9ef">...</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> Species     <span style="color:#f92672">:</span> Factor w<span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> levels <span style="color:#e6db74">&#34;setosa&#34;</span>,<span style="color:#e6db74">&#34;versicolor&#34;</span>,..<span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">...</span>
+</span></span></code></pre></div><ul>
 <li>Create a dataframe using the function <em>data.frame()</em>.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="hl"><span class="lnt"> 8
-</span></span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Alfonso&#34;</span><span class="p">,</span> <span class="s">&#34;Carlos&#34;</span><span class="p">,</span> <span class="s">&#34;Lluis&#34;</span><span class="p">,</span> <span class="s">&#34;Diego&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">last.name</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Zamora&#34;</span><span class="p">,</span> <span class="s">&#34;Quesada&#34;</span><span class="p">,</span> <span class="s">&#34;Hurtado&#34;</span><span class="p">,</span> <span class="s">&#34;Mondejar&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">second.last.name</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Saiz&#34;</span><span class="p">,</span> <span class="s">&#34;Gonzalez&#34;</span><span class="p">,</span> <span class="s">&#34;Gil&#34;</span><span class="p">,</span> <span class="s">&#34;Ruiz&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">33</span><span class="p">,</span> <span class="m">32</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">37</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">phd</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;math&#34;</span><span class="p">,</span> <span class="s">&#34;math&#34;</span><span class="p">,</span> <span class="s">&#34;physics&#34;</span><span class="p">,</span> <span class="s">&#34;math&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">office</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">from.madrid</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line hl"><span class="cl"><span class="n">professors</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">last.name</span><span class="p">,</span> <span class="n">second.last.name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">phd</span><span class="p">,</span> <span class="n">office</span><span class="p">,</span> <span class="n">from.madrid</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">professors</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#39;data.frame&#39;</span><span class="o">:</span>	<span class="m">4</span> <span class="n">obs.</span> <span class="n">of</span>  <span class="m">7</span> <span class="n">variables</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">name</span>            <span class="o">:</span> <span class="n">chr</span>  <span class="s">&#34;Alfonso&#34;</span> <span class="s">&#34;Carlos&#34;</span> <span class="s">&#34;Lluis&#34;</span> <span class="s">&#34;Diego&#34;</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">last.name</span>       <span class="o">:</span> <span class="n">chr</span>  <span class="s">&#34;Zamora&#34;</span> <span class="s">&#34;Quesada&#34;</span> <span class="s">&#34;Hurtado&#34;</span> <span class="s">&#34;Mondejar&#34;</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">second.last.name</span><span class="o">:</span> <span class="n">chr</span>  <span class="s">&#34;Saiz&#34;</span> <span class="s">&#34;Gonzalez&#34;</span> <span class="s">&#34;Gil&#34;</span> <span class="s">&#34;Ruiz&#34;</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">age</span>             <span class="o">:</span> <span class="n">num</span>  <span class="m">33</span> <span class="m">32</span> <span class="m">30</span> <span class="m">37</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">phd</span>             <span class="o">:</span> <span class="n">chr</span>  <span class="s">&#34;math&#34;</span> <span class="s">&#34;math&#34;</span> <span class="s">&#34;physics&#34;</span> <span class="s">&#34;math&#34;</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">office</span>          <span class="o">:</span> <span class="n">num</span>  <span class="m">4</span> <span class="m">14</span> <span class="m">6</span> <span class="m">8</span>
-</span></span><span class="line"><span class="cl"> <span class="o">$</span> <span class="n">from.madrid</span>     <span class="o">:</span> <span class="n">logi</span>  <span class="kc">FALSE</span> <span class="kc">TRUE</span> <span class="kc">FALSE</span> <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">professors</span>
-</span></span><span class="line"><span class="cl">     <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>     <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">Alfonso</span>    <span class="n">Zamora</span>             <span class="n">Saiz</span>  <span class="m">33</span>    <span class="n">math</span>      <span class="m">4</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="n">Carlos</span>   <span class="n">Quesada</span>         <span class="n">Gonzalez</span>  <span class="m">32</span>    <span class="n">math</span>     <span class="m">14</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span>   <span class="n">Lluis</span>   <span class="n">Hurtado</span>              <span class="n">Gil</span>  <span class="m">30</span> <span class="n">physics</span>      <span class="m">6</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span>   <span class="n">Diego</span>  <span class="n">Mondejar</span>             <span class="n">Ruiz</span>  <span class="m">37</span>    <span class="n">math</span>      <span class="m">8</span>        <span class="kc">TRUE</span></span></span></code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>name <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Alfonso&#34;</span>, <span style="color:#e6db74">&#34;Carlos&#34;</span>, <span style="color:#e6db74">&#34;Lluis&#34;</span>, <span style="color:#e6db74">&#34;Diego&#34;</span>)
+</span></span><span style="display:flex;"><span>last.name <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Zamora&#34;</span>, <span style="color:#e6db74">&#34;Quesada&#34;</span>, <span style="color:#e6db74">&#34;Hurtado&#34;</span>, <span style="color:#e6db74">&#34;Mondejar&#34;</span>)
+</span></span><span style="display:flex;"><span>second.last.name <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Saiz&#34;</span>, <span style="color:#e6db74">&#34;Gonzalez&#34;</span>, <span style="color:#e6db74">&#34;Gil&#34;</span>, <span style="color:#e6db74">&#34;Ruiz&#34;</span>)
+</span></span><span style="display:flex;"><span>age <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">37</span>)
+</span></span><span style="display:flex;"><span>phd <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;math&#34;</span>, <span style="color:#e6db74">&#34;math&#34;</span>, <span style="color:#e6db74">&#34;physics&#34;</span>, <span style="color:#e6db74">&#34;math&#34;</span>)
+</span></span><span style="display:flex;"><span>office <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>)
+</span></span><span style="display:flex;"><span>from.madrid <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">TRUE</span>, <span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>professors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(name, last.name, second.last.name, age, phd, office, from.madrid)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">str</span>(professors)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;data.frame&#39;</span><span style="color:#f92672">:</span>	<span style="color:#ae81ff">4</span> obs. of  <span style="color:#ae81ff">7</span> variables<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> name            <span style="color:#f92672">:</span> chr  <span style="color:#e6db74">&#34;Alfonso&#34;</span> <span style="color:#e6db74">&#34;Carlos&#34;</span> <span style="color:#e6db74">&#34;Lluis&#34;</span> <span style="color:#e6db74">&#34;Diego&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> last.name       <span style="color:#f92672">:</span> chr  <span style="color:#e6db74">&#34;Zamora&#34;</span> <span style="color:#e6db74">&#34;Quesada&#34;</span> <span style="color:#e6db74">&#34;Hurtado&#34;</span> <span style="color:#e6db74">&#34;Mondejar&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> second.last.name<span style="color:#f92672">:</span> chr  <span style="color:#e6db74">&#34;Saiz&#34;</span> <span style="color:#e6db74">&#34;Gonzalez&#34;</span> <span style="color:#e6db74">&#34;Gil&#34;</span> <span style="color:#e6db74">&#34;Ruiz&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> age             <span style="color:#f92672">:</span> num  <span style="color:#ae81ff">33</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">37</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> phd             <span style="color:#f92672">:</span> chr  <span style="color:#e6db74">&#34;math&#34;</span> <span style="color:#e6db74">&#34;math&#34;</span> <span style="color:#e6db74">&#34;physics&#34;</span> <span style="color:#e6db74">&#34;math&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> office          <span style="color:#f92672">:</span> num  <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">$</span> from.madrid     <span style="color:#f92672">:</span> logi  <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">TRUE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>professors
+</span></span><span style="display:flex;"><span>     name last.name second.last.name age     phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> Alfonso    Zamora             Saiz  <span style="color:#ae81ff">33</span>    math      <span style="color:#ae81ff">4</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  Carlos   Quesada         Gonzalez  <span style="color:#ae81ff">32</span>    math     <span style="color:#ae81ff">14</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>   Lluis   Hurtado              Gil  <span style="color:#ae81ff">30</span> physics      <span style="color:#ae81ff">6</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>   Diego  Mondejar             Ruiz  <span style="color:#ae81ff">37</span>    math      <span style="color:#ae81ff">8</span>        <span style="color:#66d9ef">TRUE</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ul>
 <li>Select from and sort a data frame.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">professors[1</span><span class="p">,</span> <span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>  <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">Alfonso</span>    <span class="n">Zamora</span>             <span class="n">Saiz</span>  <span class="m">33</span> <span class="n">math</span>      <span class="m">4</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">professors</span><span class="o">$</span><span class="n">second.last.name</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Saiz&#34;</span>     <span class="s">&#34;Gonzalez&#34;</span> <span class="s">&#34;Gil&#34;</span>      <span class="s">&#34;Ruiz&#34;</span>    
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">professors[professors</span><span class="o">$</span><span class="n">from.madrid</span><span class="p">,</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>  <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="n">Carlos</span>   <span class="n">Quesada</span>         <span class="n">Gonzalez</span>  <span class="m">32</span> <span class="n">math</span>     <span class="m">14</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span>  <span class="n">Diego</span>  <span class="n">Mondejar</span>             <span class="n">Ruiz</span>  <span class="m">37</span> <span class="n">math</span>      <span class="m">8</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">subset</span><span class="p">(</span><span class="n">professors</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="n">age</span> <span class="o">&lt;</span> <span class="m">31</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>     <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="n">Lluis</span>   <span class="n">Hurtado</span>              <span class="n">Gil</span>  <span class="m">30</span> <span class="n">physics</span>      <span class="m">6</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">subset</span><span class="p">(</span><span class="n">professors</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="n">phd</span> <span class="o">==</span> <span class="s">&#34;math&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">     <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>  <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">Alfonso</span>    <span class="n">Zamora</span>             <span class="n">Saiz</span>  <span class="m">33</span> <span class="n">math</span>      <span class="m">4</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="n">Carlos</span>   <span class="n">Quesada</span>         <span class="n">Gonzalez</span>  <span class="m">32</span> <span class="n">math</span>     <span class="m">14</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span>   <span class="n">Diego</span>  <span class="n">Mondejar</span>             <span class="n">Ruiz</span>  <span class="m">37</span> <span class="n">math</span>      <span class="m">8</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">positions</span> <span class="o">&lt;-</span> <span class="nf">order</span><span class="p">(</span><span class="n">professors</span><span class="o">$</span><span class="n">age</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">professors[positions</span><span class="p">,</span> <span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">name</span> <span class="n">last.name</span> <span class="n">second.last.name</span> <span class="n">age</span>     <span class="n">phd</span> <span class="n">office</span> <span class="n">from.madrid</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span>   <span class="n">Lluis</span>   <span class="n">Hurtado</span>              <span class="n">Gil</span>  <span class="m">30</span> <span class="n">physics</span>      <span class="m">6</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="n">Carlos</span>   <span class="n">Quesada</span>         <span class="n">Gonzalez</span>  <span class="m">32</span>    <span class="n">math</span>     <span class="m">14</span>        <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">Alfonso</span>    <span class="n">Zamora</span>             <span class="n">Saiz</span>  <span class="m">33</span>    <span class="n">math</span>      <span class="m">4</span>       <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span>   <span class="n">Diego</span>  <span class="n">Mondejar</span>             <span class="n">Ruiz</span>  <span class="m">37</span>    <span class="n">math</span>      <span class="m">8</span>        <span class="kc">TRUE</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>professors[1, ]
+</span></span><span style="display:flex;"><span>     name last.name second.last.name age  phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> Alfonso    Zamora             Saiz  <span style="color:#ae81ff">33</span> math      <span style="color:#ae81ff">4</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>professors<span style="color:#f92672">$</span>second.last.name
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Saiz&#34;</span>     <span style="color:#e6db74">&#34;Gonzalez&#34;</span> <span style="color:#e6db74">&#34;Gil&#34;</span>      <span style="color:#e6db74">&#34;Ruiz&#34;</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>professors[professors<span style="color:#f92672">$</span>from.madrid,]
+</span></span><span style="display:flex;"><span>    name last.name second.last.name age  phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> Carlos   Quesada         Gonzalez  <span style="color:#ae81ff">32</span> math     <span style="color:#ae81ff">14</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>  Diego  Mondejar             Ruiz  <span style="color:#ae81ff">37</span> math      <span style="color:#ae81ff">8</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subset</span>(professors, subset<span style="color:#f92672">=</span>age <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">31</span>)
+</span></span><span style="display:flex;"><span>   name last.name second.last.name age     phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> Lluis   Hurtado              Gil  <span style="color:#ae81ff">30</span> physics      <span style="color:#ae81ff">6</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subset</span>(professors, subset<span style="color:#f92672">=</span>phd <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;math&#34;</span>)
+</span></span><span style="display:flex;"><span>     name last.name second.last.name age  phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> Alfonso    Zamora             Saiz  <span style="color:#ae81ff">33</span> math      <span style="color:#ae81ff">4</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  Carlos   Quesada         Gonzalez  <span style="color:#ae81ff">32</span> math     <span style="color:#ae81ff">14</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>   Diego  Mondejar             Ruiz  <span style="color:#ae81ff">37</span> math      <span style="color:#ae81ff">8</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>positions <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">order</span>(professors<span style="color:#f92672">$</span>age)
+</span></span><span style="display:flex;"><span>professors[positions, ]
+</span></span><span style="display:flex;"><span>     name last.name second.last.name age     phd office from.madrid
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>   Lluis   Hurtado              Gil  <span style="color:#ae81ff">30</span> physics      <span style="color:#ae81ff">6</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  Carlos   Quesada         Gonzalez  <span style="color:#ae81ff">32</span>    math     <span style="color:#ae81ff">14</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> Alfonso    Zamora             Saiz  <span style="color:#ae81ff">33</span>    math      <span style="color:#ae81ff">4</span>       <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>   Diego  Mondejar             Ruiz  <span style="color:#ae81ff">37</span>    math      <span style="color:#ae81ff">8</span>        <span style="color:#66d9ef">TRUE</span>
+</span></span></code></pre></div><ul>
 <li>Coarse to data frames.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">### Example 1: coarsing a list into a data frame.</span>
-</span></span><span class="line"><span class="cl"><span class="n">L</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;MO&#34;</span><span class="p">,</span> <span class="s">&#34;MO&#34;</span><span class="p">,</span> <span class="s">&#34;KS&#34;</span><span class="p">),</span> <span class="n">x2</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span> <span class="m">11</span><span class="p">),</span> <span class="n">x3</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">L</span>
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">x1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;MO&#34;</span> <span class="s">&#34;MO&#34;</span> <span class="s">&#34;KS&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">x2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">12</span> <span class="m">13</span> <span class="m">11</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">$</span><span class="n">x3</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="kc">TRUE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DF</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">DF</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;State&#34;</span><span class="p">,</span> <span class="s">&#34;Age&#34;</span><span class="p">,</span> <span class="s">&#34;Passed&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">DF</span>
-</span></span><span class="line"><span class="cl"> <span class="n">State</span> <span class="n">Age</span> <span class="n">Passed</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span>    <span class="n">MO</span>  <span class="m">12</span>   <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>    <span class="n">MO</span>  <span class="m">13</span>  <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span>    <span class="n">KS</span>  <span class="m">11</span>  <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Example 2: coarsing a numeric matrix into a data frame.</span>
-</span></span><span class="line"><span class="cl"><span class="n">M</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span> <span class="o">:</span> <span class="m">9</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">M</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">4</span>    <span class="m">7</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">5</span>    <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">6</span>    <span class="m">9</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DF</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">DF</span>
-</span></span><span class="line"><span class="cl">  <span class="n">V1</span> <span class="n">V2</span> <span class="n">V3</span>
-</span></span><span class="line"><span class="cl"><span class="m">1</span>  <span class="m">1</span>  <span class="m">4</span>  <span class="m">7</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span>  <span class="m">2</span>  <span class="m">5</span>  <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span>  <span class="m">3</span>  <span class="m">6</span>  <span class="m">9</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DF</span><span class="o">$</span><span class="n">V1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">### Example 1: coarsing a list into a data frame.</span>
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(x1<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;MO&#34;</span>, <span style="color:#e6db74">&#34;MO&#34;</span>, <span style="color:#e6db74">&#34;KS&#34;</span>), x2<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">11</span>), x3<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#66d9ef">TRUE</span>, <span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">FALSE</span>))
+</span></span><span style="display:flex;"><span>L
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>x1
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;MO&#34;</span> <span style="color:#e6db74">&#34;MO&#34;</span> <span style="color:#e6db74">&#34;KS&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>x2
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span>x3
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#66d9ef">TRUE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DF <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(L)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(DF) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;State&#34;</span>, <span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#e6db74">&#34;Passed&#34;</span>)
+</span></span><span style="display:flex;"><span>DF
+</span></span><span style="display:flex;"><span> State Age Passed
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    MO  <span style="color:#ae81ff">12</span>   <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    MO  <span style="color:#ae81ff">13</span>  <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    KS  <span style="color:#ae81ff">11</span>  <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Example 2: coarsing a numeric matrix into a data frame.</span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span>, nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>M
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DF <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(M)
+</span></span><span style="display:flex;"><span>DF
+</span></span><span style="display:flex;"><span>  V1 V2 V3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DF<span style="color:#f92672">$</span>V1
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div>
     </div>
 
     

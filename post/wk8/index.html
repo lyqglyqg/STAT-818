@@ -70,7 +70,7 @@
 <meta itemprop="name" content="R packages and example statistical analysis I">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-03-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-03-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="693">
+<meta itemprop="wordCount" content="618">
 <meta itemprop="keywords" content="edgeR,R packages,Gene differential analysis," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R packages and example statistical analysis I"/>
 <meta name="twitter:description" content=""/>
@@ -447,262 +447,109 @@
 <p><code>edgeR</code> is a widely used R package for conducting DE analysis with RNAseq data. Its statistical analysis is based on negative binomial distribution. It provides Bayes estimation, generalized linear modelling, Fisher exact test, and Quasi-likelihood test.</p>
 <h2 id="installation">Installation</h2>
 <p>First, you need to know your <em>R</em> version. To check that, use</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">R.Version</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="Rversion.png">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">R.Version</span>()
+</span></span></code></pre></div><img src="Rversion.png">
 <p>If your <em>R</em> version is &gt;3.5, then install <code>edgeR</code> use</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;edgeR&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>If your <em>R</em> version is &lt;3.5, then install <code>edgeR</code> use</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">source</span><span class="p">(</span><span class="s">&#34;http://bioconductor.org/biocLite.R&#34;</span>）
-</span></span><span class="line"><span class="cl"><span class="nf">biocLite</span><span class="p">(</span><span class="s">&#39;edgeR&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="edger-vignette"><code>edgeR</code> vignette</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">edgeR</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">edgeRUsersGuide</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="edgeRv.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">if </span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">requireNamespace</span>(<span style="color:#e6db74">&#34;BiocManager&#34;</span>, quietly <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;BiocManager&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BiocManager<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;edgeR&#34;</span>)
+</span></span></code></pre></div><p>If your <em>R</em> version is &lt;3.5, then install <code>edgeR</code> use</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">source</span>(<span style="color:#e6db74">&#34;http://bioconductor.org/biocLite.R&#34;</span>）
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">biocLite</span>(<span style="color:#e6db74">&#39;edgeR&#39;</span>)
+</span></span></code></pre></div><h3 id="edger-vignette"><code>edgeR</code> vignette</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(edgeR)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">edgeRUsersGuide</span>()
+</span></span></code></pre></div><img src="edgeRv.png" width="60%" height="60%">
 <h3 id="analysis-step-1-read-in-data">Analysis step 1: read in data</h3>
 <p>The &ldquo;geneCounts.csv&rdquo; file contains RNAseq count data from 419 ovarian cancer patients from TCGA data and 88 normal controls from GTEX data.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">X_c</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;geneCounts.csv&#34;</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">X_c[1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="n">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="X_screenshot.png"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>X_c <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;geneCounts.csv&#34;</span>, row.names<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, header<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_c[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]
+</span></span></code></pre></div><img src="X_screenshot.png"> 
 <h3 id="creat-a-cancer-indicator-and-a-dgelist-object">Creat a cancer indicator and a &lsquo;DGEList&rsquo; object</h3>
 <p>First, creat a group indicator of cancer vs normal control, with 1 indicating ovarian cancer. If a rowname starts by &ldquo;TCGA&rdquo;, then it is RNAseq data from a cancer subject. If it starts by &ldquo;GTEX&rdquo;, it is a normal control.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sample_vec</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">X_c</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">))</span><span class="n">[[1]][1]</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">group</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">sample_vec</span> <span class="o">==</span> <span class="s">&#34;TCGA&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="grp.png"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>sample_vec <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(<span style="color:#a6e22e">rownames</span>(X_c), <span style="color:#a6e22e">function</span>(x) <span style="color:#a6e22e">unlist</span>(<span style="color:#a6e22e">strsplit</span>(x, <span style="color:#e6db74">&#34;-&#34;</span>))[[1]][1]) 
+</span></span><span style="display:flex;"><span>group <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.numeric</span>(sample_vec <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;TCGA&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">table</span>(group)
+</span></span></code></pre></div><img src="grp.png"> 
 <p><code>edgeR</code> can create a &lsquo;DGEList&rsquo; object that contains a table of counts (rows=features, columns=samples), group indicator, library size (optional) for the downstream DE analysis.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">DGEList</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="nf">t</span><span class="p">(</span><span class="n">X_c</span><span class="p">),</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="filtering-and-normalization">Filtering and normalization</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">DGEList</span>(counts<span style="color:#f92672">=</span><span style="color:#a6e22e">t</span>(X_c),group<span style="color:#f92672">=</span>group)
+</span></span></code></pre></div><h3 id="filtering-and-normalization">Filtering and normalization</h3>
 <p><code>edgeR</code> can filter out low quality genes (genes with low counts) and can normalize the gene counts to scale the raw library sizes.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">keep</span> <span class="o">&lt;-</span> <span class="nf">filterByExpr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">y[keep</span><span class="p">,,</span><span class="n">keep.lib.sizes</span><span class="o">=</span><span class="kc">FALSE</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">calcNormFactors</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">design</span> <span class="o">&lt;-</span> <span class="nf">model.matrix</span><span class="p">(</span><span class="o">~</span><span class="n">group</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">estimateDisp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">design</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="de-analysis">DE analysis</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>keep <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filterByExpr</span>(y)  
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">&lt;-</span> y[keep,,keep.lib.sizes<span style="color:#f92672">=</span><span style="color:#66d9ef">FALSE</span>]
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">calcNormFactors</span>(y)
+</span></span><span style="display:flex;"><span>design <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">model.matrix</span>(<span style="color:#f92672">~</span>group)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">estimateDisp</span>(y,design)
+</span></span></code></pre></div><h3 id="de-analysis">DE analysis</h3>
 <p>Use the <code>glmQLFit</code> and <code>glmQLFTest</code> to run the DE analysis and get a p-value for each gene.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">glmQLFit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">design</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">qlf</span> <span class="o">&lt;-</span> <span class="nf">glmQLFTest</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span><span class="n">coef</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="calculate-adjusted-p-values-and-sort-the-output-table">Calculate adjusted p-values and sort the output table</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">glmQLFit</span>(y,design)
+</span></span><span style="display:flex;"><span>qlf <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">glmQLFTest</span>(fit,coef<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><h3 id="calculate-adjusted-p-values-and-sort-the-output-table">Calculate adjusted p-values and sort the output table</h3>
 <p>We need to control for multiple testing here (this is a statistical concept not required for this course), the following syntax calculate the false discovery rates (fdr or adjusted p-values) and sort the output table from the most significant to least significant genes.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">qlfT</span> <span class="o">&lt;-</span> <span class="n">qlf</span><span class="o">$</span><span class="n">table</span>
-</span></span><span class="line"><span class="cl"><span class="n">qlfT_sort</span> <span class="o">&lt;-</span> <span class="n">qlfT</span><span class="nf">[order</span><span class="p">(</span><span class="n">qlfT[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">),</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">qlfT_sort</span><span class="o">$</span><span class="n">fdr</span> <span class="o">&lt;-</span> <span class="nf">p.adjust</span><span class="p">(</span><span class="n">qlfT_sort[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span><span class="s">&#34;fdr&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">qlfT_sort[1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="n">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="outputTable.png"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>qlfT <span style="color:#f92672">&lt;-</span> qlf<span style="color:#f92672">$</span>table
+</span></span><span style="display:flex;"><span>qlfT_sort <span style="color:#f92672">&lt;-</span> qlfT<span style="color:#a6e22e">[order</span>(qlfT[,<span style="color:#ae81ff">4</span>]),]
+</span></span><span style="display:flex;"><span>qlfT_sort<span style="color:#f92672">$</span>fdr <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">p.adjust</span>(qlfT_sort[,<span style="color:#ae81ff">4</span>], method <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fdr&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>qlfT_sort[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>,]
+</span></span></code></pre></div><img src="outputTable.png"> 
 <p>The smaller the <code>PValue</code> or the <code>fdr</code>, the more differently expressed for the gene between the ovarian cancer subjects and the normal controls.</p>
 <p>The <code>logFC</code> is for &ldquo;log fold change&rdquo; with base 2. &ldquo;logFC=3.14&rdquo; means the average count number of the ovarian cancer group is $2^{3.14}$ times of that if the normal control group for the gene.</p>
 <h3 id="generate-plots-to-visualize-outputs">Generate plots to visualize outputs</h3>
 <p>First, we generate a heatmap for the most 200 differentially expressed genes (similar to what you did in the midterm exam).</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">topGene</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">qlfT_sort[1</span><span class="o">:</span><span class="m">200</span><span class="p">,</span><span class="n">]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">idtmp</span> <span class="o">&lt;-</span> <span class="nf">match</span><span class="p">(</span><span class="n">topGene</span><span class="p">,</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">X_c</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">heatmapGene</span> <span class="o">&lt;-</span> <span class="n">X_c[</span> <span class="p">,</span> <span class="n">idtmp]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sample_names_short</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;GTEX-&#34;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">88</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">),</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&#34;TCGA-&#34;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">419</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">group_col</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#34;GTEX&#34;</span><span class="p">,</span> <span class="m">88</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;TCGA&#34;</span><span class="p">,</span> <span class="m">419</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">my_sample_col</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">sample</span> <span class="o">=</span> <span class="n">group_col</span><span class="p">)</span> <span class="c1">#sample_names_short)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">row.names</span><span class="p">(</span><span class="n">my_sample_col</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">sample_names_short</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">row.names</span><span class="p">(</span><span class="n">heatmapGene</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">sample_names_short</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">heatmapGene</span><span class="p">),</span> <span class="n">annotation_col</span> <span class="o">=</span> <span class="n">my_sample_col</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">cluster_rows</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span> <span class="n">cluster_cols</span> <span class="o">=</span><span class="bp">F</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="heatmap818.png"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(pheatmap)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>topGene <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rownames</span>(qlfT_sort[1<span style="color:#f92672">:</span><span style="color:#ae81ff">200</span>,])
+</span></span><span style="display:flex;"><span>idtmp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">match</span>(topGene, <span style="color:#a6e22e">colnames</span>(X_c))
+</span></span><span style="display:flex;"><span>heatmapGene <span style="color:#f92672">&lt;-</span> X_c[ , idtmp]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sample_names_short <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;GTEX-&#34;</span>, <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">88</span>), sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;TCGA-&#34;</span>, <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">419</span>), sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>group_col <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;GTEX&#34;</span>, <span style="color:#ae81ff">88</span>), <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;TCGA&#34;</span>, <span style="color:#ae81ff">419</span>))
+</span></span><span style="display:flex;"><span>my_sample_col <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(sample <span style="color:#f92672">=</span> group_col) <span style="color:#75715e">#sample_names_short)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">row.names</span>(my_sample_col) <span style="color:#f92672">&lt;-</span> sample_names_short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">row.names</span>(heatmapGene) <span style="color:#f92672">&lt;-</span> sample_names_short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pheatmap</span>(<span style="color:#a6e22e">t</span>(heatmapGene), annotation_col <span style="color:#f92672">=</span> my_sample_col, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, cluster_rows<span style="color:#f92672">=</span>F, cluster_cols <span style="color:#f92672">=</span>F)
+</span></span></code></pre></div><img src="heatmap818.png"> 
 <p>Next, we generate a plot called &ldquo;volvano plot&rdquo;, which can show both the scales of &ldquo;logFC&rdquo; and the significance of &ldquo;PValues&rdquo; (in term of $-log_10(PValue)$).</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">qlfT_sort_vol</span> <span class="o">&lt;-</span> <span class="n">qlfT_sort</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nf">EnhancedVolcano</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lab</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;logFC&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="s">&#39;PValue&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="volcano.png"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>qlfT_sort_vol <span style="color:#f92672">&lt;-</span> qlfT_sort
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">EnhancedVolcano</span>(qlfT_sort_vol,
+</span></span><span style="display:flex;"><span>    lab <span style="color:#f92672">=</span> <span style="color:#a6e22e">rownames</span>(qlfT_sort_vol),
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logFC&#39;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PValue&#39;</span>)
+</span></span></code></pre></div><img src="volcano.png"> 
 <p>One can specify more details to make the plots more informative. For example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">keyvals</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> <span class="nf">dim</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">)</span><span class="n">[1]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">keyvals[101</span><span class="o">:</span><span class="m">500</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#39;royalblue&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="n">keyvals[1</span><span class="o">:</span><span class="m">100</span><span class="n">]</span> <span class="o">&lt;-</span>  <span class="s">&#39;gold&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">keyvals</span><span class="p">)</span><span class="n">[keyvals</span> <span class="o">==</span> <span class="s">&#39;gold&#39;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#39;Strong gene&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">keyvals</span><span class="p">)</span><span class="n">[keyvals</span> <span class="o">==</span> <span class="s">&#39;royalblue&#39;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#39;Weak gene&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">keyvals</span><span class="p">)</span><span class="n">[keyvals</span> <span class="o">==</span> <span class="s">&#39;gray&#39;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#39;No significant gene&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">shreshold</span> <span class="o">&lt;-</span> <span class="m">6.14e-9</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nf">EnhancedVolcano</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lab</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;logFC&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="s">&#39;PValue&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">selectLab</span> <span class="o">=</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">qlfT_sort_vol</span><span class="p">)</span><span class="nf">[which</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">keyvals</span><span class="p">)</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Strong gene&#39;</span><span class="p">,</span> <span class="s">&#39;Weak gene&#39;</span><span class="p">))</span><span class="n">]</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">xlab</span> <span class="o">=</span> <span class="nf">bquote</span><span class="p">(</span><span class="o">~</span><span class="n">Log[2]</span><span class="o">~</span> <span class="s">&#39;fold change&#39;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">pCutoff</span> <span class="o">=</span> <span class="m">1.0e-55</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">FCcutoff</span> <span class="o">=</span> <span class="m">2.0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">pointSize</span> <span class="o">=</span> <span class="m">3.0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">labSize</span> <span class="o">=</span> <span class="m">3.0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">colCustom</span> <span class="o">=</span> <span class="n">keyvals</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">hline</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">shreshold</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">hlineCol</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="volcano_1.png">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>keyvals <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#39;gray&#39;</span>, <span style="color:#a6e22e">dim</span>(qlfT_sort_vol)[1])
+</span></span><span style="display:flex;"><span>keyvals[101<span style="color:#f92672">:</span><span style="color:#ae81ff">500</span>] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;royalblue&#39;</span>
+</span></span><span style="display:flex;"><span>keyvals[1<span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>] <span style="color:#f92672">&lt;-</span>  <span style="color:#e6db74">&#39;gold&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(keyvals)[keyvals <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;gold&#39;</span>] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;Strong gene&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(keyvals)[keyvals <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;royalblue&#39;</span>] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;Weak gene&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(keyvals)[keyvals <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;gray&#39;</span>] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;No significant gene&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>shreshold <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">6.14e-9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">EnhancedVolcano</span>(qlfT_sort_vol,
+</span></span><span style="display:flex;"><span>    lab <span style="color:#f92672">=</span> <span style="color:#a6e22e">rownames</span>(qlfT_sort_vol),
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logFC&#39;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PValue&#39;</span>,
+</span></span><span style="display:flex;"><span>    selectLab <span style="color:#f92672">=</span> <span style="color:#a6e22e">rownames</span>(qlfT_sort_vol)<span style="color:#a6e22e">[which</span>(<span style="color:#a6e22e">names</span>(keyvals) <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;Strong gene&#39;</span>, <span style="color:#e6db74">&#39;Weak gene&#39;</span>))],
+</span></span><span style="display:flex;"><span>    xlab <span style="color:#f92672">=</span> <span style="color:#a6e22e">bquote</span>(<span style="color:#f92672">~</span>Log[2]<span style="color:#f92672">~</span> <span style="color:#e6db74">&#39;fold change&#39;</span>),
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    pCutoff <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0e-55</span>,
+</span></span><span style="display:flex;"><span>    FCcutoff <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>,
+</span></span><span style="display:flex;"><span>    pointSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.0</span>,
+</span></span><span style="display:flex;"><span>    labSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.0</span>,
+</span></span><span style="display:flex;"><span>    colCustom <span style="color:#f92672">=</span> keyvals,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    hline <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(shreshold),
+</span></span><span style="display:flex;"><span>    hlineCol <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;red&#39;</span>))
+</span></span></code></pre></div><img src="volcano_1.png">
     </div>
 
     

@@ -70,7 +70,7 @@
 <meta itemprop="name" content="R Objects I: Vector, Matrix, and Array">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-01-25T16:01:23+08:00" />
 <meta itemprop="dateModified" content="2023-01-25T16:01:23+08:00" />
-<meta itemprop="wordCount" content="2255">
+<meta itemprop="wordCount" content="1879">
 <meta itemprop="keywords" content="R,Vector,Matrix,Array," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Objects I: Vector, Matrix, and Array"/>
 <meta name="twitter:description" content=""/>
@@ -443,387 +443,186 @@
 <ul>
 <li>Entries of a vector can be integers, decimals, characteristics, logical, strings, etc.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">A</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span>
-</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.46</span><span class="p">,</span> <span class="m">-0.003</span><span class="p">,</span> <span class="m">1.2e-4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">C</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Italy&#34;</span><span class="p">,</span> <span class="s">&#34;Egypt&#34;</span><span class="p">,</span> <span class="s">&#34;Mexico&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">A</span><span class="o">&gt;</span><span class="m">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">E</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;STAT818&#34;</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">A</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span>
-</span></span><span class="line"><span class="cl"><span class="n">B</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">1.46000</span> <span class="m">-0.00300</span>  <span class="m">0.00012</span>
-</span></span><span class="line"><span class="cl"><span class="n">C</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Italy&#34;</span>  <span class="s">&#34;Egypt&#34;</span>  <span class="s">&#34;Mexico&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">D</span>
-</span></span><span class="line"><span class="cl"> <span class="n">[1]</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="n">[13]</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>  <span class="kc">TRUE</span>
-</span></span><span class="line"><span class="cl"><span class="n">E</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;STAT818&#34;</span> <span class="s">&#34;STAT818&#34;</span> <span class="s">&#34;STAT818&#34;</span> <span class="s">&#34;STAT818&#34;</span> <span class="s">&#34;STAT818&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>A <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>B <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1.46</span>, <span style="color:#ae81ff">-0.003</span>, <span style="color:#ae81ff">1.2e-4</span>)
+</span></span><span style="display:flex;"><span>C <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Italy&#34;</span>, <span style="color:#e6db74">&#34;Egypt&#34;</span>, <span style="color:#e6db74">&#34;Mexico&#34;</span>)
+</span></span><span style="display:flex;"><span>D <span style="color:#f92672">&lt;-</span> (A<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>E <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;STAT818&#34;</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">17</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>B
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">1.46000</span> <span style="color:#ae81ff">-0.00300</span>  <span style="color:#ae81ff">0.00012</span>
+</span></span><span style="display:flex;"><span>C
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Italy&#34;</span>  <span style="color:#e6db74">&#34;Egypt&#34;</span>  <span style="color:#e6db74">&#34;Mexico&#34;</span>
+</span></span><span style="display:flex;"><span>D
+</span></span><span style="display:flex;"><span> [1] <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>[13]  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>  <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>E
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;STAT818&#34;</span> <span style="color:#e6db74">&#34;STAT818&#34;</span> <span style="color:#e6db74">&#34;STAT818&#34;</span> <span style="color:#e6db74">&#34;STAT818&#34;</span> <span style="color:#e6db74">&#34;STAT818&#34;</span>
+</span></span></code></pre></div><ul>
 <li>Some basic operation on vectors.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">### Name a vector</span>
-</span></span><span class="line"><span class="cl"><span class="n">gdp</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2.7</span><span class="p">,</span> <span class="m">14.7</span><span class="p">,</span> <span class="m">3.8</span><span class="p">,</span> <span class="m">5.1</span><span class="p">,</span> <span class="m">20.9</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;India&#34;</span><span class="p">,</span> <span class="s">&#34;China&#34;</span><span class="p">,</span>  <span class="s">&#34;Germany&#34;</span><span class="p">,</span> <span class="s">&#34;Japan&#34;</span><span class="p">,</span> <span class="s">&#34;United States&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">gdp</span>
-</span></span><span class="line"><span class="cl">        <span class="n">India</span>         <span class="n">China</span>       <span class="n">Germany</span>         <span class="n">Japan</span> <span class="n">United</span> <span class="n">States</span> 
-</span></span><span class="line"><span class="cl">          <span class="m">2.7</span>          <span class="m">14.7</span>           <span class="m">3.8</span>           <span class="m">5.1</span>          <span class="m">20.9</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Subvector</span>
-</span></span><span class="line"><span class="cl"><span class="n">A1</span> <span class="o">&lt;-</span> <span class="n">A[A</span><span class="o">&gt;</span><span class="m">10</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">A1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">gdp</span><span class="nf">[which</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span><span class="o">!=</span><span class="s">&#34;United States&#34;</span><span class="p">)</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">  <span class="n">India</span>   <span class="n">China</span> <span class="n">Germany</span>   <span class="n">Japan</span> 
-</span></span><span class="line"><span class="cl">    <span class="m">2.7</span>    <span class="m">14.7</span>     <span class="m">3.8</span>     <span class="m">5.1</span> 
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1">### Ranks of a numeric vector</span>
-</span></span><span class="line"><span class="cl"><span class="nf">rank</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl">       <span class="n">India</span>         <span class="n">China</span>       <span class="n">Germany</span>         <span class="n">Japan</span> <span class="n">United</span> <span class="n">States</span> 
-</span></span><span class="line"><span class="cl">            <span class="m">1</span>             <span class="m">4</span>             <span class="m">2</span>             <span class="m">3</span>             <span class="m">5</span> 
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl"><span class="c1">### order of a numeric vector</span>
-</span></span><span class="line"><span class="cl"><span class="nf">order</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span> <span class="m">2</span> <span class="m">5</span>   <span class="c1"># Make sure you understand the difference between &#39;rank&#39; </span>
-</span></span><span class="line"><span class="cl">		<span class="c1"># and &#39;order&#39; outputs! </span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">gdp</span><span class="nf">[order</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">India</span>       <span class="n">Germany</span>         <span class="n">Japan</span>         <span class="n">China</span> <span class="n">United</span> <span class="n">States</span> 
-</span></span><span class="line"><span class="cl">          <span class="m">2.7</span>           <span class="m">3.8</span>           <span class="m">5.1</span>          <span class="m">14.7</span>          <span class="m">20.9</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">gdp</span><span class="nf">[order</span><span class="p">(</span><span class="n">gdp</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">United</span> <span class="n">States</span>         <span class="n">China</span>         <span class="n">Japan</span>       <span class="n">Germany</span>         <span class="n">India</span> 
-</span></span><span class="line"><span class="cl">             <span class="m">20.9</span>          <span class="m">14.7</span>           <span class="m">5.1</span>           <span class="m">3.8</span>           <span class="m">2.7</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Combine vectors</span>
-</span></span><span class="line"><span class="cl"><span class="nf">c</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;1.46&#34;</span>    <span class="s">&#34;-0.003&#34;</span>  <span class="s">&#34;0.00012&#34;</span> <span class="s">&#34;Italy&#34;</span>   <span class="s">&#34;Egypt&#34;</span>   <span class="s">&#34;Mexico&#34;</span>  
-</span></span><span class="line"><span class="cl">	<span class="c1">#Notice the combined vector becomes a vector of characters.</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#34;STAT818-Wk&#34;</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;STAT818-Wk1&#34;</span> <span class="s">&#34;STAT818-Wk2&#34;</span> <span class="s">&#34;STAT818-Wk3&#34;</span> <span class="s">&#34;STAT818-Wk4&#34;</span> <span class="s">&#34;STAT818-Wk5&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Set operation on two vectors</span>
-</span></span><span class="line"><span class="cl"><span class="n">S1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="s">&#34;D&#34;</span><span class="p">,</span> <span class="s">&#34;E&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">S2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="s">&#34;E&#34;</span><span class="p">,</span> <span class="s">&#34;F&#34;</span><span class="p">,</span><span class="s">&#34;G&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">c</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;A&#34;</span> <span class="s">&#34;B&#34;</span> <span class="s">&#34;C&#34;</span> <span class="s">&#34;D&#34;</span> <span class="s">&#34;E&#34;</span> <span class="s">&#34;C&#34;</span> <span class="s">&#34;E&#34;</span> <span class="s">&#34;F&#34;</span> <span class="s">&#34;G&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">union</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;A&#34;</span> <span class="s">&#34;B&#34;</span> <span class="s">&#34;C&#34;</span> <span class="s">&#34;D&#34;</span> <span class="s">&#34;E&#34;</span> <span class="s">&#34;F&#34;</span> <span class="s">&#34;G&#34;</span>    <span class="c1"># Pay attention to the difference!</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">intersect</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;C&#34;</span> <span class="s">&#34;E&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">setdiff</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;A&#34;</span> <span class="s">&#34;B&#34;</span> <span class="s">&#34;D&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">match</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">NA</span> <span class="kc">NA</span>  <span class="m">1</span> <span class="kc">NA</span>  <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">S1</span><span class="nf">[which</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="nf">match</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)))</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;C&#34;</span> <span class="s">&#34;E&#34;</span>    <span class="c1"># Same as intersect(S1, S2), think why is that?</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">S1</span><span class="nf">[which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="nf">match</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">)))</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;A&#34;</span> <span class="s">&#34;B&#34;</span> <span class="s">&#34;D&#34;</span>    <span class="c1"># Same as setdiff(S1, S2).</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">### Name a vector</span>
+</span></span><span style="display:flex;"><span>gdp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2.7</span>, <span style="color:#ae81ff">14.7</span>, <span style="color:#ae81ff">3.8</span>, <span style="color:#ae81ff">5.1</span>, <span style="color:#ae81ff">20.9</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">names</span>(gdp) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;India&#34;</span>, <span style="color:#e6db74">&#34;China&#34;</span>,  <span style="color:#e6db74">&#34;Germany&#34;</span>, <span style="color:#e6db74">&#34;Japan&#34;</span>, <span style="color:#e6db74">&#34;United States&#34;</span>)
+</span></span><span style="display:flex;"><span>gdp
+</span></span><span style="display:flex;"><span>        India         China       Germany         Japan United States 
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2.7</span>          <span style="color:#ae81ff">14.7</span>           <span style="color:#ae81ff">3.8</span>           <span style="color:#ae81ff">5.1</span>          <span style="color:#ae81ff">20.9</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Subvector</span>
+</span></span><span style="display:flex;"><span>A1 <span style="color:#f92672">&lt;-</span> A[A<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span>A1
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">17</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gdp<span style="color:#a6e22e">[which</span>(<span style="color:#a6e22e">names</span>(gdp)<span style="color:#f92672">!=</span><span style="color:#e6db74">&#34;United States&#34;</span>)]
+</span></span><span style="display:flex;"><span>  India   China Germany   Japan 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">2.7</span>    <span style="color:#ae81ff">14.7</span>     <span style="color:#ae81ff">3.8</span>     <span style="color:#ae81ff">5.1</span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Ranks of a numeric vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rank</span>(gdp)  
+</span></span><span style="display:flex;"><span>       India         China       Germany         Japan United States 
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">1</span>             <span style="color:#ae81ff">4</span>             <span style="color:#ae81ff">2</span>             <span style="color:#ae81ff">3</span>             <span style="color:#ae81ff">5</span> 
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### order of a numeric vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">order</span>(gdp)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">5</span>   <span style="color:#75715e"># Make sure you understand the difference between &#39;rank&#39; </span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># and &#39;order&#39; outputs! </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gdp<span style="color:#a6e22e">[order</span>(gdp)]
+</span></span><span style="display:flex;"><span>        India       Germany         Japan         China United States 
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2.7</span>           <span style="color:#ae81ff">3.8</span>           <span style="color:#ae81ff">5.1</span>          <span style="color:#ae81ff">14.7</span>          <span style="color:#ae81ff">20.9</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gdp<span style="color:#a6e22e">[order</span>(gdp, decreasing <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)]
+</span></span><span style="display:flex;"><span>    United States         China         Japan       Germany         India 
+</span></span><span style="display:flex;"><span>             <span style="color:#ae81ff">20.9</span>          <span style="color:#ae81ff">14.7</span>           <span style="color:#ae81ff">5.1</span>           <span style="color:#ae81ff">3.8</span>           <span style="color:#ae81ff">2.7</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Combine vectors</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">c</span>(B, C)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;1.46&#34;</span>    <span style="color:#e6db74">&#34;-0.003&#34;</span>  <span style="color:#e6db74">&#34;0.00012&#34;</span> <span style="color:#e6db74">&#34;Italy&#34;</span>   <span style="color:#e6db74">&#34;Egypt&#34;</span>   <span style="color:#e6db74">&#34;Mexico&#34;</span>  
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#Notice the combined vector becomes a vector of characters.</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">paste</span>(<span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;STAT818-Wk&#34;</span>, <span style="color:#ae81ff">5</span>), <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;STAT818-Wk1&#34;</span> <span style="color:#e6db74">&#34;STAT818-Wk2&#34;</span> <span style="color:#e6db74">&#34;STAT818-Wk3&#34;</span> <span style="color:#e6db74">&#34;STAT818-Wk4&#34;</span> <span style="color:#e6db74">&#34;STAT818-Wk5&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Set operation on two vectors</span>
+</span></span><span style="display:flex;"><span>S1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#e6db74">&#34;B&#34;</span>, <span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#e6db74">&#34;D&#34;</span>, <span style="color:#e6db74">&#34;E&#34;</span>)
+</span></span><span style="display:flex;"><span>S2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;C&#34;</span>, <span style="color:#e6db74">&#34;E&#34;</span>, <span style="color:#e6db74">&#34;F&#34;</span>,<span style="color:#e6db74">&#34;G&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">c</span>(S1, S2)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#e6db74">&#34;F&#34;</span> <span style="color:#e6db74">&#34;G&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">union</span>(S1, S2)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#e6db74">&#34;F&#34;</span> <span style="color:#e6db74">&#34;G&#34;</span>    <span style="color:#75715e"># Pay attention to the difference!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">intersect</span>(S1, S2)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#e6db74">&#34;E&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setdiff</span>(S1, S2)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#e6db74">&#34;D&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">match</span>(S1, S2)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">NA</span> <span style="color:#66d9ef">NA</span>  <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">NA</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>S1<span style="color:#a6e22e">[which</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(<span style="color:#a6e22e">match</span>(S1, S2)))]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;C&#34;</span> <span style="color:#e6db74">&#34;E&#34;</span>    <span style="color:#75715e"># Same as intersect(S1, S2), think why is that?</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>S1<span style="color:#a6e22e">[which</span>(<span style="color:#a6e22e">is.na</span>(<span style="color:#a6e22e">match</span>(S1, S2)))]
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#e6db74">&#34;D&#34;</span>    <span style="color:#75715e"># Same as setdiff(S1, S2).</span>
+</span></span></code></pre></div><ul>
 <li>A vector can contain missing values.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">32</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Find out if each entry of x is a missing value or not</span>
-</span></span><span class="line"><span class="cl"> <span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="kc">FALSE</span> <span class="kc">FALSE</span>  <span class="kc">TRUE</span> <span class="kc">FALSE</span>  <span class="kc">TRUE</span> <span class="kc">FALSE</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Find out which entries contain missing values</span>
-</span></span><span class="line"><span class="cl"><span class="nf">which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">3</span> <span class="m">5</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Find out which entries are not missing</span>
-</span></span><span class="line"><span class="cl"><span class="nf">which</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">4</span> <span class="m">6</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">### Find out if a vector contains missing value(s)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">0</span>       <span class="c1"># A contains zero &#39;NA&#39;, there is no missing value in vector A </span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">2</span>       <span class="c1"># x contains two missing values.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">9</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Find out if each entry of x is a missing value or not</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">is.na</span>(x)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">FALSE</span>  <span style="color:#66d9ef">TRUE</span> <span style="color:#66d9ef">FALSE</span>  <span style="color:#66d9ef">TRUE</span> <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Find out which entries contain missing values</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">which</span>(<span style="color:#a6e22e">is.na</span>(x))
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Find out which entries are not missing</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">which</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(x))
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Find out if a vector contains missing value(s)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">which</span>(<span style="color:#a6e22e">is.na</span>(A)))
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">0</span>       <span style="color:#75715e"># A contains zero &#39;NA&#39;, there is no missing value in vector A </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">which</span>(<span style="color:#a6e22e">is.na</span>(x)))
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">2</span>       <span style="color:#75715e"># x contains two missing values.</span>
+</span></span></code></pre></div><ul>
 <li>Now let&rsquo;s try something more challenging: impute the missing values in x with the average of its non-missing values.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">x</span><span class="nf">[which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="nf">[which</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="n">]</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">4</span>  <span class="m">7</span> <span class="m">13</span>  <span class="m">9</span> <span class="m">13</span> <span class="m">32</span>   <span class="c1"># Notice 13 is the averge of 4, 7, 9, 32.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>x<span style="color:#a6e22e">[which</span>(<span style="color:#a6e22e">is.na</span>(x))] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mean</span>(x<span style="color:#a6e22e">[which</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">is.na</span>(x))])
+</span></span><span style="display:flex;"><span>x
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">13</span>  <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">32</span>   <span style="color:#75715e"># Notice 13 is the averge of 4, 7, 9, 32.</span>
+</span></span></code></pre></div><ul>
 <li>Vector arithmetics.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">3</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">sd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># Standard devistion of a</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">1.581139</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="n">Min.</span> <span class="m">1</span><span class="n">st</span> <span class="n">Qu.</span>  <span class="n">Median</span>    <span class="n">Mean</span> <span class="m">3</span><span class="n">rd</span> <span class="n">Qu.</span>    <span class="n">Max.</span> 
-</span></span><span class="line"><span class="cl">      <span class="m">1</span>       <span class="m">2</span>       <span class="m">3</span>       <span class="m">3</span>       <span class="m">4</span>       <span class="m">5</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">+</span><span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">7</span>  <span class="m">9</span> <span class="m">11</span> <span class="m">13</span> <span class="m">15</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">*</span><span class="n">b</span>  <span class="c1"># Entry-wise product</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">6</span> <span class="m">14</span> <span class="m">24</span> <span class="m">36</span> <span class="m">50</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">%*%</span><span class="n">b</span> <span class="c1"># Dot product of two vectors[*]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>  <span class="m">130</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>[*] <a href="https://en.wikipedia.org/wiki/Dot_product">Dot product</a> of two K-length vectors is defined to be $$ a .  b =\sum_{k=1}^K a_k b_k,$$ where $$a=(a_1, \cdots, a_K)&rsquo; \mbox{ and }  b=(b_1, \cdots, b_K)&rsquo;.$$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(a)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sd</span>(a)  <span style="color:#75715e"># Standard devistion of a</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">1.581139</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(a)
+</span></span><span style="display:flex;"><span>   Min. <span style="color:#ae81ff">1</span>st Qu.  Median    Mean <span style="color:#ae81ff">3</span>rd Qu.    Max. 
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1</span>       <span style="color:#ae81ff">2</span>       <span style="color:#ae81ff">3</span>       <span style="color:#ae81ff">3</span>       <span style="color:#ae81ff">4</span>       <span style="color:#ae81ff">5</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a<span style="color:#f92672">+</span>b
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a<span style="color:#f92672">*</span>b  <span style="color:#75715e"># Entry-wise product</span>
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">24</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a<span style="color:#f92672">%*%</span>b <span style="color:#75715e"># Dot product of two vectors[*]</span>
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>[1,]  <span style="color:#ae81ff">130</span>
+</span></span></code></pre></div><p>[*] <a href="https://en.wikipedia.org/wiki/Dot_product">Dot product</a> of two K-length vectors is defined to be $$ a .  b =\sum_{k=1}^K a_k b_k,$$ where $$a=(a_1, \cdots, a_K)&rsquo; \mbox{ and }  b=(b_1, \cdots, b_K)&rsquo;.$$</p>
 <ul>
 <li>Random vectors</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">v20</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">mean</span><span class="p">(</span><span class="n">v20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">1.854119</span>
-</span></span><span class="line"><span class="cl"><span class="nf">sd</span><span class="p">(</span><span class="n">v20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">0.9924311</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">v200</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">mean</span><span class="p">(</span><span class="n">v200</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">2.061247</span>
-</span></span><span class="line"><span class="cl"><span class="nf">sd</span><span class="p">(</span><span class="n">v200</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">1.01953</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">v20000</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">20000</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">mean</span><span class="p">(</span><span class="n">v20000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">2.001766</span>
-</span></span><span class="line"><span class="cl"><span class="nf">sd</span><span class="p">(</span><span class="n">v20000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1]</span> <span class="m">0.9996004</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>Have you been convinced of the <a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">Law of Large Numbers</a>?</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>v20 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">20</span>, mean<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, sd<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(v20)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">1.854119</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sd</span>(v20)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">0.9924311</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>v200 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">200</span>, mean<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, sd<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(v200)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">2.061247</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sd</span>(v200)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">1.01953</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>v20000 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">20000</span>, mean<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, sd<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mean</span>(v20000)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">2.001766</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sd</span>(v20000)
+</span></span><span style="display:flex;"><span>  [1] <span style="color:#ae81ff">0.9996004</span>
+</span></span></code></pre></div><p><strong>Have you been convinced of the <a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">Law of Large Numbers</a>?</strong></p>
 <ul>
 <li>Vector of plots. Now let&rsquo;s plot out the histograms of these random vectors in a <code>vector of plots</code>! Please remember those vectors are generated from a normal distribution with <code>mean=2</code> and <code>standard deviation=1</code>.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span> <span class="c1"># Create a 1 x 3 plotting vector</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># The three histograms created will be plotted next to each other</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Histogram 1</span>
-</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="n">v20</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">v20</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">)</span>       <span class="c1"># Overlay density curve</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Histogram 2</span>
-</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="n">v200</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">v200</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Histogram 3</span>
-</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="n">v20000</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">v20000</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">)</span>      
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="Wk2hist.png" alt="Histgrams"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">par</span>(mfrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)) <span style="color:#75715e"># Create a 1 x 3 plotting vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The three histograms created will be plotted next to each other</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Histogram 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hist</span>(v20, prob<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lines</span>(<span style="color:#a6e22e">density</span>(v20), col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>)       <span style="color:#75715e"># Overlay density curve</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Histogram 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hist</span>(v200, prob<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lines</span>(<span style="color:#a6e22e">density</span>(v200), col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>)      
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Histogram 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hist</span>(v20000, prob<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lines</span>(<span style="color:#a6e22e">density</span>(v20000), col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>)      
+</span></span></code></pre></div><p><img src="Wk2hist.png" alt="Histgrams"></p>
 <p><strong>Have you been convinced of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>?</strong></p>
 <h2 id="matrices">Matrices</h2>
 <p>I guess you are already familiar with the concept of a matirx. However, there are two things I want to point out here:</p>
@@ -838,521 +637,250 @@
 <ul>
 <li>Define and assign values to a matrix.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X</span>
-</span></span><span class="line"><span class="cl">       <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">X1</span> <span class="o">&lt;-</span> <span class="nf">diag</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>  <span class="c1"># X1 same as X</span>
-</span></span><span class="line"><span class="cl"><span class="n">X1</span>
-</span></span><span class="line"><span class="cl">       <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl">  <span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">X</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">4</span>    <span class="m">7</span>   <span class="m">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">5</span>    <span class="m">8</span>   <span class="m">11</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">6</span>    <span class="m">9</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># By default, matrix() stack a vector into a matrix columewise.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">X1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X1</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">9</span>   <span class="m">10</span>   <span class="m">11</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Option &#34;byrow=TRUE&#34; makes the stacking rowwise.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>X <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>), nrow <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>X
+</span></span><span style="display:flex;"><span>       [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>  [1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  [2,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  [3,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">diag</span>(<span style="color:#ae81ff">3</span>)  <span style="color:#75715e"># X1 same as X</span>
+</span></span><span style="display:flex;"><span>X1
+</span></span><span style="display:flex;"><span>       [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>  [1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  [2,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  [3,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">12</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>) 
+</span></span><span style="display:flex;"><span>X
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>] [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">9</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># By default, matrix() stack a vector into a matrix columewise.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">12</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, byrow<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span>X1
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>] [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">9</span>   <span style="color:#ae81ff">10</span>   <span style="color:#ae81ff">11</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Option &#34;byrow=TRUE&#34; makes the stacking rowwise.</span>
+</span></span></code></pre></div><ul>
 <li>Naming the rows and columns of matrices.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">### We generating a matrix mimicing expression levels for 4 genes and 5 cells </span>
-</span></span><span class="line"><span class="cl"><span class="n">expMat</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">expMat</span> 
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">5</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">2</span>    <span class="m">0</span>    <span class="m">5</span>
-</span></span><span class="line"><span class="cl"><span class="n">[5</span><span class="p">,</span><span class="n">]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">expMat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Cencer cell&#34;</span><span class="p">,</span> <span class="s">&#34;T Cell&#34;</span><span class="p">,</span> <span class="s">&#34;B Cell&#34;</span><span class="p">,</span> <span class="s">&#34;stem cell&#34;</span><span class="p">,</span> <span class="s">&#34;muscle cell&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">expMat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;TNF&#34;</span><span class="p">,</span> <span class="s">&#34;EGFR&#34;</span><span class="p">,</span> <span class="s">&#34;IL4&#34;</span><span class="p">,</span> <span class="s">&#34;APOE&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">expMat</span>
-</span></span><span class="line"><span class="cl">            <span class="n">TNF</span> <span class="n">EGFR</span> <span class="n">IL4</span> <span class="n">APOE</span>
-</span></span><span class="line"><span class="cl"><span class="n">Cencer</span> <span class="n">cell</span>   <span class="m">0</span>    <span class="m">0</span>   <span class="m">1</span>    <span class="m">5</span>
-</span></span><span class="line"><span class="cl"><span class="bp">T</span> <span class="n">Cell</span>        <span class="m">1</span>    <span class="m">0</span>   <span class="m">0</span>    <span class="m">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="n">Cell</span>        <span class="m">0</span>    <span class="m">0</span>   <span class="m">0</span>    <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">stem</span> <span class="n">cell</span>     <span class="m">3</span>    <span class="m">2</span>   <span class="m">0</span>    <span class="m">5</span>
-</span></span><span class="line"><span class="cl"><span class="n">muscle</span> <span class="n">cell</span>   <span class="m">0</span>    <span class="m">0</span>   <span class="m">1</span>    <span class="m">0</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">### We generating a matrix mimicing expression levels for 4 genes and 5 cells </span>
+</span></span><span style="display:flex;"><span>expMat <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>expMat 
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>] [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>[4,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>[5,]    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rownames</span>(expMat) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Cencer cell&#34;</span>, <span style="color:#e6db74">&#34;T Cell&#34;</span>, <span style="color:#e6db74">&#34;B Cell&#34;</span>, <span style="color:#e6db74">&#34;stem cell&#34;</span>, <span style="color:#e6db74">&#34;muscle cell&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">colnames</span>(expMat) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;TNF&#34;</span>, <span style="color:#e6db74">&#34;EGFR&#34;</span>, <span style="color:#e6db74">&#34;IL4&#34;</span>, <span style="color:#e6db74">&#34;APOE&#34;</span>)
+</span></span><span style="display:flex;"><span>expMat
+</span></span><span style="display:flex;"><span>            TNF EGFR IL4 APOE
+</span></span><span style="display:flex;"><span>Cencer cell   <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>T Cell        <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>B Cell        <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>stem cell     <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>muscle cell   <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><ul>
 <li>Submatrix, matrix transpose, determinant of a squared matrix.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">X1</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">9</span>   <span class="m">10</span>   <span class="m">11</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">X1[2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>   <span class="m">10</span>   <span class="m">11</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">t</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">5</span>    <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">6</span>   <span class="m">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">7</span>   <span class="m">11</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>    <span class="m">4</span>    <span class="m">8</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">16</span><span class="p">),</span> <span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X</span>
-</span></span><span class="line"><span class="cl">            <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>       <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>       <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>       <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span> <span class="m">0.370402920</span> <span class="m">-0.1075556</span> <span class="m">-0.5772708</span>  <span class="m">0.2157153</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span> <span class="m">0.996578870</span> <span class="m">-1.2057802</span> <span class="m">-0.6337978</span>  <span class="m">1.1679033</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span> <span class="m">1.419479131</span>  <span class="m">0.8905424</span> <span class="m">-0.5620364</span>  <span class="m">0.6918340</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span> <span class="m">0.008353184</span> <span class="m">-0.6162812</span> <span class="m">-0.1980119</span> <span class="m">-0.5709147</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">det</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">0.782603</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>X1
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>] [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">9</span>   <span style="color:#ae81ff">10</span>   <span style="color:#ae81ff">11</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X1[2<span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[2,]   <span style="color:#ae81ff">10</span>   <span style="color:#ae81ff">11</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>(X1)
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">6</span>   <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>[4,]    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">rnorm</span>(<span style="color:#ae81ff">16</span>), <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>X
+</span></span><span style="display:flex;"><span>            [,<span style="color:#ae81ff">1</span>]       [,<span style="color:#ae81ff">2</span>]       [,<span style="color:#ae81ff">3</span>]       [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,] <span style="color:#ae81ff">0.370402920</span> <span style="color:#ae81ff">-0.1075556</span> <span style="color:#ae81ff">-0.5772708</span>  <span style="color:#ae81ff">0.2157153</span>
+</span></span><span style="display:flex;"><span>[2,] <span style="color:#ae81ff">0.996578870</span> <span style="color:#ae81ff">-1.2057802</span> <span style="color:#ae81ff">-0.6337978</span>  <span style="color:#ae81ff">1.1679033</span>
+</span></span><span style="display:flex;"><span>[3,] <span style="color:#ae81ff">1.419479131</span>  <span style="color:#ae81ff">0.8905424</span> <span style="color:#ae81ff">-0.5620364</span>  <span style="color:#ae81ff">0.6918340</span>
+</span></span><span style="display:flex;"><span>[4,] <span style="color:#ae81ff">0.008353184</span> <span style="color:#ae81ff">-0.6162812</span> <span style="color:#ae81ff">-0.1980119</span> <span style="color:#ae81ff">-0.5709147</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">det</span>(X)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">0.782603</span>
+</span></span></code></pre></div><ul>
 <li>Identify missing values in a matrix.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">3.1</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">2.5</span><span class="p">,</span> <span class="m">-1.8</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">0.77</span><span class="p">,</span> <span class="m">-3.0</span><span class="p">,</span> <span class="kc">NA</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>  <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>  <span class="m">3.1</span>    <span class="kc">NA</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>   <span class="kc">NA</span>  <span class="m">0.77</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>  <span class="m">2.5</span> <span class="m">-3.00</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span> <span class="m">-1.8</span>    <span class="kc">NA</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">which</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">arr.ind</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># return positions of three &#39;NA&#39;s</span>
-</span></span><span class="line"><span class="cl">     <span class="n">row</span> <span class="n">col</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>   <span class="m">2</span>   <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>   <span class="m">1</span>   <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>   <span class="m">4</span>   <span class="m">2</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>X <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">3.1</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">2.5</span>, <span style="color:#ae81ff">-1.8</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#ae81ff">0.77</span>, <span style="color:#ae81ff">-3.0</span>, <span style="color:#66d9ef">NA</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>X
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>]  [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,]  <span style="color:#ae81ff">3.1</span>    <span style="color:#66d9ef">NA</span>
+</span></span><span style="display:flex;"><span>[2,]   <span style="color:#66d9ef">NA</span>  <span style="color:#ae81ff">0.77</span>
+</span></span><span style="display:flex;"><span>[3,]  <span style="color:#ae81ff">2.5</span> <span style="color:#ae81ff">-3.00</span>
+</span></span><span style="display:flex;"><span>[4,] <span style="color:#ae81ff">-1.8</span>    <span style="color:#66d9ef">NA</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">which</span>(<span style="color:#a6e22e">is.na</span>(X), arr.ind<span style="color:#f92672">=</span><span style="color:#66d9ef">TRUE</span>) <span style="color:#75715e"># return positions of three &#39;NA&#39;s</span>
+</span></span><span style="display:flex;"><span>     row col
+</span></span><span style="display:flex;"><span>[1,]   <span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[2,]   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>[3,]   <span style="color:#ae81ff">4</span>   <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><ul>
 <li>Calculations on rows or columns of matrices.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X</span> 
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">4</span>    <span class="m">7</span>   <span class="m">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">5</span>    <span class="m">8</span>   <span class="m">11</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">6</span>    <span class="m">9</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span> <span class="c1"># The second argument = 1 lets the apply function act on each row of X matrix </span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span> <span class="c1"># The second argument = 2 lets the apply function act on each column of X matrix </span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span>  <span class="m">3</span>  <span class="m">6</span>  <span class="m">9</span> <span class="m">12</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>X <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">12</span>), nrow<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>X 
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>] [,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">9</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">apply</span>(X, <span style="color:#ae81ff">1</span>, max) <span style="color:#75715e"># The second argument = 1 lets the apply function act on each row of X matrix </span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">apply</span>(X, <span style="color:#ae81ff">2</span>, max) <span style="color:#75715e"># The second argument = 2 lets the apply function act on each column of X matrix </span>
+</span></span><span style="display:flex;"><span>[1]  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">12</span>
+</span></span></code></pre></div><ul>
 <li>Last, let&rsquo;s revisit the multi-dimentional <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a> by generating bivariate normal data matrices and visualising the empirical distribution using heapmaps.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">mu</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>                         <span class="c1"># Mean</span>
-</span></span><span class="line"><span class="cl"><span class="n">Sigma</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">.5</span><span class="p">,</span> <span class="m">.5</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span>  <span class="c1"># Covariance matrix</span>
-</span></span><span class="line"><span class="cl"><span class="n">Sigma</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>  <span class="m">1.0</span>  <span class="m">0.5</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>  <span class="m">0.5</span>  <span class="m">1.0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Generate sample from N(mu, Sigma)</span>
-</span></span><span class="line"><span class="cl"><span class="n">DM50</span> <span class="o">&lt;-</span>   <span class="nf">mvrnorm</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="n">Sigma</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">DM50</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">           <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>       <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span> <span class="m">-1.3746719</span> <span class="m">-0.6332140</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span> <span class="m">-0.9617408</span> <span class="m">-0.1572164</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>  <span class="m">0.1257806</span>  <span class="m">0.1259811</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>  <span class="m">0.6327408</span>  <span class="m">1.0349557</span>
-</span></span><span class="line"><span class="cl"><span class="n">[5</span><span class="p">,</span><span class="n">]</span>  <span class="m">0.9153924</span>  <span class="m">0.3191274</span>
-</span></span><span class="line"><span class="cl"><span class="n">[6</span><span class="p">,</span><span class="n">]</span> <span class="m">-0.4941903</span> <span class="m">-0.2205147</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">DM50</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">50</span>  <span class="m">2</span><span class="nf">png</span><span class="p">(</span><span class="s">&#39;Wk2_heatmap.png&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">1200</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span> <span class="c1"># Create a 1 x 3 plotting vector</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># The three heatmaps created will be plotted next to each other</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Calculate kernel density estimate</span>
-</span></span><span class="line"><span class="cl"><span class="n">DM50.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM50[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM50[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   <span class="c1"># from MASS package</span>
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM50.kde</span><span class="p">)</span>       <span class="c1"># from base graphics package</span>
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM50.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>     <span class="c1"># from base graphics package</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM5000.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM5000[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM5000[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM5000.kde</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM5000.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>     
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM500000.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM500000[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM500000[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM500000.kde</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM500000.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>     
-</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM5000</span> <span class="o">&lt;-</span>   <span class="nf">mvrnorm</span><span class="p">(</span><span class="m">5000</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="n">Sigma</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">DM5000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">5000</span>    <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM500000</span> <span class="o">&lt;-</span>   <span class="nf">mvrnorm</span><span class="p">(</span><span class="m">500000</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="n">Sigma</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">DM500000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">500000</span>      <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Contour plot overlayed on heatmaps for visulizing their distribution</span>
-</span></span><span class="line"><span class="cl"><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span> <span class="c1"># Create a 1 x 3 plotting vector</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># The three heatmaps created will be plotted next to each other</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Calculate kernel density estimate</span>
-</span></span><span class="line"><span class="cl"><span class="n">DM50.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM50[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM50[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   <span class="c1"># from MASS package</span>
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM50.kde</span><span class="p">)</span>       <span class="c1"># from base graphics package</span>
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM50.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>     <span class="c1"># from base graphics package</span>
-</span></span><span class="line"><span class="cl"><span class="nf">title</span><span class="p">(</span><span class="n">main</span> <span class="o">=</span> <span class="s">&#34;n=50&#34;</span><span class="p">,</span> <span class="n">font.main</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>             <span class="c1"># add title</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM5000.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM5000[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM5000[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM5000.kde</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM5000.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>    
-</span></span><span class="line"><span class="cl"><span class="nf">title</span><span class="p">(</span><span class="n">main</span> <span class="o">=</span> <span class="s">&#34;n=5000&#34;</span><span class="p">,</span> <span class="n">font.main</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">DM500000.kde</span> <span class="o">&lt;-</span> <span class="nf">kde2d</span><span class="p">(</span><span class="n">DM500000[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">DM500000[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>   
-</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="p">(</span><span class="n">DM500000.kde</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl"><span class="nf">contour</span><span class="p">(</span><span class="n">DM500000.kde</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>   
-</span></span><span class="line"><span class="cl"><span class="nf">title</span><span class="p">(</span><span class="n">main</span> <span class="o">=</span> <span class="s">&#34;n=500000&#34;</span><span class="p">,</span> <span class="n">font.main</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="Wk2_heatmap.png" alt="Histgrams"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(MASS) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mu <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)                         <span style="color:#75715e"># Mean</span>
+</span></span><span style="display:flex;"><span>Sigma <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">matrix</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">.5</span>, <span style="color:#ae81ff">.5</span>, <span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># Covariance matrix</span>
+</span></span><span style="display:flex;"><span>Sigma
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,]  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>[2,]  <span style="color:#ae81ff">0.5</span>  <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate sample from N(mu, Sigma)</span>
+</span></span><span style="display:flex;"><span>DM50 <span style="color:#f92672">&lt;-</span>   <span style="color:#a6e22e">mvrnorm</span>(<span style="color:#ae81ff">50</span>, mu <span style="color:#f92672">=</span> mu, Sigma <span style="color:#f92672">=</span> Sigma )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head</span>(DM50)
+</span></span><span style="display:flex;"><span>           [,<span style="color:#ae81ff">1</span>]       [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,] <span style="color:#ae81ff">-1.3746719</span> <span style="color:#ae81ff">-0.6332140</span>
+</span></span><span style="display:flex;"><span>[2,] <span style="color:#ae81ff">-0.9617408</span> <span style="color:#ae81ff">-0.1572164</span>
+</span></span><span style="display:flex;"><span>[3,]  <span style="color:#ae81ff">0.1257806</span>  <span style="color:#ae81ff">0.1259811</span>
+</span></span><span style="display:flex;"><span>[4,]  <span style="color:#ae81ff">0.6327408</span>  <span style="color:#ae81ff">1.0349557</span>
+</span></span><span style="display:flex;"><span>[5,]  <span style="color:#ae81ff">0.9153924</span>  <span style="color:#ae81ff">0.3191274</span>
+</span></span><span style="display:flex;"><span>[6,] <span style="color:#ae81ff">-0.4941903</span> <span style="color:#ae81ff">-0.2205147</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(DM50)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">50</span>  <span style="color:#ae81ff">2</span><span style="color:#a6e22e">png</span>(<span style="color:#e6db74">&#39;Wk2_heatmap.png&#39;</span>, height<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">1200</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">par</span>(mfrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)) <span style="color:#75715e"># Create a 1 x 3 plotting vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The three heatmaps created will be plotted next to each other</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calculate kernel density estimate</span>
+</span></span><span style="display:flex;"><span>DM50.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM50[,<span style="color:#ae81ff">1</span>], DM50[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   <span style="color:#75715e"># from MASS package</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM50.kde)       <span style="color:#75715e"># from base graphics package</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM50.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)     <span style="color:#75715e"># from base graphics package</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM5000.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM5000[,<span style="color:#ae81ff">1</span>], DM5000[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM5000.kde)      
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM5000.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)     
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM500000.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM500000[,<span style="color:#ae81ff">1</span>], DM500000[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM500000.kde)      
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM500000.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)     
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM5000 <span style="color:#f92672">&lt;-</span>   <span style="color:#a6e22e">mvrnorm</span>(<span style="color:#ae81ff">5000</span>, mu <span style="color:#f92672">=</span> mu, Sigma <span style="color:#f92672">=</span> Sigma )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(DM5000)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">5000</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM500000 <span style="color:#f92672">&lt;-</span>   <span style="color:#a6e22e">mvrnorm</span>(<span style="color:#ae81ff">500000</span>, mu <span style="color:#f92672">=</span> mu, Sigma <span style="color:#f92672">=</span> Sigma )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(DM500000)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">500000</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Contour plot overlayed on heatmaps for visulizing their distribution</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">par</span>(mfrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)) <span style="color:#75715e"># Create a 1 x 3 plotting vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The three heatmaps created will be plotted next to each other</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calculate kernel density estimate</span>
+</span></span><span style="display:flex;"><span>DM50.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM50[,<span style="color:#ae81ff">1</span>], DM50[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   <span style="color:#75715e"># from MASS package</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM50.kde)       <span style="color:#75715e"># from base graphics package</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM50.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)     <span style="color:#75715e"># from base graphics package</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span>(main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n=50&#34;</span>, font.main <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>)             <span style="color:#75715e"># add title</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM5000.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM5000[,<span style="color:#ae81ff">1</span>], DM5000[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM5000.kde)      
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM5000.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)    
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span>(main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n=5000&#34;</span>, font.main <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DM500000.kde <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">kde2d</span>(DM500000[,<span style="color:#ae81ff">1</span>], DM500000[,<span style="color:#ae81ff">2</span>], n <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>)   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">image</span>(DM500000.kde)      
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contour</span>(DM500000.kde, add <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span>(main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n=500000&#34;</span>, font.main <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>)  
+</span></span></code></pre></div><p><img src="Wk2_heatmap.png" alt="Histgrams"></p>
 <p><strong>Further convinced about the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>?</strong></p>
 <h2 id="arrays">Arrays</h2>
 <p>An array is a multi-dimensional object where all the entries have the same class (e.g. they are all numeric).</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">Arr</span> <span class="o">&lt;-</span> <span class="nf">array</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">24</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">Arr</span>
-</span></span><span class="line"><span class="cl"><span class="p">,</span> <span class="p">,</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">5</span>    <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">6</span>   <span class="m">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">7</span>   <span class="m">11</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>    <span class="m">4</span>    <span class="m">8</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">,</span> <span class="p">,</span> <span class="m">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>   <span class="m">13</span>   <span class="m">17</span>   <span class="m">21</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>   <span class="m">14</span>   <span class="m">18</span>   <span class="m">22</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>   <span class="m">15</span>   <span class="m">19</span>   <span class="m">23</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>   <span class="m">16</span>   <span class="m">20</span>   <span class="m">24</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Each entry of an 3D array is a matrix.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Arr <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">array</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">24</span>), dim<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>Arr
+</span></span><span style="display:flex;"><span>, , <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">6</span>   <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>[4,]    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>, , <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]   <span style="color:#ae81ff">13</span>   <span style="color:#ae81ff">17</span>   <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>[2,]   <span style="color:#ae81ff">14</span>   <span style="color:#ae81ff">18</span>   <span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>[3,]   <span style="color:#ae81ff">15</span>   <span style="color:#ae81ff">19</span>   <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>[4,]   <span style="color:#ae81ff">16</span>   <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">24</span>
+</span></span></code></pre></div><p>Each entry of an 3D array is a matrix.</p>
 <ul>
 <li>2D projection matrix of a 3D array.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">Arr[</span><span class="p">,,</span><span class="m">1</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">1</span>    <span class="m">5</span>    <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">2</span>    <span class="m">6</span>   <span class="m">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>    <span class="m">7</span>   <span class="m">11</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>    <span class="m">4</span>    <span class="m">8</span>   <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Arr[</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">5</span>   <span class="m">17</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">6</span>   <span class="m">18</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>    <span class="m">7</span>   <span class="m">19</span>
-</span></span><span class="line"><span class="cl"><span class="n">[4</span><span class="p">,</span><span class="n">]</span>    <span class="m">8</span>   <span class="m">20</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Arr[3</span><span class="p">,,</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">     <span class="n">[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1</span><span class="p">,</span><span class="n">]</span>    <span class="m">3</span>   <span class="m">15</span>
-</span></span><span class="line"><span class="cl"><span class="n">[2</span><span class="p">,</span><span class="n">]</span>    <span class="m">7</span>   <span class="m">19</span>
-</span></span><span class="line"><span class="cl"><span class="n">[3</span><span class="p">,</span><span class="n">]</span>   <span class="m">11</span>   <span class="m">23</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Arr[,,<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>] [,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">6</span>   <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>[4,]    <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arr[,<span style="color:#ae81ff">2</span>,]
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">6</span>   <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>[3,]    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>[4,]    <span style="color:#ae81ff">8</span>   <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arr[3,,]
+</span></span><span style="display:flex;"><span>     [,<span style="color:#ae81ff">1</span>] [,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[1,]    <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>[2,]    <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>[3,]   <span style="color:#ae81ff">11</span>   <span style="color:#ae81ff">23</span>
+</span></span></code></pre></div><ul>
 <li>Apply function to a 3D array.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">Arr</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">21</span> <span class="m">22</span> <span class="m">23</span> <span class="m">24</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">Arr</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">16</span> <span class="m">20</span> <span class="m">24</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">Arr</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">max</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">12</span> <span class="m">24</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Might need some thinking to clear this out&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">apply</span>(Arr, <span style="color:#ae81ff">1</span>, max)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">apply</span>(Arr, <span style="color:#ae81ff">2</span>, max)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">apply</span>(Arr, <span style="color:#ae81ff">3</span>, max)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">24</span>
+</span></span></code></pre></div><p>Might need some thinking to clear this out&hellip;</p>
     </div>
 
     

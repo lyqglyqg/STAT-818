@@ -70,7 +70,7 @@
 <meta itemprop="name" content="Data visualization">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-03-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-03-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="988">
+<meta itemprop="wordCount" content="887">
 <meta itemprop="keywords" content="R,Data visualization,ggplot2," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data visualization"/>
 <meta name="twitter:description" content=""/>
@@ -454,31 +454,14 @@
 <p>The package <em><code>ggplot2</code></em> is developed by Hadley Wickham (<a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098">Wickham 2016</a>). It is one of the most widely used <em>R</em> packages for data visualization.</p>
 <p>We’ll also use the mouse embryos data in the package <em><code>Hiiragi2013</code></em>. It is a gene expression microarray dataset containing the transcriptomes of around 100 individual cells from mouse embryos at different time points in the early development. The mammalian embryo starts out as a single cell, the fertilized egg. Through synchronized waves of cell divisions, the egg first multiplies itself into a cluster of cells of same type. Then later, cells choose different lineages, proliferate themselves by further and further specification, till the different cell types and tissues arise that are needed to form a full organism. More details can be found in the paper and in the documentation of the Bioconductor data package <a href="https://bioconductor.org/packages/release/data/experiment/html/Hiiragi2013.html">Hiiragi2013</a>. In this tutorial, we will use plotting functions from <em>ggplot2</em> to visualize the emprical distributions of gene expression and cell types, and their relationships.</p>
 <h2 id="installing-ggplot2">Installing <em><code>ggplot2</code></em></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;ggplot2&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="installing-hiiragi2013">Installing <em><code>Hiiragi2013</code></em></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#39;ggplot2&#39;</span>)
+</span></span></code></pre></div><h2 id="installing-hiiragi2013">Installing <em><code>Hiiragi2013</code></em></h2>
 <p>The following syntaxes will install the package <em><code>Hiiragi2013</code></em> we gonna use in this section. See <a href="https://bioconductor.org/packages/release/data/experiment/html/Hiiragi2013.html">here</a> for more details. <code>Warning: it will take a while to install this package.</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Hiiragi2013&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="basic-structure-of-ggplot2">Basic structure of <em><code>ggplot2</code></em></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">if </span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;BiocManager&#34;</span>, quietly <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;BiocManager&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BiocManager<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;Hiiragi2013&#34;</span>)
+</span></span></code></pre></div><h2 id="basic-structure-of-ggplot2">Basic structure of <em><code>ggplot2</code></em></h2>
 <p>Basic structure of <em><code>ggplot2</code></em> consists of the following components.</p>
 <ul>
 <li>The dataset to be used;</li>
@@ -486,359 +469,137 @@
 <li>Add any ‘layers’ to the plot as required.</li>
 </ul>
 <p>The general format of the function ggplot () from ggplot2 is</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot </span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nf">aes </span><span class="p">())</span> <span class="o">+</span> <span class="n">layer1</span> <span class="o">+</span> <span class="n">layer2</span> <span class="o">+</span> <span class="n">layer3</span> <span class="o">+</span> <span class="kc">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>One can save a plot as an object, and add layers to it later. For example,</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">myplot</span> <span class="o">&lt;-</span> <span class="nf">ggplot </span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="nf">aes </span><span class="p">())</span> <span class="o">+</span> <span class="n">layer1</span> <span class="o">+</span> <span class="n">layer2</span>
-</span></span><span class="line"><span class="cl"><span class="n">myplot</span> <span class="o">+</span> <span class="n">layer3</span> <span class="o">+</span> <span class="n">layer4</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="basic-ggplot2-plots">Basic <em><code>ggplot2</code></em> plots</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot </span>(dataset, <span style="color:#a6e22e">aes </span>()) <span style="color:#f92672">+</span> layer1 <span style="color:#f92672">+</span> layer2 <span style="color:#f92672">+</span> layer3 <span style="color:#f92672">+</span> <span style="color:#66d9ef">...</span>
+</span></span></code></pre></div><p>One can save a plot as an object, and add layers to it later. For example,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>myplot <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot </span>(dataset, <span style="color:#a6e22e">aes </span>()) <span style="color:#f92672">+</span> layer1 <span style="color:#f92672">+</span> layer2
+</span></span><span style="display:flex;"><span>myplot <span style="color:#f92672">+</span> layer3 <span style="color:#f92672">+</span> layer4
+</span></span></code></pre></div><h2 id="basic-ggplot2-plots">Basic <em><code>ggplot2</code></em> plots</h2>
 <ul>
 <li>Loading the <em><code>Hiiragi2013</code></em> data and preparation.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;Hiiragi2013&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">45101</span>   <span class="m">101</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;dplyr&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">groups</span> <span class="o">=</span> <span class="nf">group_by</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sampleGroup</span><span class="p">)</span> <span class="o">%&gt;%</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">summarise</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">(),</span> <span class="n">color</span> <span class="o">=</span> <span class="nf">unique</span><span class="p">(</span><span class="n">sampleColour</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">groups</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># A tibble: 8 × 3</span>
-</span></span><span class="line"><span class="cl">  <span class="n">sampleGroup</span>         <span class="n">n</span> <span class="n">color</span>  
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>           <span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>  
-</span></span><span class="line"><span class="cl"><span class="m">1</span> <span class="n">E3.25</span>              <span class="m">36</span> <span class="c1">#CAB2D6</span>
-</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="nf">E3.25 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>    <span class="m">17</span> <span class="c1">#FDBF6F</span>
-</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">EPI</span><span class="p">)</span>         <span class="m">11</span> <span class="c1">#A6CEE3</span>
-</span></span><span class="line"><span class="cl"><span class="m">4</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>      <span class="m">8</span> <span class="c1">#FF7F00</span>
-</span></span><span class="line"><span class="cl"><span class="m">5</span> <span class="nf">E3.5 </span><span class="p">(</span><span class="n">PE</span><span class="p">)</span>          <span class="m">11</span> <span class="c1">#B2DF8A</span>
-</span></span><span class="line"><span class="cl"><span class="m">6</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">EPI</span><span class="p">)</span>          <span class="m">4</span> <span class="c1">#1F78B4</span>
-</span></span><span class="line"><span class="cl"><span class="m">7</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">FGF4</span><span class="o">-</span><span class="n">KO</span><span class="p">)</span>     <span class="m">10</span> <span class="c1">#E31A1C</span>
-</span></span><span class="line"><span class="cl"><span class="m">8</span> <span class="nf">E4.5 </span><span class="p">(</span><span class="n">PE</span><span class="p">)</span>           <span class="m">4</span> <span class="c1">#33A02C</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>Please just try out the following codes and make sure you can generate the corresponding figures for youself. It is OK you do not fully understand the details about all the options.</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;Hiiragi2013&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">data</span>(<span style="color:#e6db74">&#34;x&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">45101</span>   <span style="color:#ae81ff">101</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;dplyr&#34;</span>)
+</span></span><span style="display:flex;"><span>groups <span style="color:#f92672">=</span> <span style="color:#a6e22e">group_by</span>(<span style="color:#a6e22e">pData</span>(x), sampleGroup) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">summarise</span>(n <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>(), color <span style="color:#f92672">=</span> <span style="color:#a6e22e">unique</span>(sampleColour))
+</span></span><span style="display:flex;"><span>groups
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 8 × 3</span>
+</span></span><span style="display:flex;"><span>  sampleGroup         n color  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>           <span style="color:#f92672">&lt;</span>int<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> E3.25              <span style="color:#ae81ff">36</span> <span style="color:#75715e">#CAB2D6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#a6e22e">E3.25 </span>(FGF4<span style="color:#f92672">-</span>KO)    <span style="color:#ae81ff">17</span> <span style="color:#75715e">#FDBF6F</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> <span style="color:#a6e22e">E3.5 </span>(EPI)         <span style="color:#ae81ff">11</span> <span style="color:#75715e">#A6CEE3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> <span style="color:#a6e22e">E3.5 </span>(FGF4<span style="color:#f92672">-</span>KO)      <span style="color:#ae81ff">8</span> <span style="color:#75715e">#FF7F00</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> <span style="color:#a6e22e">E3.5 </span>(PE)          <span style="color:#ae81ff">11</span> <span style="color:#75715e">#B2DF8A</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> <span style="color:#a6e22e">E4.5 </span>(EPI)          <span style="color:#ae81ff">4</span> <span style="color:#75715e">#1F78B4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span> <span style="color:#a6e22e">E4.5 </span>(FGF4<span style="color:#f92672">-</span>KO)     <span style="color:#ae81ff">10</span> <span style="color:#75715e">#E31A1C</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> <span style="color:#a6e22e">E4.5 </span>(PE)           <span style="color:#ae81ff">4</span> <span style="color:#75715e">#33A02C</span>
+</span></span></code></pre></div><p><code>Please just try out the following codes and make sure you can generate the corresponding figures for youself. It is OK you do not fully understand the details about all the options.</code></p>
 <h3 id="barplot">Barplot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">))</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="barplots.png" width="60%" height="60%">
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">groupColor</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="n">groups</span><span class="o">$</span><span class="n">color</span><span class="p">,</span> <span class="n">groups</span><span class="o">$</span><span class="n">sampleGroup</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">sampleGroup</span><span class="p">))</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">groupColor</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Groups&#34;</span><span class="p">)</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span>  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="barplot_color.png" width="60%" height="60%">
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">pb.polar</span> <span class="o">=</span> <span class="n">pb</span> <span class="o">+</span> <span class="nf">coord_polar</span><span class="p">()</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">        <span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
-</span></span><span class="line"><span class="cl">        <span class="n">axis.ticks</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">())</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pb.polar</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="barplot_color_polar.png" width="60%" height="60%" title="A barplot in a polar coordinate system.">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(groups, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> sampleGroup, y <span style="color:#f92672">=</span> n)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_bar</span>(stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>)
+</span></span></code></pre></div><img src="barplots.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>groupColor <span style="color:#f92672">=</span> <span style="color:#a6e22e">setNames</span>(groups<span style="color:#f92672">$</span>color, groups<span style="color:#f92672">$</span>sampleGroup)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(groups, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> sampleGroup, y <span style="color:#f92672">=</span> n, fill <span style="color:#f92672">=</span> sampleGroup)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_bar</span>(stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;identity&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_manual</span>(values <span style="color:#f92672">=</span> groupColor, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Groups&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(axis.text.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">90</span>, hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>))  
+</span></span></code></pre></div><img src="barplot_color.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>pb.polar <span style="color:#f92672">=</span> pb <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_polar</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(axis.text.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>        axis.text.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>        axis.ticks <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>()) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xlab</span>(<span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">ylab</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>pb.polar
+</span></span></code></pre></div><img src="barplot_color_polar.png" width="60%" height="60%" title="A barplot in a polar coordinate system.">
 <h3 id="scatterplot">Scatterplot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">dftx</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span> <span class="n">dftx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X1426642_at</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X1418765_at</span> <span class="p">))</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">1</span> <span class="p">)</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_smooth</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span> <span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div> <img src="loess_curve.png" width="60%" height="60%"> 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span> <span class="n">dftx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X1426642_at</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X1418765_at</span> <span class="p">))</span>  <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">color</span> <span class="o">=</span> <span class="n">sampleColour</span><span class="p">),</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">19</span> <span class="p">)</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_smooth</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span> <span class="p">)</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">scale_color_discrete</span><span class="p">(</span> <span class="n">guide</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span> <span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="loess_curve_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>dftx <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">t</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x)), <span style="color:#a6e22e">pData</span>(x))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>( dftx, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> X1426642_at, y <span style="color:#f92672">=</span> X1418765_at )) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>( shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_smooth</span>( method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;loess&#34;</span> )
+</span></span></code></pre></div> <img src="loess_curve.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>( dftx, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> X1426642_at, y <span style="color:#f92672">=</span> X1418765_at ))  <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>( <span style="color:#a6e22e">aes</span>( color <span style="color:#f92672">=</span> sampleColour), shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span> ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_smooth</span>( method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;loess&#34;</span> ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_color_discrete</span>( guide <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span> )
+</span></span></code></pre></div><img src="loess_curve_color.png" width="60%" height="60%"> 
 <h3 id="boxplot">Boxplot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_boxplot</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="boxplots_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> <span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> gene, y <span style="color:#f92672">=</span> value, fill <span style="color:#f92672">=</span> gene))
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_boxplot</span>()
+</span></span></code></pre></div><img src="boxplots_color.png" width="60%" height="60%"> 
 <h3 id="dot-plot">Dot plot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_dotplot</span><span class="p">(</span><span class="n">binaxis</span> <span class="o">=</span> <span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="n">stackdir</span> <span class="o">=</span> <span class="s">&#34;center&#34;</span><span class="p">,</span> <span class="n">stackratio</span> <span class="o">=</span> <span class="m">0.75</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="dotplots_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> <span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> gene, y <span style="color:#f92672">=</span> value, fill <span style="color:#f92672">=</span> gene))
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_dotplot</span>(binaxis <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>, binwidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span>,
+</span></span><span style="display:flex;"><span>       stackdir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>, stackratio <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.75</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> gene))
+</span></span></code></pre></div><img src="dotplots_color.png" width="60%" height="60%"> 
 <h3 id="density-plot">Density plot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_density</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="densityplot_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> value, color <span style="color:#f92672">=</span> gene)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_density</span>()
+</span></span></code></pre></div><img src="densityplot_color.png" width="60%" height="60%"> 
 <h3 id="violin-plot">Violin plot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_violin</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="violin_plot_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> <span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> gene, y <span style="color:#f92672">=</span> value, fill <span style="color:#f92672">=</span> gene))
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_violin</span>()
+</span></span></code></pre></div><img src="violin_plot_color.png" width="60%" height="60%"> 
 <h3 id="ridgeline-plot">Ridgeline plot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;ggridges&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gene</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">geom_density_ridges</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="ridgeline_plot_color.png" width="60%" height="60%"> 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">top42</span> <span class="o">=</span> <span class="nf">order</span><span class="p">(</span><span class="nf">rowMeans</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="m">42</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">g42</span> <span class="o">=</span> <span class="nf">melt</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="nf">[rev</span><span class="p">(</span><span class="n">top42</span><span class="p">),</span> <span class="n">]</span><span class="p">,</span> <span class="n">varnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;probe&#34;</span><span class="p">,</span> <span class="s">&#34;sample&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">g42</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">probe</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_density_ridges</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="ridgeline_plot_42.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;ggridges&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> value, y <span style="color:#f92672">=</span> gene, fill <span style="color:#f92672">=</span> gene)) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_density_ridges</span>()
+</span></span></code></pre></div><img src="ridgeline_plot_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>top42 <span style="color:#f92672">=</span> <span style="color:#a6e22e">order</span>(<span style="color:#a6e22e">rowMeans</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x)), decreasing <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)[1<span style="color:#f92672">:</span><span style="color:#ae81ff">42</span>]
+</span></span><span style="display:flex;"><span>g42 <span style="color:#f92672">=</span> <span style="color:#a6e22e">melt</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x)<span style="color:#a6e22e">[rev</span>(top42), ], varnames <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;probe&#34;</span>, <span style="color:#e6db74">&#34;sample&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(g42, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> value, y <span style="color:#f92672">=</span> probe)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_density_ridges</span>()
+</span></span></code></pre></div><img src="ridgeline_plot_42.png" width="60%" height="60%"> 
 <h3 id="ecdfempirical-cumulative-distribution-function-plot">ECDF(empirical cumulative distribution function) plot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">gene</span><span class="p">))</span> <span class="o">+</span> <span class="nf">stat_ecdf</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="ecdf_plot_color.png" width="60%" height="60%"> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(genes, <span style="color:#a6e22e">aes</span>( x <span style="color:#f92672">=</span> value, color <span style="color:#f92672">=</span> gene)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">stat_ecdf</span>()
+</span></span></code></pre></div><img src="ecdf_plot_color.png" width="60%" height="60%"> 
 <h3 id="scatterplot-1">Scatterplot</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">=</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">dfx</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">`59 E4.5 (PE)`</span> <span class="p">,</span>
-</span></span><span class="line"><span class="cl">                      <span class="n">y</span> <span class="o">=</span> <span class="n">`92 E4.5 (FGF4-KO)`</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="2dscatter.png" width="60%" height="60%">
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;RColorBrewer&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">colorscale</span> <span class="o">=</span> <span class="nf">scale_fill_gradientn</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">colors</span> <span class="o">=</span> <span class="nf">rev</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&#34;YlGnBu&#34;</span><span class="p">)),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">exp</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">))))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">scp</span> <span class="o">+</span> <span class="nf">geom_hex</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span> <span class="m">0.2</span><span class="p">))</span> <span class="o">+</span> <span class="n">colorscale</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">coord_fixed</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="2dscatter_color.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>scp <span style="color:#f92672">=</span> <span style="color:#a6e22e">ggplot</span>(dfx, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> `59 E4.5 (PE)` ,
+</span></span><span style="display:flex;"><span>                      y <span style="color:#f92672">=</span> `92 E4.5 (FGF4-KO)`))
+</span></span><span style="display:flex;"><span>scp <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_point</span>()
+</span></span></code></pre></div><img src="2dscatter.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;RColorBrewer&#34;</span>)
+</span></span><span style="display:flex;"><span>colorscale <span style="color:#f92672">=</span> <span style="color:#a6e22e">scale_fill_gradientn</span>(
+</span></span><span style="display:flex;"><span>    colors <span style="color:#f92672">=</span> <span style="color:#a6e22e">rev</span>(<span style="color:#a6e22e">brewer.pal</span>(<span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#34;YlGnBu&#34;</span>)),
+</span></span><span style="display:flex;"><span>    values <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">exp</span>(<span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">-5</span>, <span style="color:#ae81ff">0</span>, length.out <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scp <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_hex</span>(binwidth <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.2</span>)) <span style="color:#f92672">+</span> colorscale <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">coord_fixed</span>()
+</span></span></code></pre></div><img src="2dscatter_color.png" width="60%" height="60%">
 <h3 id="heatmaps">Heatmaps</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;pheatmap&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">topGenes</span> <span class="o">=</span> <span class="nf">order</span><span class="p">(</span><span class="nf">rowVars</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="m">500</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">rowCenter</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span> <span class="nf">rowCenter</span><span class="p">(</span><span class="n">Biobase</span><span class="o">::</span><span class="nf">exprs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="n">[</span> <span class="n">topGenes</span><span class="p">,</span> <span class="n">]</span> <span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">show_rownames</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">show_colnames</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="n">breaks</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">+5</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">101</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">annotation_col</span> <span class="o">=</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">pData</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="n">[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;sampleGroup&#34;</span><span class="p">,</span> <span class="s">&#34;Embryonic.day&#34;</span><span class="p">,</span> <span class="s">&#34;ScanDate&#34;</span><span class="p">)</span> <span class="n">]</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="n">annotation_colors</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sampleGroup</span> <span class="o">=</span> <span class="n">groupColor</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">genotype</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">`FGF4-KO`</span> <span class="o">=</span> <span class="s">&#34;chocolate1&#34;</span><span class="p">,</span> <span class="n">`WT`</span> <span class="o">=</span> <span class="s">&#34;azure2&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Embryonic.day</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&#34;Blues&#34;</span><span class="p">)</span><span class="nf">[c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span><span class="n">]</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                             <span class="nf">c</span><span class="p">(</span><span class="s">&#34;E3.25&#34;</span><span class="p">,</span> <span class="s">&#34;E3.5&#34;</span><span class="p">,</span> <span class="s">&#34;E4.5&#34;</span><span class="p">)),</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ScanDate</span> <span class="o">=</span> <span class="nf">setNames</span><span class="p">(</span><span class="nf">brewer.pal</span><span class="p">(</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">ScanDate</span><span class="p">),</span> <span class="s">&#34;YlGn&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                        <span class="nf">levels</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">ScanDate</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">  <span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">cutree_rows</span> <span class="o">=</span> <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><img src="heatmap.png" width="60%" height="60%">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;pheatmap&#34;</span>)
+</span></span><span style="display:flex;"><span>topGenes <span style="color:#f92672">=</span> <span style="color:#a6e22e">order</span>(<span style="color:#a6e22e">rowVars</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x)), decreasing <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)[1<span style="color:#f92672">:</span><span style="color:#ae81ff">500</span>]
+</span></span><span style="display:flex;"><span>rowCenter <span style="color:#f92672">=</span> <span style="color:#a6e22e">function</span>(x) { x <span style="color:#f92672">-</span> <span style="color:#a6e22e">rowMeans</span>(x) }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pheatmap</span>( <span style="color:#a6e22e">rowCenter</span>(Biobase<span style="color:#f92672">::</span><span style="color:#a6e22e">exprs</span>(x)[ topGenes, ] ),
+</span></span><span style="display:flex;"><span>  show_rownames <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, show_colnames <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>,
+</span></span><span style="display:flex;"><span>  breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">-5</span>, <span style="color:#ae81ff">+5</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">101</span>),
+</span></span><span style="display:flex;"><span>  annotation_col <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pData</span>(x)[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;sampleGroup&#34;</span>, <span style="color:#e6db74">&#34;Embryonic.day&#34;</span>, <span style="color:#e6db74">&#34;ScanDate&#34;</span>) ],
+</span></span><span style="display:flex;"><span>  annotation_colors <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(
+</span></span><span style="display:flex;"><span>    sampleGroup <span style="color:#f92672">=</span> groupColor,
+</span></span><span style="display:flex;"><span>    genotype <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(`FGF4-KO` <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;chocolate1&#34;</span>, `WT` <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;azure2&#34;</span>),
+</span></span><span style="display:flex;"><span>    Embryonic.day <span style="color:#f92672">=</span> <span style="color:#a6e22e">setNames</span>(<span style="color:#a6e22e">brewer.pal</span>(<span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#34;Blues&#34;</span>)<span style="color:#a6e22e">[c</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>)],
+</span></span><span style="display:flex;"><span>                             <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;E3.25&#34;</span>, <span style="color:#e6db74">&#34;E3.5&#34;</span>, <span style="color:#e6db74">&#34;E4.5&#34;</span>)),
+</span></span><span style="display:flex;"><span>    ScanDate <span style="color:#f92672">=</span> <span style="color:#a6e22e">setNames</span>(<span style="color:#a6e22e">brewer.pal</span>(<span style="color:#a6e22e">nlevels</span>(x<span style="color:#f92672">$</span>ScanDate), <span style="color:#e6db74">&#34;YlGn&#34;</span>),
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">levels</span>(x<span style="color:#f92672">$</span>ScanDate))
+</span></span><span style="display:flex;"><span>  ),
+</span></span><span style="display:flex;"><span>  cutree_rows <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><img src="heatmap.png" width="60%" height="60%">
 <h3 id="plotting-neuroimages">Plotting neuroimages</h3>
 <p>We have used the package <em><code>neurobase</code></em> to plot out a neuroimages in Week 4&rsquo;s lecture: &ldquo;Import, Export and Manage Data.&rdquo; Just to refresh on it.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">neurobase</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">neurobase</span><span class="o">::</span><span class="nf">readnii</span><span class="p">(</span><span class="s">&#34;./data/training01_01_t1.nii.gz&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">408</span> <span class="m">512</span> <span class="m">152</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Please notice that the neuroimaging data is read into R as a 3-dimensional array.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">ortho2</span><span class="p">(</span><span class="nf">robust_window</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.975</span><span class="p">)))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="neuroimaging.png" alt="Brain"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(neurobase)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> t1 <span style="color:#f92672">=</span> neurobase<span style="color:#f92672">::</span><span style="color:#a6e22e">readnii</span>(<span style="color:#e6db74">&#34;./data/training01_01_t1.nii.gz&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">dim</span>(t1)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">408</span> <span style="color:#ae81ff">512</span> <span style="color:#ae81ff">152</span>
+</span></span></code></pre></div><p>Please notice that the neuroimaging data is read into R as a 3-dimensional array.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">ortho2</span>(<span style="color:#a6e22e">robust_window</span>(t1, probs <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.975</span>)))
+</span></span></code></pre></div><p><img src="neuroimaging.png" alt="Brain"></p>
     </div>
 
     

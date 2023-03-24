@@ -70,7 +70,7 @@
 <meta itemprop="name" content="Functions, control statements, packaging and debugging">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-02-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1140">
+<meta itemprop="wordCount" content="985">
 <meta itemprop="keywords" content="R,Functions,Control statements,Packaging,Debugging," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Functions, control statements, packaging and debugging"/>
 <meta name="twitter:description" content=""/>
@@ -460,25 +460,13 @@
 </li>
 </ul>
 <p>A user-defined <em>R</em> function has the following structure.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="kc">...</span> <span class="p">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="n">function</span> <span class="n">body</span>
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">   <span class="nf">return</span><span class="p">(</span> <span class="n">outputs</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>my_function</code>: function name. Can contain alphabetics, underscore, numbers (cannot be at the 1st place), and period sign &ldquo;.&rdquo;. For example: &ldquo;my_function&rdquo;, &ldquo;my_function.v1&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>my_function <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(arg1, arg2, <span style="color:#66d9ef">...</span> ){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   function body
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">return</span>( outputs )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>my_function</code>: function name. Can contain alphabetics, underscore, numbers (cannot be at the 1st place), and period sign &ldquo;.&rdquo;. For example: &ldquo;my_function&rdquo;, &ldquo;my_function.v1&rdquo;.</p>
 <p><code>arg1, arg2, ...</code>: function argument(s). Can have default values.</p>
 <p><code>function body</code>: statements that are executed when the function runs.</p>
 <p><code>return( outputs )</code>: function outputs. Use return() to specify the list of values you want to output.</p>
@@ -486,81 +474,36 @@
 <ul>
 <li>Here is an example <em>R</em> function for converting temperatures from Fahrenheit to Celsius:</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>After defining the function, you can call the function like below.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="Fig0.png" alt="fahrenheit.to.celsius"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>fahrenheit.to.celsius <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.F) {
+</span></span><span style="display:flex;"><span>  temp.C <span style="color:#f92672">&lt;-</span> (temp.F <span style="color:#f92672">-</span> <span style="color:#ae81ff">32</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">9</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(temp.C) 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After defining the function, you can call the function like below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">fahrenheit.to.celsius</span>(<span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">26.66667</span>
+</span></span></code></pre></div><p><img src="Fig0.png" alt="fahrenheit.to.celsius"></p>
 <ul>
 <li>Another example: Celsius into Kelvin.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">temp.K</span> <span class="o">&lt;-</span> <span class="n">temp.C</span> <span class="o">+</span> <span class="m">273.15</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.K</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="m">26.67</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">299.82</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>celsius.to.kelvin <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C) { 
+</span></span><span style="display:flex;"><span>  temp.K <span style="color:#f92672">&lt;-</span> temp.C <span style="color:#f92672">+</span> <span style="color:#ae81ff">273.15</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(temp.K) 
+</span></span><span style="display:flex;"><span>} 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.to.kelvin</span>(<span style="color:#ae81ff">26.67</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">299.82</span>
+</span></span></code></pre></div><ul>
 <li>Call an existing function when defining a new function.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">temp.K</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.K</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">299.8167</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="variable-scope">Variable scope</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>fahrenheit.to.kelvin <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.F) { 
+</span></span><span style="display:flex;"><span>  temp.C <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fahrenheit.to.celsius</span>(temp.F) 
+</span></span><span style="display:flex;"><span>  temp.K <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">celsius.to.kelvin</span>(temp.C) 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(temp.K) 
+</span></span><span style="display:flex;"><span>} 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">fahrenheit.to.kelvin</span>(<span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">299.8167</span>
+</span></span></code></pre></div><h3 id="variable-scope">Variable scope</h3>
 <ul>
 <li>
 <p>A variable that is visible only within function body is said to be local to that function.
@@ -570,35 +513,18 @@ In fahrenheit.to.celsius() function, tmp.C is a local variable</p>
 <p>Local variables disappear after the function is defined or called.</p>
 </li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">temp.c</span>
-</span></span><span class="line"><span class="cl"><span class="n">Error</span><span class="o">:</span> <span class="n">object</span> <span class="s">&#39;temp.c&#39;</span> <span class="n">not</span> <span class="n">found</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> fahrenheit.to.celsius <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.F) {
+</span></span><span style="display:flex;"><span>  temp.C <span style="color:#f92672">&lt;-</span> (temp.F <span style="color:#f92672">-</span> <span style="color:#ae81ff">32</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">9</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(temp.C) 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">fahrenheit.to.celsius</span>(<span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">26.66667</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> temp.c
+</span></span><span style="display:flex;"><span>Error<span style="color:#f92672">:</span> object <span style="color:#e6db74">&#39;temp.c&#39;</span> not found
+</span></span></code></pre></div><ul>
 <li>
 <p>Variables created outside functions are global and are available
 within functions as well.</p>
@@ -608,343 +534,148 @@ within functions as well.</p>
 argument.</p>
 </li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">one.tmp</span> <span class="o">&lt;-</span> <span class="m">212</span>    <span class="c1">### one.tmp is a global variable</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">one.tmp</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">100</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">one.tmp</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">212</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="argument-defauts-in-functions">Argument defauts in functions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> one.tmp <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">212</span>    <span style="color:#75715e">### one.tmp is a global variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">fahrenheit.to.celsius</span>(one.tmp) 
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> one.tmp
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">212</span>
+</span></span></code></pre></div><h3 id="argument-defauts-in-functions">Argument defauts in functions</h3>
 <p>One can specify a defacut value for an argument in a function. When calling the function, if no argument value is given, then the function will run by the default value of that argument.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fahrenheit.to.celsius</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">temp.C</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">temp.F</span> <span class="o">-</span> <span class="m">32</span><span class="p">)</span> <span class="o">*</span> <span class="m">5</span> <span class="o">/</span> <span class="m">9</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">fahrenheit.to.celsius</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>One can specify defaut values for a subset of argument, leaving some argument unspecified. Let us define a new function that converts both a celsius and a fahrenheit to kelvin</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">,</span> <span class="n">temp.F</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.C</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.F</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">K.from.C</span><span class="o">=</span><span class="n">temp.K.from.C</span><span class="p">,</span> <span class="n">K.from.F</span><span class="o">=</span><span class="n">temp.K.from.F</span><span class="p">))</span>   <span class="c1">### Notice one can also assign names to output arguments!!</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="o">=</span><span class="m">26.6667</span><span class="p">,</span> <span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
-</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>We can assign defaut values to only &rsquo;temp.C&rsquo; argument.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">to.kelvin</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="o">=</span><span class="m">26.6667</span><span class="p">,</span> <span class="n">temp.F</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.C</span> <span class="o">&lt;-</span> <span class="nf">celsius.to.kelvin</span><span class="p">(</span><span class="n">temp.C</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">temp.K.from.F</span> <span class="o">&lt;-</span> <span class="nf">fahrenheit.to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">K.from.C</span><span class="o">=</span><span class="n">temp.K.from.C</span><span class="p">,</span> <span class="n">K.from.F</span><span class="o">=</span><span class="n">temp.K.from.F</span><span class="p">))</span>   <span class="c1">### Notice one can also assign names to output arguments!!</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">to.kelvin</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
-</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>fahrenheit.to.celsius <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.F<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>) {
+</span></span><span style="display:flex;"><span>  temp.C <span style="color:#f92672">&lt;-</span> (temp.F <span style="color:#f92672">-</span> <span style="color:#ae81ff">32</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">9</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(temp.C) 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">fahrenheit.to.celsius</span>()
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">26.66667</span>
+</span></span></code></pre></div><p>One can specify defaut values for a subset of argument, leaving some argument unspecified. Let us define a new function that converts both a celsius and a fahrenheit to kelvin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>to.kelvin <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C, temp.F){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp.K.from.C <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">celsius.to.kelvin</span>(temp.C) 
+</span></span><span style="display:flex;"><span>temp.K.from.F <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fahrenheit.to.kelvin</span>(temp.F)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">c</span>(K.from.C<span style="color:#f92672">=</span>temp.K.from.C, K.from.F<span style="color:#f92672">=</span>temp.K.from.F))   <span style="color:#75715e">### Notice one can also assign names to output arguments!!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">to.kelvin</span>(temp.C<span style="color:#f92672">=</span><span style="color:#ae81ff">26.6667</span>, temp.F<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>K.from.C K.from.F 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">299.8167</span> <span style="color:#ae81ff">299.8167</span> 
+</span></span></code></pre></div><p>We can assign defaut values to only &rsquo;temp.C&rsquo; argument.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>to.kelvin <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C<span style="color:#f92672">=</span><span style="color:#ae81ff">26.6667</span>, temp.F){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp.K.from.C <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">celsius.to.kelvin</span>(temp.C) 
+</span></span><span style="display:flex;"><span>temp.K.from.F <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fahrenheit.to.kelvin</span>(temp.F)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">c</span>(K.from.C<span style="color:#f92672">=</span>temp.K.from.C, K.from.F<span style="color:#f92672">=</span>temp.K.from.F))   <span style="color:#75715e">### Notice one can also assign names to output arguments!!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">to.kelvin</span>(temp.F<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>K.from.C K.from.F 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">299.8167</span> <span style="color:#ae81ff">299.8167</span> 
+</span></span></code></pre></div><ul>
 <li>You can call a function without writing out the argument names.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="n">temp.F</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">fahrenheit.to.celsius</span><span class="p">(</span><span class="m">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="m">26.66667</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">to.kelvin</span><span class="p">(</span><span class="m">26.6667</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>  <span class="c1">### If there are multiple input arguments, their order matters!</span>
-</span></span><span class="line"><span class="cl"><span class="n">K.from.C</span> <span class="n">K.from.F</span> 
-</span></span><span class="line"><span class="cl"><span class="m">299.8167</span> <span class="m">299.8167</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="control-statements">Control statements</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fahrenheit.to.celsius</span>(temp.F<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">26.66667</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fahrenheit.to.celsius</span>(<span style="color:#ae81ff">80</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">26.66667</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">to.kelvin</span>(<span style="color:#ae81ff">26.6667</span>, <span style="color:#ae81ff">80</span>)  <span style="color:#75715e">### If there are multiple input arguments, their order matters!</span>
+</span></span><span style="display:flex;"><span>K.from.C K.from.F 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">299.8167</span> <span style="color:#ae81ff">299.8167</span> 
+</span></span></code></pre></div><h2 id="control-statements">Control statements</h2>
 <p>Control statements are very useful in writing <em>R</em> functions. Commonly used control statements in <em>R</em> include <code>conditional</code> statements and <code>loop</code> statement.</p>
 <h3 id="conditional-statement">Conditional statement</h3>
 <p><strong>The <code>if else</code> statement</strong></p>
 <p>The <code>if else</code> statement has the following structure.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">if</span><span class="p">(</span><span class="s">&#34;condition is satisfied&#34;</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;do something&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;otherwise do something else&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">if</span>(<span style="color:#e6db74">&#34;condition is satisfied&#34;</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;do something&#34;</span>
+</span></span><span style="display:flex;"><span>} else {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;otherwise do something else&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>Let us write an example <em>R</em> function using the <code>if else</code> statement.</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="n">temp.C</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">print</span><span class="p">(</span><span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Current outside temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>  <span class="c1">### Notice this function does not return an output value.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report</span><span class="p">(</span><span class="m">15</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Current outside temperature is 15°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report</span><span class="p">(</span><span class="m">-5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>Vectorized <code>ifelse</code> statement</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>celsius.weather.report <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">if</span>(temp.C<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;It is freezing outside. Drive carefully!&#34;</span>)
+</span></span><span style="display:flex;"><span>    } else {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;Current outside temperature is &#34;</span>, temp.C, <span style="color:#e6db74">&#34;°C.&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">### Notice this function does not return an output value.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.report</span>(<span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Current outside temperature is 15°C.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.report</span>(<span style="color:#ae81ff">-5</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;It is freezing outside. Drive carefully!&#34;</span>
+</span></span></code></pre></div><p><strong>Vectorized <code>ifelse</code> statement</strong></p>
 <p>The vectorized <code>ifelse</code> statement has the following structure.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">ifelse</span><span class="p">(</span><span class="s">&#34;condition&#34;</span><span class="p">,</span> <span class="s">&#34;task if TRUE&#34;</span><span class="p">,</span> <span class="s">&#34;task if FALSE&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report_v1</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">ifelse</span><span class="p">(</span><span class="n">temp.C</span><span class="o">&lt;</span><span class="m">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">           <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">           <span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Current outside temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">          <span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_v1</span><span class="p">(</span><span class="m">15</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;Current outside temperature is 15°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_v1</span><span class="p">(</span><span class="m">-5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing outside. Drive carefully!&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="loop-statement">Loop statement</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ifelse</span>(<span style="color:#e6db74">&#34;condition&#34;</span>, <span style="color:#e6db74">&#34;task if TRUE&#34;</span>, <span style="color:#e6db74">&#34;task if FALSE&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>celsius.weather.report_v1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ifelse</span>(temp.C<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;It is freezing outside. Drive carefully!&#34;</span>,
+</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;Current outside temperature is &#34;</span>, temp.C, <span style="color:#e6db74">&#34;°C.&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>          ) 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.report_v1</span>(<span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;Current outside temperature is 15°C.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.report_v1</span>(<span style="color:#ae81ff">-5</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;It is freezing outside. Drive carefully!&#34;</span>
+</span></span></code></pre></div><h3 id="loop-statement">Loop statement</h3>
 <p><strong>The <code>for</code> statement</strong></p>
 <p>The <code>for</code> statement has the following structure:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">for </span><span class="p">(</span><span class="s">&#34;counter&#34;</span> <span class="n">in</span> <span class="s">&#34;vector of indices&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;do something&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.report_morning</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C.vector</span><span class="p">){</span>  <span class="c1">### This function requires a length-5 input vector for hourly temperature from 7 to 11 am.</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">       <span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;The temperature at &#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="m">+6</span><span class="p">),</span> <span class="s">&#34;am is &#34;</span><span class="p">,</span> <span class="n">temp.C.vector[i]</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.report_morning</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 7am is -2°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 8am is 1°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 9am is 3°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 10am is 8°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The temperature at 11am is 10°C.&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>The <code>while</code> statement</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">for </span>(<span style="color:#e6db74">&#34;counter&#34;</span> in <span style="color:#e6db74">&#34;vector of indices&#34;</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;do something&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>celsius.weather.report_morning <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C.vector){  <span style="color:#75715e">### This function requires a length-5 input vector for hourly temperature from 7 to 11 am.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">for</span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>){
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;The temperature at &#34;</span>, (i<span style="color:#ae81ff">+6</span>), <span style="color:#e6db74">&#34;am is &#34;</span>, temp.C.vector[i], <span style="color:#e6db74">&#34;°C.&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.report_morning</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">-2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The temperature at 7am is -2°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The temperature at 8am is 1°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The temperature at 9am is 3°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The temperature at 10am is 8°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The temperature at 11am is 10°C.&#34;</span>
+</span></span></code></pre></div><p><strong>The <code>while</code> statement</strong></p>
 <p>The <code>while</code> statement has the following structure:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">while </span><span class="p">(</span><span class="s">&#34;condition holds&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;do something&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">celsius.weather.freezing.alarm</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">temp.C.vector</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">   <span class="n">i</span> <span class="o">&lt;-</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">   <span class="nf">while</span><span class="p">(</span><span class="n">temp.C.vector[i]</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">       <span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;The current temperature is &#34;</span><span class="p">,</span> <span class="n">temp.C.vector[i]</span><span class="p">,</span> <span class="s">&#34;°C.&#34;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">))</span> 
-</span></span><span class="line"><span class="cl">       <span class="n">i</span> <span class="o">&lt;-</span> <span class="n">i</span><span class="m">+1</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">   <span class="nf">print</span><span class="p">(</span><span class="s">&#34;It is freezing now. Drive carefully!!&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="nf">celsius.weather.freezing.alarm</span><span class="p">(</span><span class="m">5</span><span class="o">:</span><span class="m">-3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 5°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 4°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 3°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 2°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;The current temperature is 1°C.&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">[1]</span> <span class="s">&#34;It is freezing now. Drive carefully!!&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="packaging">Packaging</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">while </span>(<span style="color:#e6db74">&#34;condition holds&#34;</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;do something&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>celsius.weather.freezing.alarm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(temp.C.vector){
+</span></span><span style="display:flex;"><span>   i <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">while</span>(temp.C.vector[i] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;The current temperature is &#34;</span>, temp.C.vector[i], <span style="color:#e6db74">&#34;°C.&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)) 
+</span></span><span style="display:flex;"><span>       i <span style="color:#f92672">&lt;-</span> i<span style="color:#ae81ff">+1</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;It is freezing now. Drive carefully!!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">celsius.weather.freezing.alarm</span>(<span style="color:#ae81ff">5</span><span style="color:#f92672">:</span><span style="color:#ae81ff">-3</span>)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The current temperature is 5°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The current temperature is 4°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The current temperature is 3°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The current temperature is 2°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;The current temperature is 1°C.&#34;</span>
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;It is freezing now. Drive carefully!!&#34;</span>
+</span></span></code></pre></div><h2 id="packaging">Packaging</h2>
 <p>You can make your own <em>R</em> packages! It is not required for this introductory course. But <a href="https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html">here</a> is a very good tutorial on &ldquo;Making Your First R Package.&rdquo;</p>
 <h2 id="debugging">Debugging</h2>
 <p>Debugging your <em>R</em> codes or functions is more of a skill of experience. It could be a cumbersome process sometime. The most useful trick I found for <em>R</em> debugging is to <strong><code>Google!!</code></strong>. Especially when you use a published <em>R</em> package. Most of time, you will find others talking about the same error massege if it is a common error. If you are lucky, you will find someone post online a solution to it.</p>
