@@ -6,7 +6,34 @@
     <description>Recent content in Categories on STAT 818: Introduction to R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fMRI</title>
+      <link>https://lyqglyqg.github.io/STAT-818/categories/fmri/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/categories/fmri/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neurobase&#34;</title>
+      <link>https://lyqglyqg.github.io/STAT-818/categories/neurobase/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/categories/neurobase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R packages</title>
+      <link>https://lyqglyqg.github.io/STAT-818/categories/r-packages/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/categories/r-packages/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>edgeR</title>
       <link>https://lyqglyqg.github.io/STAT-818/categories/edger/</link>
@@ -22,15 +49,6 @@
       <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://lyqglyqg.github.io/STAT-818/categories/gene-differential-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R packages</title>
-      <link>https://lyqglyqg.github.io/STAT-818/categories/r-packages/</link>
-      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/categories/r-packages/</guid>
       <description></description>
     </item>
     
@@ -166,24 +184,6 @@
       <pubDate>Wed, 25 Jan 2023 16:01:23 +0800</pubDate>
       
       <guid>https://lyqglyqg.github.io/STAT-818/categories/array/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Matrix</title>
-      <link>https://lyqglyqg.github.io/STAT-818/categories/matrix/</link>
-      <pubDate>Wed, 25 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/categories/matrix/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vector</title>
-      <link>https://lyqglyqg.github.io/STAT-818/categories/vector/</link>
-      <pubDate>Wed, 25 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/categories/vector/</guid>
       <description></description>
     </item>
     
