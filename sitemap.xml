@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/post/wk10/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/post/wk9/</loc>
     <lastmod>2023-03-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,7 +73,70 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/hepatocellular-carcinorma/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/hepatocellular-carcinorma/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/post/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/seurat/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/seurat/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/single-cell-analysis/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/single-cell-analysis/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
+    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -100,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/post/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/tags/r-packages/</loc>
     <lastmod>2023-03-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -115,20 +178,6 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/r-packages/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
     <lastmod>2023-03-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
