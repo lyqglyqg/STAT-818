@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/post/wk11/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/post/wk10/</loc>
     <lastmod>2023-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -72,8 +79,71 @@
   </url>
   
   <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/alzheimers-disease/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/alzheimers-disease/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/brain-connectome/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/brain-connectome/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/</loc>
-    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/positron-emission-tomography/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/categories/positron-emission-tomography/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/post/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
+    <lastmod>2023-04-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -87,13 +157,6 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/hepatocellular-carcinorma/</loc>
-    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/post/</loc>
     <lastmod>2023-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -122,20 +185,6 @@
   
   <url>
     <loc>https://lyqglyqg.github.io/STAT-818/categories/single-cell-analysis/</loc>
-    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/</loc>
-    <lastmod>2023-04-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://lyqglyqg.github.io/STAT-818/tags/</loc>
     <lastmod>2023-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
