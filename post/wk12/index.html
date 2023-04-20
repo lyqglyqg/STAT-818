@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Real data analysis III: analyzing EHR data using R - STAT 818: Introduction to R</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="yli8" />
+  <meta name="description" content="" />
+
+  <meta name="keywords" content="STAT 818, R" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3" />
+
+
+<link rel="canonical" href="https://lyqglyqg.github.io/STAT-818/post/wk12/" />
+
+
+
+
+
+<link rel="icon" href="/STAT-818/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/STAT-818/sass/jane.min.de22abc00de44766eebd1054fd9e0b254b071f89d5019044f893c484a9249a8d.css" integrity="sha256-3iKrwA3kR2buvRBU/Z4LJUsHH4nVAZBE&#43;JPEhKkkmo0=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Real data analysis III: analyzing EHR data using R" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyqglyqg.github.io/STAT-818/post/wk12/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-04-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-19T00:00:00+00:00" />
+<meta itemprop="name" content="Real data analysis III: analyzing EHR data using R">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-04-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-04-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2953">
+<meta itemprop="keywords" content="COVID-19,electronic health record data,time series data analysis,spatial data analysis," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Real data analysis III: analyzing EHR data using R"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">STAT 818: Introduction to R</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://lyqglyqg.github.io/STAT-818/">
+              docs
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk7/">Data visualization</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk8/">R packages and example statistical analysis I</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk9/">R packages and example statistical analysis II</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk10/">Real data analysis I: analyzing cancer-genomic data using R</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk11/">Real data analysis II: analyzing neuroimaging data using R</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk12/">Real data analysis III: analyzing EHR data using R</a>
+              </li>
+            
+              <li>
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      STAT 818: Introduction to R
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://lyqglyqg.github.io/STAT-818/about/">Couse Syllabus</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://lyqglyqg.github.io/STAT-818/">docs</a>
+          <ul class="submenu">
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk7/">Data visualization</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk6/">Functions, control statements, packaging and debugging</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk4/">Import, Export and Manage Data</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk2/">R Objects I: Vector, Matrix, and Array</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk3/">R Objects II: List, Factor, and Data Frame</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk8/">R packages and example statistical analysis I</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk9/">R packages and example statistical analysis II</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk10/">Real data analysis I: analyzing cancer-genomic data using R</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk11/">Real data analysis II: analyzing neuroimaging data using R</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk12/">Real data analysis III: analyzing EHR data using R</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://lyqglyqg.github.io/STAT-818/post/wk5/">Reproducible Research: Using R Markdown</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight wallpaper">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Real data analysis III: analyzing EHR data using R</h1>
+      
+
+      <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      yli8
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-04-19">
+      2023-04-19
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="https://lyqglyqg.github.io/STAT-818/categories/covid-19/"> COVID-19 </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/electronic-health-record-data/"> electronic health record data </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/time-series-data-analysis/"> time series data analysis </a>
+          <a href="https://lyqglyqg.github.io/STAT-818/categories/spatial-data-analysis/"> spatial data analysis </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-to-use">Data to use</a></li>
+    <li><a href="#incidence">Incidence</a>
+      <ul>
+        <li><a href="#trajectory-plot">Trajectory plot</a></li>
+        <li><a href="#trajectory-plot-for-each-country">Trajectory plot for each country</a></li>
+        <li><a href="#worldmap">Worldmap</a></li>
+      </ul>
+    </li>
+    <li><a href="#death">Death</a>
+      <ul>
+        <li><a href="#trajectory-till-12312021">Trajectory till 12/31/2021</a></li>
+        <li><a href="#worldmap-1">Worldmap</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+
+    
+    <div class="post-content">
+      <p>In this week&rsquo;s lecture, we are going to  use <code>R</code> to analyze global COVID-19 incidence and mortality. We will generate some figures commonly presented in time series and spatial data analyses.</p>
+<h2 id="data-to-use">Data to use</h2>
+<p>The EHR data used in this lecture were downloaded and extracted from <a href="https://github.com/CSSEGISandData/COVID-19">https://github.com/CSSEGISandData/COVID-19</a>.</p>
+<p><img src="Screenshot-1.png" alt="Screenshot"></p>
+<h2 id="incidence">Incidence</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#install.packages(&#39;tidyverse&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;./time_series_covid19_confirmed_global_small.csv&#34;</span>)
+</span></span></code></pre></div><p>Take a look at the data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(d)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">289</span>  <span style="color:#ae81ff">75</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>] 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 10 × 10</span>
+</span></span><span style="display:flex;"><span>    ...1  ...2 `Province/State`          `Country/Region`   Lat   Long `1/22/20`
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>                     <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>            <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>  <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">NA</span>                        Afghanistan       <span style="color:#ae81ff">33.9</span>  <span style="color:#ae81ff">67.7</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">NA</span>                        Albania           <span style="color:#ae81ff">41.2</span>  <span style="color:#ae81ff">20.2</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">NA</span>                        Algeria           <span style="color:#ae81ff">28.0</span>   <span style="color:#ae81ff">1.66</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">NA</span>                        Andorra           <span style="color:#ae81ff">42.5</span>   <span style="color:#ae81ff">1.52</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">NA</span>                        Angola           <span style="color:#ae81ff">-11.2</span>  <span style="color:#ae81ff">17.9</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>     <span style="color:#ae81ff">6</span>     <span style="color:#ae81ff">6</span> <span style="color:#66d9ef">NA</span>                        Antarctica       <span style="color:#ae81ff">-71.9</span>  <span style="color:#ae81ff">23.3</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">7</span> <span style="color:#66d9ef">NA</span>                        Antigua and Bar…  <span style="color:#ae81ff">17.1</span> <span style="color:#ae81ff">-61.8</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span>     <span style="color:#ae81ff">8</span>     <span style="color:#ae81ff">8</span> <span style="color:#66d9ef">NA</span>                        Argentina        <span style="color:#ae81ff">-38.4</span> <span style="color:#ae81ff">-63.6</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">9</span> <span style="color:#66d9ef">NA</span>                        Armenia           <span style="color:#ae81ff">40.1</span>  <span style="color:#ae81ff">45.0</span>          <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">10</span> Australian Capital Terri… Australia        <span style="color:#ae81ff">-35.5</span> <span style="color:#ae81ff">149</span>.           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 3 more variables: `1/23/20` &lt;dbl&gt;, `1/24/20` &lt;dbl&gt;, `1/25/20` &lt;dbl&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(dplyr)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">glimpse</span>(d)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Rows<span style="color:#f92672">:</span> <span style="color:#ae81ff">289</span>
+</span></span><span style="display:flex;"><span>Columns<span style="color:#f92672">:</span> <span style="color:#ae81ff">75</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> ...1             <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">16</span>…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> ...2             <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">16</span>…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `Province/State` <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#e6db74">&#34;Australian Capit…
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$ `Country/Region` &lt;chr&gt; &#34;</span>Afghanistan<span style="color:#e6db74">&#34;, &#34;</span>Albania<span style="color:#e6db74">&#34;, &#34;</span>Algeria<span style="color:#e6db74">&#34;, &#34;</span>Andorra<span style="color:#e6db74">&#34;, &#34;</span>Ango…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> Lat              <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">33.93911</span>, <span style="color:#ae81ff">41.15330</span>, <span style="color:#ae81ff">28.03390</span>, <span style="color:#ae81ff">42.50630</span>, <span style="color:#ae81ff">-11.20270</span>, <span style="color:#ae81ff">-7</span>…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> Long             <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">67.709953</span>, <span style="color:#ae81ff">20.168300</span>, <span style="color:#ae81ff">1.659600</span>, <span style="color:#ae81ff">1.521800</span>, <span style="color:#ae81ff">17.873900</span>, …
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/22/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/23/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/24/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/25/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span></code></pre></div><p>Next we etract the COVID-19 incidence number for each country and use <code>pivot_longer()</code> to convert the wide-formatted data into a long-formatted data. <code>pivot_longer</code> and <code>pivot_wider()</code> are commonly used for reformatting datasets between long and wide formats in longitudinal, cluster, spatial analyses.</p>
+<p><img src="Screenshot-2.png" alt="Screenshot"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyr)
+</span></span><span style="display:flex;"><span>d1 <span style="color:#f92672">&lt;-</span> d <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pivot_longer</span>(
+</span></span><span style="display:flex;"><span>    cols <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ncol</span>(.),
+</span></span><span style="display:flex;"><span>    names_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;date&#34;</span>,
+</span></span><span style="display:flex;"><span>    values_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cases&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mutate</span>(date <span style="color:#f92672">=</span> lubridate<span style="color:#f92672">::</span><span style="color:#a6e22e">mdy</span>(date)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  janitor<span style="color:#f92672">::</span><span style="color:#a6e22e">clean_names</span>() <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region, date) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">summarise</span>(cases <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(cases)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>()
+</span></span></code></pre></div><p>Take a look at the long-formatted data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">head</span>(d1)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 6 × 3</span>
+</span></span><span style="display:flex;"><span>  country_region date       cases
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> Afghanistan    <span style="color:#ae81ff">2020-01-22</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> Afghanistan    <span style="color:#ae81ff">2020-01-23</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> Afghanistan    <span style="color:#ae81ff">2020-01-24</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> Afghanistan    <span style="color:#ae81ff">2020-01-25</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> Afghanistan    <span style="color:#ae81ff">2020-01-26</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> Afghanistan    <span style="color:#ae81ff">2020-01-27</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d1 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(date) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">summarise</span>(confirmed <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(cases))
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 70 × 2</span>
+</span></span><span style="display:flex;"><span>   date       confirmed
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>         <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2020-01-22</span>       <span style="color:#ae81ff">557</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2020-01-23</span>       <span style="color:#ae81ff">657</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">2020-01-24</span>       <span style="color:#ae81ff">944</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">2020-01-25</span>      <span style="color:#ae81ff">1437</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">2020-01-26</span>      <span style="color:#ae81ff">2120</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">2020-01-27</span>      <span style="color:#ae81ff">2929</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">2020-01-28</span>      <span style="color:#ae81ff">5580</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">2020-01-29</span>      <span style="color:#ae81ff">6169</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">2020-01-30</span>      <span style="color:#ae81ff">8237</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> <span style="color:#ae81ff">2020-01-31</span>      <span style="color:#ae81ff">9927</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 60 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span></code></pre></div><p>We next plot for each country the longitudinal profile after the first 100 COVID-19 cases.</p>
+<ul>
+<li>The horizontal axis is for the number of days after the first 100 cases showed up.</li>
+<li>The vertical axis is the cumulative number of cases.</li>
+</ul>
+<p>First, some data management, for example, find day 0 &ndash; the day that the first 100 cases showed up &ndash; for each country.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>d2a <span style="color:#f92672">&lt;-</span> d1 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">filter</span>(cases <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mutate</span>(days_since_100 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span>(<span style="color:#a6e22e">n</span>() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># same as</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># mutate(edate = as.numeric(date - min(date)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>()
+</span></span><span style="display:flex;"><span>d2a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 1,639 × 4</span>
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>int<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> Afghanistan    <span style="color:#ae81ff">2020-03-28</span>  <span style="color:#ae81ff">106</span>               <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> Afghanistan    <span style="color:#ae81ff">2020-03-29</span>  <span style="color:#ae81ff">114</span>               <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> Afghanistan    <span style="color:#ae81ff">2020-03-30</span>  <span style="color:#ae81ff">114</span>               <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> Afghanistan    <span style="color:#66d9ef">NA</span>          <span style="color:#ae81ff">102</span>.              <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span> Albania        <span style="color:#ae81ff">2020-03-23</span>  <span style="color:#ae81ff">104</span>               <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span> Albania        <span style="color:#ae81ff">2020-03-24</span>  <span style="color:#ae81ff">123</span>               <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> Albania        <span style="color:#ae81ff">2020-03-25</span>  <span style="color:#ae81ff">146</span>               <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> Albania        <span style="color:#ae81ff">2020-03-26</span>  <span style="color:#ae81ff">174</span>               <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> Albania        <span style="color:#ae81ff">2020-03-27</span>  <span style="color:#ae81ff">186</span>               <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> Albania        <span style="color:#ae81ff">2020-03-28</span>  <span style="color:#ae81ff">197</span>               <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 1,629 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2a <span style="color:#f92672">&lt;-</span> d2a[<span style="color:#f92672">-</span><span style="color:#a6e22e">which</span>(<span style="color:#a6e22e">is.na</span>(d2a[,<span style="color:#ae81ff">2</span>])),]
+</span></span><span style="display:flex;"><span>d2a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 1,601 × 4</span>
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>int<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> Afghanistan    <span style="color:#ae81ff">2020-03-28</span>   <span style="color:#ae81ff">106</span>              <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> Afghanistan    <span style="color:#ae81ff">2020-03-29</span>   <span style="color:#ae81ff">114</span>              <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> Afghanistan    <span style="color:#ae81ff">2020-03-30</span>   <span style="color:#ae81ff">114</span>              <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> Albania        <span style="color:#ae81ff">2020-03-23</span>   <span style="color:#ae81ff">104</span>              <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span> Albania        <span style="color:#ae81ff">2020-03-24</span>   <span style="color:#ae81ff">123</span>              <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span> Albania        <span style="color:#ae81ff">2020-03-25</span>   <span style="color:#ae81ff">146</span>              <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> Albania        <span style="color:#ae81ff">2020-03-26</span>   <span style="color:#ae81ff">174</span>              <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> Albania        <span style="color:#ae81ff">2020-03-27</span>   <span style="color:#ae81ff">186</span>              <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> Albania        <span style="color:#ae81ff">2020-03-28</span>   <span style="color:#ae81ff">197</span>              <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> Albania        <span style="color:#ae81ff">2020-03-29</span>   <span style="color:#ae81ff">212</span>              <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 1,591 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span></code></pre></div><h3 id="trajectory-plot">Trajectory plot</h3>
+<p>Plotting</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>highlight <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;China&#34;</span>, <span style="color:#e6db74">&#34;Spain&#34;</span>, <span style="color:#e6db74">&#34;US&#34;</span>, <span style="color:#e6db74">&#34;United Kingdom&#34;</span>, <span style="color:#e6db74">&#34;Korea, South&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Italy&#34;</span>, <span style="color:#e6db74">&#34;Japan&#34;</span>, <span style="color:#e6db74">&#34;Singapore&#34;</span>, <span style="color:#e6db74">&#34;Germany&#34;</span>, <span style="color:#e6db74">&#34;France&#34;</span>, <span style="color:#e6db74">&#34;Iran&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gray <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;India&#34;</span>, <span style="color:#e6db74">&#34;Switzerland&#34;</span>, <span style="color:#e6db74">&#34;Belgium&#34;</span>, <span style="color:#e6db74">&#34;Netherlands&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Sweden&#34;</span>, <span style="color:#e6db74">&#34;Austria&#34;</span>, <span style="color:#e6db74">&#34;Australia&#34;</span>, <span style="color:#e6db74">&#34;Denmark&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Canada&#34;</span>, <span style="color:#e6db74">&#34;Brazil&#34;</span>, <span style="color:#e6db74">&#34;Portugal&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3_highlight <span style="color:#f92672">&lt;-</span> d2a <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(country_region <span style="color:#f92672">%in%</span> highlight)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3_gray <span style="color:#f92672">&lt;-</span> d2a <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(country_region <span style="color:#f92672">%in%</span> gray)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2a <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(days_since_100, cases, group <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_hline</span>(yintercept <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_vline</span>(xintercept <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray70&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray70&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># highlight country</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(data <span style="color:#f92672">=</span> d3_highlight, <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(data <span style="color:#f92672">=</span> d3_highlight, <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_text</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_highlight <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region, label <span style="color:#f92672">=</span> country_region),
+</span></span><span style="display:flex;"><span>    hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    vjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    nudge_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># gray country</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_text</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_gray <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(label <span style="color:#f92672">=</span> country_region),
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray50&#34;</span>,
+</span></span><span style="display:flex;"><span>    hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    vjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    nudge_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_gray <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray50&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_y_log10</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">500</span>, <span style="color:#ae81ff">2000</span>, <span style="color:#ae81ff">5000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">20000</span>, <span style="color:#ae81ff">50000</span>, <span style="color:#ae81ff">100000</span>, <span style="color:#ae81ff">150000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> scales<span style="color:#f92672">::</span>comma
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_x_continuous</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme_minimal</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    panel.grid.minor <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>),
+</span></span><span style="display:flex;"><span>    legend.position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>    panel.spacing <span style="color:#f92672">=</span> <span style="color:#a6e22e">margin</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#e6db74">&#34;mm&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Country by country: how coronavirus case trajectories compare&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cumulative number of cases, by Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data source from @www.ft.com&#34;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p><img src="Traj.png" alt="IncidenceTraj"></p>
+<h3 id="trajectory-plot-for-each-country">Trajectory plot for each country</h3>
+<p>Next, we plot out the longitudinal profiles for every country.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>d2 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">max</span>(cases) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 676 × 4</span>
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> Austria        <span style="color:#ae81ff">2020-03-10</span>   <span style="color:#ae81ff">126</span>              <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> Austria        <span style="color:#ae81ff">2020-03-11</span>   <span style="color:#ae81ff">148</span>              <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> Austria        <span style="color:#ae81ff">2020-03-12</span>   <span style="color:#ae81ff">203</span>              <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> Austria        <span style="color:#ae81ff">2020-03-13</span>   <span style="color:#ae81ff">312</span>              <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span> Austria        <span style="color:#ae81ff">2020-03-14</span>   <span style="color:#ae81ff">409</span>              <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span> Austria        <span style="color:#ae81ff">2020-03-15</span>   <span style="color:#ae81ff">591</span>              <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> Austria        <span style="color:#ae81ff">2020-03-16</span>   <span style="color:#ae81ff">801</span>              <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> Austria        <span style="color:#ae81ff">2020-03-17</span>   <span style="color:#ae81ff">999</span>              <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> Austria        <span style="color:#ae81ff">2020-03-18</span>  <span style="color:#ae81ff">1225</span>              <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> Austria        <span style="color:#ae81ff">2020-03-19</span>  <span style="color:#ae81ff">1571</span>              <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 666 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">max</span>(cases) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>() <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(days_since_100, cases)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d2 <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">rename</span>(country <span style="color:#f92672">=</span> country_region)d2 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">max</span>(cases) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 676 × 4</span>
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>date<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>          <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> Austria        <span style="color:#ae81ff">2020-03-10</span>   <span style="color:#ae81ff">126</span>              <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span> Austria        <span style="color:#ae81ff">2020-03-11</span>   <span style="color:#ae81ff">148</span>              <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span> Austria        <span style="color:#ae81ff">2020-03-12</span>   <span style="color:#ae81ff">203</span>              <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span> Austria        <span style="color:#ae81ff">2020-03-13</span>   <span style="color:#ae81ff">312</span>              <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span> Austria        <span style="color:#ae81ff">2020-03-14</span>   <span style="color:#ae81ff">409</span>              <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span> Austria        <span style="color:#ae81ff">2020-03-15</span>   <span style="color:#ae81ff">591</span>              <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> Austria        <span style="color:#ae81ff">2020-03-16</span>   <span style="color:#ae81ff">801</span>              <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> Austria        <span style="color:#ae81ff">2020-03-17</span>   <span style="color:#ae81ff">999</span>              <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span> Austria        <span style="color:#ae81ff">2020-03-18</span>  <span style="color:#ae81ff">1225</span>              <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> Austria        <span style="color:#ae81ff">2020-03-19</span>  <span style="color:#ae81ff">1571</span>              <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 666 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">max</span>(cases) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>() <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(days_since_100, cases)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d2 <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">rename</span>(country <span style="color:#f92672">=</span> country_region),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(days_since_100, cases, group <span style="color:#f92672">=</span> country),
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_y_log10</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">50000</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_x_continuous</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#a6e22e">vars</span>(country_region), scales <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free_x&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    panel.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Outbreak are now underway in dozens of other countries, with some on the same trajectory as Italy&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cumulative number of cases, by Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data source from @www.ft.com&#34;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(days_since_100, cases, group <span style="color:#f92672">=</span> country),
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_y_log10</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">50000</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_x_continuous</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">facet_wrap</span>(<span style="color:#a6e22e">vars</span>(country_region), scales <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free_x&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    panel.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Outbreak are now underway in dozens of other countries, with some on the same trajectory as Italy&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cumulative number of cases, by Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data source from @www.ft.com&#34;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p><img src="Bycountry.png" alt="Bycountry"></p>
+<h3 id="worldmap">Worldmap</h3>
+<p>Next, we plot out a world map with incidence numbers for all countries.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(countrycode)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># countrycode(&#39;Albania&#39;, &#39;country.name&#39;, &#39;iso3c&#39;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d_newest <span style="color:#f92672">&lt;-</span> d <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">select</span>(Long, Lat, <span style="color:#a6e22e">last_col</span>()) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">set_names</span>(<span style="color:#e6db74">&#34;Long&#34;</span>, <span style="color:#e6db74">&#34;Lat&#34;</span>, <span style="color:#e6db74">&#34;newest_date&#34;</span>)
+</span></span><span style="display:flex;"><span>d_newest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 289 × 3</span>
+</span></span><span style="display:flex;"><span>     Long   Lat newest_date
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>       <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">67.7</span>   <span style="color:#ae81ff">33.9</span>         <span style="color:#ae81ff">114</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">20.2</span>   <span style="color:#ae81ff">41.2</span>         <span style="color:#ae81ff">223</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">1.66</span>  <span style="color:#ae81ff">28.0</span>         <span style="color:#ae81ff">584</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span>   <span style="color:#ae81ff">1.52</span>  <span style="color:#ae81ff">42.5</span>         <span style="color:#ae81ff">370</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">17.9</span>  <span style="color:#ae81ff">-11.2</span>           <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">23.3</span>  <span style="color:#ae81ff">-71.9</span>           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">-61.8</span>   <span style="color:#ae81ff">17.1</span>           <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">-63.6</span>  <span style="color:#ae81ff">-38.4</span>         <span style="color:#ae81ff">820</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">45.0</span>   <span style="color:#ae81ff">40.1</span>         <span style="color:#ae81ff">482</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> <span style="color:#ae81ff">149</span>.   <span style="color:#ae81ff">-35.5</span>          <span style="color:#ae81ff">78</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 279 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>world <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">map_data</span>(<span style="color:#e6db74">&#34;world&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_polygon</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> world,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> long, y <span style="color:#f92672">=</span> lat, group <span style="color:#f92672">=</span> group),
+</span></span><span style="display:flex;"><span>    fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey&#34;</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.3</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d_newest,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Long, y <span style="color:#f92672">=</span> Lat, size <span style="color:#f92672">=</span> newest_date, color <span style="color:#f92672">=</span> newest_date),
+</span></span><span style="display:flex;"><span>    stroke <span style="color:#f92672">=</span> F, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.7</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_size_continuous</span>(
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cases&#34;</span>, trans <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>    range <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">7</span>),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">50000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1-19&#34;</span>, <span style="color:#e6db74">&#34;20-99&#34;</span>, <span style="color:#e6db74">&#34;100-999&#34;</span>, <span style="color:#e6db74">&#34;1,000-49,999&#34;</span>, <span style="color:#e6db74">&#34;50,000+&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_color_viridis_c</span>(
+</span></span><span style="display:flex;"><span>    option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;inferno&#34;</span>,
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cases&#34;</span>,
+</span></span><span style="display:flex;"><span>    trans <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">50000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1-19&#34;</span>, <span style="color:#e6db74">&#34;20-99&#34;</span>, <span style="color:#e6db74">&#34;100-999&#34;</span>, <span style="color:#e6db74">&#34;1,000-49,999&#34;</span>, <span style="color:#e6db74">&#34;50,000+&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme_void</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guides</span>(colour <span style="color:#f92672">=</span> <span style="color:#a6e22e">guide_legend</span>()) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mapping the coronavirus outbreak&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: JHU Unviersity, CSSE; FT research @www.FT.com&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    legend.position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bottom&#34;</span>,
+</span></span><span style="display:flex;"><span>    text <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#22211d&#34;</span>),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>),
+</span></span><span style="display:flex;"><span>    panel.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>),
+</span></span><span style="display:flex;"><span>    legend.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p><img src="worldmap.png" alt="worldmap"></p>
+<h2 id="death">Death</h2>
+<h3 id="trajectory-till-12312021">Trajectory till 12/31/2021</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;./time_series_covid19_deaths_global_till_12312021.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dim</span>(d)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#ae81ff">289</span> <span style="color:#ae81ff">715</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 10 × 10</span>
+</span></span><span style="display:flex;"><span>    ...1 `Province/State`      `Country/Region`   Lat   Long `1/22/20` `1/23/20`
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>                 <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span>            <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>  <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>     <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">NA</span>                    Afghanistan       <span style="color:#ae81ff">33.9</span>  <span style="color:#ae81ff">67.7</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">NA</span>                    Albania           <span style="color:#ae81ff">41.2</span>  <span style="color:#ae81ff">20.2</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">NA</span>                    Algeria           <span style="color:#ae81ff">28.0</span>   <span style="color:#ae81ff">1.66</span>         <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">NA</span>                    Andorra           <span style="color:#ae81ff">42.5</span>   <span style="color:#ae81ff">1.52</span>         <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">NA</span>                    Angola           <span style="color:#ae81ff">-11.2</span>  <span style="color:#ae81ff">17.9</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>     <span style="color:#ae81ff">6</span> <span style="color:#66d9ef">NA</span>                    Antarctica       <span style="color:#ae81ff">-71.9</span>  <span style="color:#ae81ff">23.3</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">7</span> <span style="color:#66d9ef">NA</span>                    Antigua and Bar…  <span style="color:#ae81ff">17.1</span> <span style="color:#ae81ff">-61.8</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span>     <span style="color:#ae81ff">8</span> <span style="color:#66d9ef">NA</span>                    Argentina        <span style="color:#ae81ff">-38.4</span> <span style="color:#ae81ff">-63.6</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">9</span> <span style="color:#66d9ef">NA</span>                    Armenia           <span style="color:#ae81ff">40.1</span>  <span style="color:#ae81ff">45.0</span>          <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">10</span> Australian Capital T… Australia        <span style="color:#ae81ff">-35.5</span> <span style="color:#ae81ff">149</span>.           <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 3 more variables: `1/24/20` &lt;dbl&gt;, `1/25/20` &lt;dbl&gt;, `1/26/20` &lt;dbl&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(dplyr)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">glimpse</span>(d)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Rows<span style="color:#f92672">:</span> <span style="color:#ae81ff">289</span>
+</span></span><span style="display:flex;"><span>Columns<span style="color:#f92672">:</span> <span style="color:#ae81ff">715</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> ...1             <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">16</span>…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `Province/State` <span style="color:#f92672">&lt;</span>chr<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#66d9ef">NA</span>, <span style="color:#e6db74">&#34;Australian Capit…
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$ `Country/Region` &lt;chr&gt; &#34;</span>Afghanistan<span style="color:#e6db74">&#34;, &#34;</span>Albania<span style="color:#e6db74">&#34;, &#34;</span>Algeria<span style="color:#e6db74">&#34;, &#34;</span>Andorra<span style="color:#e6db74">&#34;, &#34;</span>Ango…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> Lat              <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">33.93911</span>, <span style="color:#ae81ff">41.15330</span>, <span style="color:#ae81ff">28.03390</span>, <span style="color:#ae81ff">42.50630</span>, <span style="color:#ae81ff">-11.20270</span>, <span style="color:#ae81ff">-7</span>…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> Long             <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">67.709953</span>, <span style="color:#ae81ff">20.168300</span>, <span style="color:#ae81ff">1.659600</span>, <span style="color:#ae81ff">1.521800</span>, <span style="color:#ae81ff">17.873900</span>, …
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/22/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/23/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/24/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/25/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span><span style="color:#f92672">$</span> `1/26/20`        <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,…
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyr)
+</span></span><span style="display:flex;"><span>d1 <span style="color:#f92672">&lt;-</span> d <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pivot_longer</span>(
+</span></span><span style="display:flex;"><span>    cols <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ncol</span>(.),
+</span></span><span style="display:flex;"><span>    names_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;date&#34;</span>,
+</span></span><span style="display:flex;"><span>    values_to <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cases&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mutate</span>(date <span style="color:#f92672">=</span> lubridate<span style="color:#f92672">::</span><span style="color:#a6e22e">mdy</span>(date)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  janitor<span style="color:#f92672">::</span><span style="color:#a6e22e">clean_names</span>() <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(country_region, date) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">summarise</span>(cases <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(cases)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ungroup</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head</span>(d1)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">`summarise</span>()` has grouped output by &#39;country_region&#39;. You can override using the `.groups` argument.
+</span></span><span style="display:flex;"><span>Warning message:
+</span></span><span style="display:flex;"><span>There was 1 warning in `<span style="color:#a6e22e">mutate</span>()`.
+</span></span><span style="display:flex;"><span>ℹ In argument: `date <span style="color:#f92672">=</span> lubridate<span style="color:#f92672">::</span><span style="color:#a6e22e">mdy</span>(date)`.
+</span></span><span style="display:flex;"><span>Caused by warning:
+</span></span><span style="display:flex;"><span>!  289 failed to parse. 
+</span></span><span style="display:flex;"><span># A tibble: 6 × 3
+</span></span><span style="display:flex;"><span>  country_region date       cases
+</span></span><span style="display:flex;"><span>  &lt;chr&gt;          &lt;date&gt;     &lt;dbl&gt;
+</span></span><span style="display:flex;"><span>1 Afghanistan    2020-01-22     0
+</span></span><span style="display:flex;"><span>2 Afghanistan    2020-01-23     0
+</span></span><span style="display:flex;"><span>3 Afghanistan    2020-01-24     0
+</span></span><span style="display:flex;"><span>4 Afghanistan    2020-01-25     0
+</span></span><span style="display:flex;"><span>5 Afghanistan    2020-01-26     0
+</span></span><span style="display:flex;"><span>6 Afghanistan    2020-01-27     0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2a &lt;- d1 %&gt;%
+</span></span><span style="display:flex;"><span>  group_by(country_region) %&gt;%
+</span></span><span style="display:flex;"><span>  filter(cases &gt;= 100) %&gt;%
+</span></span><span style="display:flex;"><span>  mutate(days_since_100 = 0:(n() - 1)) %&gt;%
+</span></span><span style="display:flex;"><span>  # same as
+</span></span><span style="display:flex;"><span>  # mutate(edate = as.numeric(date - min(date)))
+</span></span><span style="display:flex;"><span>  ungroup()
+</span></span><span style="display:flex;"><span>d2a
+</span></span><span style="display:flex;"><span># A tibble: 83,520 × 4
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   &lt;chr&gt;          &lt;date&gt;     &lt;dbl&gt;          &lt;int&gt;
+</span></span><span style="display:flex;"><span> 1 Afghanistan    2020-05-07   104              0
+</span></span><span style="display:flex;"><span> 2 Afghanistan    2020-05-08   105              1
+</span></span><span style="display:flex;"><span> 3 Afghanistan    2020-05-09   105              2
+</span></span><span style="display:flex;"><span> 4 Afghanistan    2020-05-10   119              3
+</span></span><span style="display:flex;"><span> 5 Afghanistan    2020-05-11   120              4
+</span></span><span style="display:flex;"><span> 6 Afghanistan    2020-05-12   127              5
+</span></span><span style="display:flex;"><span> 7 Afghanistan    2020-05-13   127              6
+</span></span><span style="display:flex;"><span> 8 Afghanistan    2020-05-14   136              7
+</span></span><span style="display:flex;"><span> 9 Afghanistan    2020-05-15   153              8
+</span></span><span style="display:flex;"><span>10 Afghanistan    2020-05-16   168              9
+</span></span><span style="display:flex;"><span># ℹ 83,510 more rows
+</span></span><span style="display:flex;"><span># ℹ Use `<span style="color:#a6e22e">print</span>(n <span style="color:#f92672">=</span> <span style="color:#66d9ef">...</span>)` to see more rows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2a &lt;- d2a[-which(is.na(d2a[,2])),]
+</span></span><span style="display:flex;"><span>d2a
+</span></span><span style="display:flex;"><span># A tibble: 83,492 × 4
+</span></span><span style="display:flex;"><span>   country_region date       cases days_since_100
+</span></span><span style="display:flex;"><span>   &lt;chr&gt;          &lt;date&gt;     &lt;dbl&gt;          &lt;int&gt;
+</span></span><span style="display:flex;"><span> 1 Afghanistan    2020-05-07   104              0
+</span></span><span style="display:flex;"><span> 2 Afghanistan    2020-05-08   105              1
+</span></span><span style="display:flex;"><span> 3 Afghanistan    2020-05-09   105              2
+</span></span><span style="display:flex;"><span> 4 Afghanistan    2020-05-10   119              3
+</span></span><span style="display:flex;"><span> 5 Afghanistan    2020-05-11   120              4
+</span></span><span style="display:flex;"><span> 6 Afghanistan    2020-05-12   127              5
+</span></span><span style="display:flex;"><span> 7 Afghanistan    2020-05-13   127              6
+</span></span><span style="display:flex;"><span> 8 Afghanistan    2020-05-14   136              7
+</span></span><span style="display:flex;"><span> 9 Afghanistan    2020-05-15   153              8
+</span></span><span style="display:flex;"><span>10 Afghanistan    2020-05-16   168              9
+</span></span><span style="display:flex;"><span># ℹ 83,482 more rows
+</span></span><span style="display:flex;"><span># ℹ Use `<span style="color:#a6e22e">print</span>(n <span style="color:#f92672">=</span> <span style="color:#66d9ef">...</span>)` to see more rows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>highlight <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;China&#34;</span>, <span style="color:#e6db74">&#34;Spain&#34;</span>, <span style="color:#e6db74">&#34;US&#34;</span>, <span style="color:#e6db74">&#34;United Kingdom&#34;</span>, <span style="color:#e6db74">&#34;Korea, South&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Italy&#34;</span>, <span style="color:#e6db74">&#34;Japan&#34;</span>, <span style="color:#e6db74">&#34;Singapore&#34;</span>, <span style="color:#e6db74">&#34;Germany&#34;</span>, <span style="color:#e6db74">&#34;France&#34;</span>, <span style="color:#e6db74">&#34;Iran&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gray <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;India&#34;</span>, <span style="color:#e6db74">&#34;Switzerland&#34;</span>, <span style="color:#e6db74">&#34;Belgium&#34;</span>, <span style="color:#e6db74">&#34;Netherlands&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Sweden&#34;</span>, <span style="color:#e6db74">&#34;Austria&#34;</span>, <span style="color:#e6db74">&#34;Australia&#34;</span>, <span style="color:#e6db74">&#34;Denmark&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Canada&#34;</span>, <span style="color:#e6db74">&#34;Brazil&#34;</span>, <span style="color:#e6db74">&#34;Portugal&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3_highlight <span style="color:#f92672">&lt;-</span> d2a <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(country_region <span style="color:#f92672">%in%</span> highlight)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d3_gray <span style="color:#f92672">&lt;-</span> d2a <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(country_region <span style="color:#f92672">%in%</span> gray)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d2a <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(days_since_100, cases, group <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_hline</span>(yintercept <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_vline</span>(xintercept <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.6</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray70&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray70&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># highlight country</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(data <span style="color:#f92672">=</span> d3_highlight, <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(data <span style="color:#f92672">=</span> d3_highlight, <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_text</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_highlight <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(color <span style="color:#f92672">=</span> country_region, label <span style="color:#f92672">=</span> country_region),
+</span></span><span style="display:flex;"><span>    hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    vjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    nudge_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># gray country</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_text</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_gray <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(label <span style="color:#f92672">=</span> country_region),
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray50&#34;</span>,
+</span></span><span style="display:flex;"><span>    hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    vjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    nudge_x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d3_gray <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_by</span>(country_region) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">1</span>, days_since_100) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ungroup</span>(),
+</span></span><span style="display:flex;"><span>    size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray50&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_y_log10</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">500</span>, <span style="color:#ae81ff">2000</span>, <span style="color:#ae81ff">5000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">20000</span>, <span style="color:#ae81ff">50000</span>, <span style="color:#ae81ff">100000</span>, <span style="color:#ae81ff">200000</span>, <span style="color:#ae81ff">500000</span>, <span style="color:#ae81ff">750000</span>, <span style="color:#ae81ff">1000000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> scales<span style="color:#f92672">::</span>comma
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_x_continuous</span>(
+</span></span><span style="display:flex;"><span>    expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">expansion</span>(mult <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">.1</span>)),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">300</span>, <span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">500</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">700</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme_minimal</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    panel.grid.minor <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FFF1E6&#34;</span>),
+</span></span><span style="display:flex;"><span>    legend.position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>    panel.spacing <span style="color:#f92672">=</span> <span style="color:#a6e22e">margin</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#e6db74">&#34;mm&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Country by country: how coronavirus dealth trajectories compare, till the end of year 2021&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cumulative number of deaths, by Number of days since 100th case&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data source from @www.ft.com&#34;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  
+</span></span></code></pre></div><p><img src="death_trejactories.png" alt="death_trejactories"></p>
+<h3 id="worldmap-1">Worldmap</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(countrycode)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># countrycode(&#39;Albania&#39;, &#39;country.name&#39;, &#39;iso3c&#39;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d_newest <span style="color:#f92672">&lt;-</span> d <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">select</span>(Long, Lat, <span style="color:#a6e22e">last_col</span>()) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">set_names</span>(<span style="color:#e6db74">&#34;Long&#34;</span>, <span style="color:#e6db74">&#34;Lat&#34;</span>, <span style="color:#e6db74">&#34;newest_date&#34;</span>)
+</span></span><span style="display:flex;"><span>d_newest
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A tibble: 289 × 3</span>
+</span></span><span style="display:flex;"><span>     Long   Lat newest_date
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>       <span style="color:#f92672">&lt;</span>dbl<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">67.7</span>   <span style="color:#ae81ff">33.9</span>        <span style="color:#ae81ff">7356</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">20.2</span>   <span style="color:#ae81ff">41.2</span>        <span style="color:#ae81ff">3217</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">1.66</span>  <span style="color:#ae81ff">28.0</span>        <span style="color:#ae81ff">6276</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span>   <span style="color:#ae81ff">1.52</span>  <span style="color:#ae81ff">42.5</span>         <span style="color:#ae81ff">140</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">17.9</span>  <span style="color:#ae81ff">-11.2</span>        <span style="color:#ae81ff">1770</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">23.3</span>  <span style="color:#ae81ff">-71.9</span>           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">-61.8</span>   <span style="color:#ae81ff">17.1</span>         <span style="color:#ae81ff">119</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">-63.6</span>  <span style="color:#ae81ff">-38.4</span>      <span style="color:#ae81ff">117169</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">45.0</span>   <span style="color:#ae81ff">40.1</span>        <span style="color:#ae81ff">7972</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> <span style="color:#ae81ff">149</span>.   <span style="color:#ae81ff">-35.5</span>          <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ 279 more rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ℹ Use `print(n = ...)` to see more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>world <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">map_data</span>(<span style="color:#e6db74">&#34;world&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_polygon</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> world,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> long, y <span style="color:#f92672">=</span> lat, group <span style="color:#f92672">=</span> group),
+</span></span><span style="display:flex;"><span>    fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey&#34;</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.3</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> d_newest,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Long, y <span style="color:#f92672">=</span> Lat, size <span style="color:#f92672">=</span> newest_date, color <span style="color:#f92672">=</span> newest_date),
+</span></span><span style="display:flex;"><span>    stroke <span style="color:#f92672">=</span> F, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.7</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_size_continuous</span>(
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cases&#34;</span>, trans <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>    range <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">7</span>),
+</span></span><span style="display:flex;"><span>    breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">50000</span>, <span style="color:#ae81ff">100000</span>, <span style="color:#ae81ff">200000</span>, <span style="color:#ae81ff">500000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1-99&#34;</span>, <span style="color:#e6db74">&#34;100-999&#34;</span>, <span style="color:#e6db74">&#34;1,000-9,999&#34;</span>, <span style="color:#e6db74">&#34;10,000-49,999&#34;</span>, <span style="color:#e6db74">&#34;50,000-99,999&#34;</span>, <span style="color:#e6db74">&#34;100,000-199,999&#34;</span>, <span style="color:#e6db74">&#34;200,000-500,000&#34;</span>, <span style="color:#e6db74">&#34;500,000+&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_color_viridis_c</span>(
+</span></span><span style="display:flex;"><span>    option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;inferno&#34;</span>,
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cases&#34;</span>,
+</span></span><span style="display:flex;"><span>    trans <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;log&#34;</span>,
+</span></span><span style="display:flex;"><span>breaks <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">50000</span>, <span style="color:#ae81ff">100000</span>, <span style="color:#ae81ff">200000</span>, <span style="color:#ae81ff">500000</span>),
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;1-99&#34;</span>, <span style="color:#e6db74">&#34;100-999&#34;</span>, <span style="color:#e6db74">&#34;1,000-9,999&#34;</span>, <span style="color:#e6db74">&#34;10,000-49,999&#34;</span>, <span style="color:#e6db74">&#34;50,000-99,999&#34;</span>, <span style="color:#e6db74">&#34;100,000-199,999&#34;</span>, <span style="color:#e6db74">&#34;200,000-500,000&#34;</span>, <span style="color:#e6db74">&#34;500,000+&#34;</span>)
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme_void</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guides</span>(colour <span style="color:#f92672">=</span> <span style="color:#a6e22e">guide_legend</span>()) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mapping the coronavirus death&#34;</span>,
+</span></span><span style="display:flex;"><span>    subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: JHU Unviersity, CSSE; FT research @www.FT.com&#34;</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>    legend.position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bottom&#34;</span>,
+</span></span><span style="display:flex;"><span>    text <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#22211d&#34;</span>),
+</span></span><span style="display:flex;"><span>    plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>),
+</span></span><span style="display:flex;"><span>    panel.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>),
+</span></span><span style="display:flex;"><span>    legend.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ffffff&#34;</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p><img src="death_worldmap.png" alt="worldmap_death"></p>
+    </div>
+
+    
+    
+
+
+
+    
+    
+
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://lyqglyqg.github.io/STAT-818/tags/covid-19/">COVID-19</a>
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/electronic-health-record-data/">electronic health record data</a>
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/time-series-data-analysis/">time series data analysis</a>
+            <a href="https://lyqglyqg.github.io/STAT-818/tags/spatial-data-analysis/">spatial data analysis</a>
+            
+        </div>
+
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/STAT-818/post/wk11/">
+            <span class="next-text nav-default">Real data analysis II: analyzing neuroimaging data using R</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:yli8@kumc.edu" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://lyqglyqg.github.io/STAT-818/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        yli8
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/STAT-818/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/STAT-818/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/STAT-818/js/main.fe83e11b4fbc9193d67e2c9db78bad21f8dc59fca0cacd8c1c3bb071bb16a852.js" integrity="sha256-/oPhG0&#43;8kZPWfiydt4utIfjcWfygys2MHDuwcbsWqFI=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
