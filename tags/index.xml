@@ -6,7 +6,43 @@
     <description>Recent content in Tags on STAT 818: Introduction to R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lyqglyqg.github.io/STAT-818/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COVID-19</title>
+      <link>https://lyqglyqg.github.io/STAT-818/tags/covid-19/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/tags/covid-19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electronic health record data</title>
+      <link>https://lyqglyqg.github.io/STAT-818/tags/electronic-health-record-data/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/tags/electronic-health-record-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spatial data analysis</title>
+      <link>https://lyqglyqg.github.io/STAT-818/tags/spatial-data-analysis/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/tags/spatial-data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>time series data analysis</title>
+      <link>https://lyqglyqg.github.io/STAT-818/tags/time-series-data-analysis/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyqglyqg.github.io/STAT-818/tags/time-series-data-analysis/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Alzheimer&#39;s disease</title>
       <link>https://lyqglyqg.github.io/STAT-818/tags/alzheimers-disease/</link>
@@ -148,42 +184,6 @@
       <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://lyqglyqg.github.io/STAT-818/tags/debugging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Functions</title>
-      <link>https://lyqglyqg.github.io/STAT-818/tags/functions/</link>
-      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/tags/functions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Packaging</title>
-      <link>https://lyqglyqg.github.io/STAT-818/tags/packaging/</link>
-      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/tags/packaging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>https://lyqglyqg.github.io/STAT-818/tags/r-markdown/</link>
-      <pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dataframe</title>
-      <link>https://lyqglyqg.github.io/STAT-818/tags/dataframe/</link>
-      <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyqglyqg.github.io/STAT-818/tags/dataframe/</guid>
       <description></description>
     </item>
     
